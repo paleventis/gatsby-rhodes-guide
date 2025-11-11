@@ -1,0 +1,18 @@
+# Photo credits for Gatsby Rhodes Villas guide
+# Replace [Photographer Name] and [Unsplash URL] with real attribution lines.
+
+# Mama Sofia
+mama-sofia-1.jpg — Photo by [Name] on Unsplash ([URL])
+mama-sofia-2.jpg — Photo by [Name] on Unsplash ([URL])
+mama-sofia-3.jpg — Photo by [Name] on Unsplash ([URL])
+mama-sofia-4.jpg — Photo by [Name] on Unsplash ([URL])
+mama-sofia-5.jpg — Photo by [Name] on Unsplash ([URL])
+
+# Ta Petaladika
+ta-petaladika-1.jpg — Photo by [Name] on Unsplash ([URL])
+...
+# repeat pattern for each restaurant (5 lines per)
+
+# Reminder:
+# Only use photos from Unsplash / Pexels / Pixabay or your own originals.
+# Keep this credits file in /data/ and link to it in your site footer.
