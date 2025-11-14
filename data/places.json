@@ -31,8 +31,7 @@
       "assets/restaurants/ta-petaladika/ta-petaladika-1.jpg",
       "assets/restaurants/ta-petaladika/ta-petaladika-2.jpg",
       "assets/restaurants/ta-petaladika/ta-petaladika-3.jpg",
-      "assets/restaurants/ta-petaladika/ta-petaladika-4.jpg",
-      "assets/restaurants/ta-petaladika/ta-petaladika-5.jpg"
+      "assets/restaurants/ta-petaladika/ta-petaladika-4.jpg"
     ],
     "address": "Menekleous 8, Rhodes Old Town, Rhodes 85100, Greece",
     "lat": 36.4432,
@@ -48,11 +47,10 @@
     "name": "Nor Beach House Project",
     "activities": ["eat", "drink", "brunch", "beachside dining"],
     "photos": [
-      "assets/restaurants/nor-beach-house-project/nor-1.jpg",
-      "assets/restaurants/nor-beach-house-project/nor-2.jpg",
-      "assets/restaurants/nor-beach-house-project/nor-3.jpg",
-      "assets/restaurants/nor-beach-house-project/nor-4.jpg",
-      "assets/restaurants/nor-beach-house-project/nor-5.jpg"
+      "assets/restaurants/nor-beach-house-project/nor1.jpg",
+      "assets/restaurants/nor-beach-house-project/nor2.jpg",
+      "assets/restaurants/nor-beach-house-project/nor3.jpg",
+      "assets/restaurants/nor-beach-house-project/nor4.jpg"
     ],
     "address": "Platia Kountourioti 9, Rhodes Town 85100, Greece",
     "lat": 36.4478,
