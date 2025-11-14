@@ -44,7 +44,7 @@
   {
     "id": "r3",
     "category": "beachbar",
-    "name": "Nor Beach House Project",
+    "name": "Nor",
     "activities": ["eat", "drink", "brunch", "beachside dining"],
     "photos": [
       "assets/restaurants/nor-beach-house-project/nor1.jpg",
@@ -67,7 +67,7 @@
   {
     "id": "r4",
     "category": "restaurant",
-    "name": "Ronda Restaurant & Beach Bar",
+    "name": "Ronda Beach Bar",
     "activities": ["eat", "drink", "swim"],
     "photos": [
       "assets/restaurants/ronda/ronda-1.jpg",
