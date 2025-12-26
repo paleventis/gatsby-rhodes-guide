@@ -182,8 +182,8 @@
       "assets/restaurants/sergio/sergio-1.jpg",
       "assets/restaurants/sergio/sergio-2.jpg",
       "assets/restaurants/sergio/sergio-3.jpg",
-      "assets/restaurants/sergio/sergio-4.jpg",
-      "assets/restaurants/sergio/sergio-5.jpg"
+      "assets/restaurants/sergio/sergio-4.jpg"
+      
     ],
     "address": "Orfanidou 7, Rhodes Town 85100, Greece",
     "lat": 36.449,
@@ -201,8 +201,8 @@
       "assets/restaurants/sartaj/sartaj-1.jpg",
       "assets/restaurants/sartaj/sartaj-2.jpg",
       "assets/restaurants/sartaj/sartaj-3.jpg",
-      "assets/restaurants/sartaj/sartaj-4.jpg",
-      "assets/restaurants/sartaj/sartaj-5.jpg"
+      "assets/restaurants/sartaj/sartaj-4.jpg"
+      
     ],
     "address": "G. Papanikolaou 31, Rhodes Town 85100, Greece",
     "lat": 36.4456,
@@ -217,11 +217,10 @@
     "name": "Marco Polo Café & Restaurant",
     "activities": ["eat", "brunch", "dinner"],
     "photos": [
-      "assets/restaurants/marco-polo/marco-polo-1.jpg",
-      "assets/restaurants/marco-polo/marco-polo-2.jpg",
-      "assets/restaurants/marco-polo/marco-polo-3.jpg",
-      "assets/restaurants/marco-polo/marco-polo-4.jpg",
-      "assets/restaurants/marco-polo/marco-polo-5.jpg"
+      "assets/restaurants/marco-polo/marco-1.jpg",
+      "assets/restaurants/marco-polo/marco-2.jpg",
+      "assets/restaurants/marco-polo/marco-3.jpg",
+      "assets/restaurants/marco-polo/marco-4.jpg"
     ],
     "address": "Agiou Fanouriou 42, Rhodes 85100, Greece",
     "lat": 36.4425,
@@ -240,9 +239,8 @@
       "assets/restaurants/kabuki-canton/kabuki-1.jpg",
       "assets/restaurants/kabuki-canton/kabuki-2.jpg",
       "assets/restaurants/kabuki-canton/kabuki-3.jpg",
-      "assets/restaurants/kabuki-canton/kabuki-4.jpg",
-      "assets/restaurants/kabuki-canton/kabuki-5.jpg"
-    ],
+      "assets/restaurants/kabuki-canton/kabuki-4.jpg"
+          ],
     "address": "Akti Miaouli 10, Rhodes 85100, Greece",
     "lat": 36.452,
     "lng": 28.224,
