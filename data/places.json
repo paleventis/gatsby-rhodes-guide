@@ -217,10 +217,10 @@
     "name": "Marco Polo Café & Restaurant",
     "activities": ["eat", "brunch", "dinner"],
     "photos": [
-      "assets/restaurants/marco-polo/marco-1.jpg",
-      "assets/restaurants/marco-polo/marco-2.jpg",
-      "assets/restaurants/marco-polo/marco-3.jpg",
-      "assets/restaurants/marco-polo/marco-4.jpg"
+      "assets/restaurants/marcopolo/marco-1.jpg",
+      "assets/restaurants/marcopolo/marco-2.jpg",
+      "assets/restaurants/marcopolo/marco-3.jpg",
+      "assets/restaurants/marcopolo/marco-4.jpg"
     ],
     "address": "Agiou Fanouriou 42, Rhodes 85100, Greece",
     "lat": 36.4425,
@@ -236,10 +236,10 @@
     "name": "Kabuki Canton",
     "activities": ["eat", "dinner", "asian fusion"],
     "photos": [
-      "assets/restaurants/kabuki-canton/kabuki-1.jpg",
-      "assets/restaurants/kabuki-canton/kabuki-2.jpg",
-      "assets/restaurants/kabuki-canton/kabuki-3.jpg",
-      "assets/restaurants/kabuki-canton/kabuki-4.jpg"
+      "assets/restaurants/kabuki/kabuki-1.jpg",
+      "assets/restaurants/kabuki/kabuki-2.jpg",
+      "assets/restaurants/kabuki/kabuki-3.jpg",
+      "assets/restaurants/kabuki/kabuki-4.jpg"
           ],
     "address": "Akti Miaouli 10, Rhodes 85100, Greece",
     "lat": 36.452,
