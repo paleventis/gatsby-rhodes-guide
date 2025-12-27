@@ -6,6 +6,7 @@ const RestaurantList = () => {
   const [userLocation, setUserLocation] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
 
+  // Get user location
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       pos => {
@@ -14,10 +15,11 @@ const RestaurantList = () => {
           lng: pos.coords.longitude,
         });
       },
-      () => console.warn("Location permission denied")
+      () => console.warn("Location denied")
     );
   }, []);
 
+  // Sort by distance
   useEffect(() => {
     if (!userLocation) return;
 
@@ -43,20 +45,20 @@ const RestaurantList = () => {
         <div
           key={r.id}
           style={{
-            border: "1px solid #ddd",
-            borderRadius: "12px",
+            marginBottom: "24px",
             padding: "16px",
-            marginBottom: "20px",
+            borderRadius: "12px",
+            border: "1px solid #ddd",
           }}
         >
-          {/* FIRST IMAGE */}
+          {/* Image from assets/restaurants */}
           {r.photos?.[0] && (
             <img
               src={require(`../${r.photos[0]}`)}
               alt={r.name}
               style={{
                 width: "100%",
-                maxHeight: "220px",
+                height: "220px",
                 objectFit: "cover",
                 borderRadius: "10px",
                 marginBottom: "10px",
@@ -80,12 +82,13 @@ const RestaurantList = () => {
             rel="noopener noreferrer"
             style={{
               display: "inline-block",
-              marginTop: "10px",
-              padding: "7px 14px",
+              marginTop: "8px",
+              padding: "6px 12px",
               background: "#1e88e5",
               color: "#fff",
               borderRadius: "6px",
               textDecoration: "none",
+              fontSize: "0.9rem",
             }}
           >
             🧭 Go
