@@ -17,9 +17,6 @@
     "rating": 4.8,
     "avoid": false,
     "featured": true,
-    "affiliate_links": {
-      "booking": "https://www.booking.com/index.html?aid=YOUR_CODE"
-    },
     "notes": "Family-run taverna serving traditional Greek food near the Clock Tower."
   },
   {
@@ -59,9 +56,6 @@
     "rating": 4.4,
     "avoid": false,
     "featured": true,
-    "affiliate_links": {
-      "getyourguide": "https://www.getyourguide.com/?partner_id=YOUR_ID"
-    },
     "notes": "Trendy beach restaurant and bar with sea view, relaxed atmosphere."
   },
   {
