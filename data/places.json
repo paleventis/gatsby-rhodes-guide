@@ -10,12 +10,10 @@
       "assets/restaurants/mama-sofia/mama-sofia-3.jpg",
       "assets/restaurants/mama-sofia/mama-sofia-4.jpg"
     ],
-    "address": "Orfeos 38, Old Town, Rhodes 85131, Greece",
-    "lat": 36.4427,
-    "lng": 28.2187,
-    "website": "https://mamasofia.gr",
+    "address": "Orfeos 38, Rhodes Old Town 85100, Greece",
+    "lat": 36.4433,
+    "lng": 28.2196,
     "rating": 4.8,
-    "avoid": false,
     "featured": true,
     "notes": "Family-run taverna serving traditional Greek food near the Clock Tower."
   },
@@ -30,19 +28,17 @@
       "assets/restaurants/ta-petaladika/ta-petaladika-3.jpg",
       "assets/restaurants/ta-petaladika/ta-petaladika-4.jpg"
     ],
-    "address": "Menekleous 8, Rhodes Old Town, Rhodes 85100, Greece",
-    "lat": 36.4432,
-    "lng": 28.221,
+    "address": "Menekleous 8, Rhodes Old Town 85100, Greece",
+    "lat": 36.4430,
+    "lng": 28.2208,
     "rating": 4.5,
-    "avoid": false,
-    "featured": false,
     "notes": "Seafood meze restaurant known for fresh ingredients and cozy courtyard."
   },
   {
     "id": "r3",
     "category": "beachbar",
     "name": "Nor",
-    "activities": ["eat", "drink", "brunch", "beachside dining"],
+    "activities": ["eat", "drink", "brunch"],
     "photos": [
       "assets/restaurants/nor-beach-house-project/nor1.jpg",
       "assets/restaurants/nor-beach-house-project/nor2.jpg",
@@ -50,13 +46,11 @@
       "assets/restaurants/nor-beach-house-project/nor4.jpg"
     ],
     "address": "Platia Kountourioti 9, Rhodes Town 85100, Greece",
-    "lat": 36.4478,
-    "lng": 28.2245,
-    "website": "https://norproject.gr",
+    "lat": 36.4479,
+    "lng": 28.2246,
     "rating": 4.4,
-    "avoid": false,
     "featured": true,
-    "notes": "Trendy beach restaurant and bar with sea view, relaxed atmosphere."
+    "notes": "Trendy beach restaurant and bar with sea view."
   },
   {
     "id": "r4",
@@ -70,10 +64,9 @@
       "assets/restaurants/ronda/ronda-4.jpg"
     ],
     "address": "Elli Beach, Rhodes 85100, Greece",
-    "lat": 36.4539,
-    "lng": 28.2302,
+    "lat": 36.4542,
+    "lng": 28.2305,
     "rating": 4.6,
-    "avoid": false,
     "featured": true,
     "notes": "Elegant beach club with Mediterranean cuisine and cocktails."
   },
@@ -81,19 +74,18 @@
     "id": "r5",
     "category": "restaurant",
     "name": "Epta Piges",
-    "activities": ["eat", "nature", "sightseeing"],
+    "activities": ["eat", "nature"],
     "photos": [
       "assets/restaurants/epta-phges/epta-1.jpg",
       "assets/restaurants/epta-phges/epta-2.jpg",
       "assets/restaurants/epta-phges/epta-3.jpg",
       "assets/restaurants/epta-phges/epta-4.jpg"
     ],
-    "address": "Epta Piges, Archangelos 85102, Greece",
+    "address": "Epta Piges, Archangelos 85102, Rhodes, Greece",
     "lat": 36.2889,
     "lng": 28.0855,
     "rating": 4.3,
-    "avoid": false,
-    "notes": "Restaurant inside the Seven Springs natural park; calm and green setting."
+    "notes": "Restaurant inside the Seven Springs natural park."
   },
   {
     "id": "r6",
@@ -106,140 +98,133 @@
       "assets/restaurants/to-nisaki/nisaki-3.jpg",
       "assets/restaurants/to-nisaki/nisaki-4.jpg"
     ],
-    "address": "Haraki Bay, Rhodes 85102, Greece",
-    "lat": 36.157,
-    "lng": 28.0475,
+    "address": "Kolymbia, Rhodes 85103, Greece",
+    "lat": 36.2539443,
+    "lng": 28.1703,
     "rating": 4.5,
-    "avoid": false,
-    "notes": "Seaside taverna specializing in fresh fish and Greek meze."
+    "notes": "Seaside taverna in Kolymbia known for fresh fish."
   },
   {
-    "id": "r7",
-    "category": "restaurant",
-    "name": "To Perigiali",
-    "activities": ["eat", "lunch", "dinner"],
-    "photos": [
-      "assets/restaurants/to-perigiali/perigiali-1.jpg",
-      "assets/restaurants/to-perigiali/perigiali-2.jpg",
-      "assets/restaurants/to-perigiali/perigiali-3.jpg",
-      "assets/restaurants/to-perigiali/perigiali-4.jpg"
-    ],
-    "address": "Kallithea Ave 45, Rhodes 85100, Greece",
-    "lat": 36.4152,
-    "lng": 28.2298,
-    "rating": 4.7,
-    "avoid": false,
-    "notes": "Greek seafood taverna near the coast; casual and family-friendly."
-  },
+  "id": "r7",
+  "category": "restaurant",
+  "name": "Perigiali Sea Food Restaurant",
+  "activities": ["eat", "lunch", "seafood"],
+  "photos": [
+    "assets/restaurants/to-perigiali/perigiali-1.jpg",
+    "assets/restaurants/to-perigiali/perigiali-2.jpg",
+    "assets/restaurants/to-perigiali/perigiali-3.jpg",
+    "assets/restaurants/to-perigiali/perigiali-4.jpg"
+  ],
+  "address": "Perigiali Sea Food Restaurant, Archangelos 85102, Rhodes, Greece",
+  "lat": 36.2033591,
+  "lng": 28.14019,
+  "rating": 4.7,
+  "avoid": false,
+  "notes": "Seaside seafood restaurant in Archangelos with bay views."
+}
+,
   {
     "id": "r8",
     "category": "restaurant",
     "name": "Bakis Rodos",
-    "activities": ["eat", "dinner", "brunch"],
+    "activities": ["eat", "dinner"],
     "photos": [
       "assets/restaurants/bakis-rodos/bakis-1.jpg",
       "assets/restaurants/bakis-rodos/bakis-2.jpg",
       "assets/restaurants/bakis-rodos/bakis-3.jpg",
       "assets/restaurants/bakis-rodos/bakis-4.jpg"
     ],
-    "address": "Leontos 20, Rhodes Town 85100, Greece",
-    "lat": 36.4439,
-    "lng": 28.222,
+    "address": "Georgiou Mavrou 165, Rhodes Town 85100, Greece",
+    "lat": 36.4451,
+    "lng": 28.2212,
+    "tel": "+30 2241 043193",
     "rating": 4.4,
-    "avoid": false,
-    "notes": "Stylish fusion restaurant combining Greek and international influences."
+    "notes": "Stylish fusion restaurant."
   },
   {
     "id": "r9",
     "category": "restaurant",
     "name": "Pan & Vino",
-    "activities": ["eat", "dinner", "wine"],
+    "activities": ["eat", "wine"],
     "photos": [
       "assets/restaurants/pan-vino/pan-vino-1.jpg",
       "assets/restaurants/pan-vino/pan-vino-2.jpg",
       "assets/restaurants/pan-vino/pan-vino-3.jpg",
       "assets/restaurants/pan-vino/pan-vino-4.jpg"
     ],
-    "address": "Apolloniou 28, Rhodes Town 85100, Greece",
-    "lat": 36.4441,
-    "lng": 28.223,
+    "address": "Αλ. Διάκου 7, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4481,
+    "lng": 28.2160,
     "rating": 4.7,
-    "avoid": false,
-    "notes": "Italian restaurant known for handmade pasta and wine selection."
+    "notes": "Italian restaurant with handmade pasta."
   },
   {
     "id": "r10",
     "category": "restaurant",
-    "name": "Sergio",
-    "activities": ["eat", "dinner", "pizza"],
+    "name": "Sergio’s Downtown",
+    "activities": ["eat", "pizza"],
     "photos": [
       "assets/restaurants/sergio/sergio-1.jpg",
       "assets/restaurants/sergio/sergio-2.jpg",
       "assets/restaurants/sergio/sergio-3.jpg",
       "assets/restaurants/sergio/sergio-4.jpg"
-      
     ],
-    "address": "Orfanidou 7, Rhodes Town 85100, Greece",
-    "lat": 36.449,
-    "lng": 28.2215,
+    "address": "Καρπάθου 18, Ρόδος 851 31, Ελλάδα",
+    "lat": 36.4476638,
+    "lng": 28.2210289,
     "rating": 4.4,
-    "avoid": false,
-    "notes": "Casual Italian trattoria serving wood-fired pizza and local wines."
+    "notes": "Casual Italian trattoria."
   },
   {
     "id": "r11",
     "category": "restaurant",
     "name": "Sartaj Indian Restaurant",
-    "activities": ["eat", "dinner", "spicy food"],
+    "activities": ["eat", "dinner"],
     "photos": [
       "assets/restaurants/sartaj/sartaj-1.jpg",
       "assets/restaurants/sartaj/sartaj-2.jpg",
       "assets/restaurants/sartaj/sartaj-3.jpg",
       "assets/restaurants/sartaj/sartaj-4.jpg"
-      
     ],
-    "address": "G. Papanikolaou 31, Rhodes Town 85100, Greece",
-    "lat": 36.4456,
-    "lng": 28.225,
+    "address": "Avenue ialisou rhodes 10 (20 magazia, Ρόδος 851 01, Ελλάδα",
+    "lat": 36.4282027,
+    "lng": 28.1964537,
     "rating": 4.5,
-    "avoid": false,
-    "notes": "Indian cuisine hotspot offering tandoori dishes and vegetarian options."
+    "notes": "Indian cuisine hotspot."
   },
   {
     "id": "r12",
     "category": "restaurant",
     "name": "Marco Polo Café & Restaurant",
-    "activities": ["eat", "brunch", "dinner"],
+    "activities": ["eat", "fine dining"],
     "photos": [
       "assets/restaurants/marcopolo/marco-1.jpg",
       "assets/restaurants/marcopolo/marco-2.jpg",
       "assets/restaurants/marcopolo/marco-3.jpg",
       "assets/restaurants/marcopolo/marco-4.jpg"
     ],
-    "address": "Agiou Fanouriou 42, Rhodes 85100, Greece",
-    "lat": 36.4425,
-    "lng": 28.2222,
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
     "rating": 4.8,
-    "avoid": false,
     "featured": true,
-    "notes": "Fine dining in a historic Old Town courtyard with Mediterranean flair."
+    "notes": "Fine dining in a historic courtyard."
   },
   {
     "id": "r13",
     "category": "restaurant",
     "name": "Kabuki Canton",
-    "activities": ["eat", "dinner", "asian fusion"],
+    "activities": ["eat", "asian fusion"],
     "photos": [
       "assets/restaurants/kabuki/kabuki-1.jpg",
       "assets/restaurants/kabuki/kabuki-2.jpg",
       "assets/restaurants/kabuki/kabuki-3.jpg",
       "assets/restaurants/kabuki/kabuki-4.jpg"
-          ],
-    "address": "Akti Miaouli 10, Rhodes 85100, Greece",
-    "lat": 36.452,
-    "lng": 28.224,
+    ],
+    "address": "Καρπάθου 21, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4477498,
+    "lng": 28.2238981,
     "rating": 4.3,
-    "avoid": false,
-    "notes": "Asian fusion dining with Japanese and Cantonese flavors."
+    "notes": "Asian fusion dining."
   }
 ]
