@@ -75,7 +75,24 @@
 
   </section>
 
-<script src="js/landing.js"></script>
+<script>
+  document.getElementById('use-location').addEventListener('click', () => {
+    if (!navigator.geolocation) {
+      alert('Geolocation is not supported.');
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const { latitude, longitude } = pos.coords;
+        window.location.href =
+          `restaurants.html?lat=${latitude}&lng=${longitude}#restaurants`;
+      },
+      () => alert('Location access denied.')
+    );
+  });
+</script>
+
 
 </body>
 </html>
