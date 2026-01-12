@@ -57,9 +57,12 @@ body {
   transition: transform 0.25s ease, background 0.25s ease;
 }
 
+
+
 .tab:hover {
   transform: scale(1.05);
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.28);
+  box-shadow: 0 0 25px rgba(255,255,255,0.15);
 }
 
 
@@ -104,6 +107,8 @@ body {
 .lang-switch button:hover {
   background: rgba(255,255,255,0.35);
 }
+
+
 
 
 

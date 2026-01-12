@@ -8,26 +8,10 @@
 </head>
 
 
-<script>
-  document.getElementById('use-location').addEventListener('click', () => {
-    if (!navigator.geolocation) {
-      alert('Geolocation is not supported.');
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      pos => {
-        const { latitude, longitude } = pos.coords;
-        window.location.href =
-          `restaurants.html?lat=${latitude}&lng=${longitude}#restaurants`;
-      },
-      () => alert('Location access denied.')
-    );
-  });
-</script>
 
 
-<script src="js/landing.js"></script>
+
+
 
 
 <body>
@@ -68,30 +52,14 @@
       </a>
     </div>
 
-<button id="use-location" class="location-btn">
-  📍 Use my location
-</button>
+    <button id="use-location" class="location-btn">
+     📍 Use my location
+     </button>
 
 
   </section>
 
-<script>
-  document.getElementById('use-location').addEventListener('click', () => {
-    if (!navigator.geolocation) {
-      alert('Geolocation is not supported.');
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      pos => {
-        const { latitude, longitude } = pos.coords;
-        window.location.href =
-          `restaurants.html?lat=${latitude}&lng=${longitude}#restaurants`;
-      },
-      () => alert('Location access denied.')
-    );
-  });
-</script>
+<script src="js/landing.js"></script>
 
 
 </body>
