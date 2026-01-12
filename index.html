@@ -6,7 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="landing.css" />
 </head>
+
+
+<script>
+  document.getElementById('use-location').addEventListener('click', () => {
+    if (!navigator.geolocation) {
+      alert('Geolocation is not supported.');
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const { latitude, longitude } = pos.coords;
+        window.location.href =
+          `restaurants.html?lat=${latitude}&lng=${longitude}#restaurants`;
+      },
+      () => alert('Location access denied.')
+    );
+  });
+</script>
+
+
+<script src="js/landing.js"></script>
+
+
 <body>
+
+<div class="lang-switch">
+  <button data-lang="en">EN</button>
+  <button data-lang="fr">FR</button>
+  <button data-lang="de">DE</button>
+</div>
+
+
+
+
 
   <section class="hero">
     <h1>Rhodes Island</h1>
