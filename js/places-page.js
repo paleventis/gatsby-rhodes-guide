@@ -25,6 +25,7 @@ let userLocation = null;
 
 // Initialize page
 function initPage() {
+  // FETCH path relative to HTML file
   fetch('data/places.json')
     .then(res => res.json())
     .then(data => {
@@ -70,7 +71,7 @@ function initPage() {
         carousel.className = 'carousel';
         place.photos.forEach((photo, i) => {
           const img = document.createElement('img');
-          img.src = photo; // correct relative path
+          img.src = photo; // path relative to HTML
           if (i === 0) img.classList.add('active');
           carousel.appendChild(img);
         });
