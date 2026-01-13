@@ -5,10 +5,10 @@
     "name": "Mama Sofia",
     "activities": ["eat", "dinner", "local cuisine"],
     "photos": [
-      "assets/restaurants/mama-sofia/mama-sofia-1.jpg",
-      "assets/restaurants/mama-sofia/mama-sofia-2.jpg",
-      "assets/restaurants/mama-sofia/mama-sofia-3.jpg",
-      "assets/restaurants/mama-sofia/mama-sofia-4.jpg"
+      "../assets/restaurants/mama-sofia/mama-sofia-1.jpg",
+      "../assets/restaurants/mama-sofia/mama-sofia-2.jpg",
+      "../assets/restaurants/mama-sofia/mama-sofia-3.jpg",
+      "../assets/restaurants/mama-sofia/mama-sofia-4.jpg"
     ],
     "address": "Orfeos 38, Rhodes Old Town 85100, Greece",
     "lat": 36.4433,
