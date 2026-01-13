@@ -1,4 +1,4 @@
-fetch('data/places.json')
+fetch('../data/places.json')
   .then(r => r.json())
   .then(data => {
     const container = document.getElementById('places-container');
