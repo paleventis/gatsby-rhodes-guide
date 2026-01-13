@@ -210,22 +210,5 @@
     "rating": 4.8,
     "featured": true,
     "notes": "Fine dining in a historic courtyard."
-  },
-  {
-    "id": "r13",
-    "category": "restaurant",
-    "name": "Kabuki Canton",
-    "activities": ["eat", "asian fusion"],
-    "photos": [
-      "assets/restaurants/kabuki/kabuki-1.jpg",
-      "assets/restaurants/kabuki/kabuki-2.jpg",
-      "assets/restaurants/kabuki/kabuki-3.jpg",
-      "assets/restaurants/kabuki/kabuki-4.jpg"
-    ],
-    "address": "Καρπάθου 21, Ρόδος 851 00, Ελλάδα",
-    "lat": 36.4477498,
-    "lng": 28.2238981,
-    "rating": 4.3,
-    "notes": "Asian fusion dining."
   }
 ]
