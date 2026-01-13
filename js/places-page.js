@@ -32,7 +32,6 @@ function initPage() {
       container.innerHTML = '';
 
       const category = getCategory();
-
       let places = category ? data.filter(p => p.category === category) : data;
 
       // Sort by distance if location available
@@ -69,14 +68,12 @@ function initPage() {
         // Carousel
         const carousel = document.createElement('div');
         carousel.className = 'carousel';
-
         place.photos.forEach((photo, i) => {
           const img = document.createElement('img');
-          img.src = photo; // Correct relative path
+          img.src = photo; // correct relative path
           if (i === 0) img.classList.add('active');
           carousel.appendChild(img);
         });
-
         card.appendChild(carousel);
 
         // Notes
