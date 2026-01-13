@@ -11,7 +11,6 @@
       "assets/restaurants/mama-sofia/mama-sofia-4.jpg"
     ],
     "address": "Orfeos 38, Rhodes Old Town 85100, Greece",
-    "phone": "+30 22410 12345",
     "lat": 36.4433,
     "lng": 28.2196,
     "rating": 4.8,
@@ -48,7 +47,6 @@
       "assets/restaurants/nor-beach-house-project/nor4.jpg"
     ],
     "address": "Platia Kountourioti 9, Rhodes Town 85100, Greece",
-    "phone": "+30 22410 12345",
     "lat": 36.4479,
     "lng": 28.2246,
     "rating": 4.4,
@@ -67,7 +65,6 @@
       "assets/restaurants/ronda/ronda-4.jpg"
     ],
     "address": "Elli Beach, Rhodes 85100, Greece",
-    "phone": "+30 22410 12345",
     "lat": 36.4542,
     "lng": 28.2305,
     "rating": 4.6,
@@ -86,7 +83,6 @@
       "assets/restaurants/epta-phges/epta-4.jpg"
     ],
     "address": "Epta Piges, Archangelos 85102, Rhodes, Greece",
-    "phone": "+30 22410 12345",
     "lat": 36.2889,
     "lng": 28.0855,
     "rating": 4.3,
@@ -104,7 +100,6 @@
       "assets/restaurants/to-nisaki/nisaki-4.jpg"
     ],
     "address": "Kolymbia, Rhodes 85103, Greece",
-    "phone": "+30 22410 12345",
     "lat": 36.2539443,
     "lng": 28.1703,
     "rating": 4.5,
@@ -122,7 +117,6 @@
     "assets/restaurants/to-perigiali/perigiali-4.jpg"
   ],
   "address": "Perigiali Sea Food Restaurant, Archangelos 85102, Rhodes, Greece",
-  "phone": "+30 22410 12345",
   "lat": 36.2033591,
   "lng": 28.14019,
   "rating": 4.7,
@@ -142,7 +136,6 @@
       "assets/restaurants/bakis-rodos/bakis-4.jpg"
     ],
     "address": "Georgiou Mavrou 165, Rhodes Town 85100, Greece",
-    "phone": "+30 22410 12345",
     "lat": 36.4451,
     "lng": 28.2212,
     "tel": "+30 2241 043193",
@@ -161,7 +154,6 @@
       "assets/restaurants/pan-vino/pan-vino-4.jpg"
     ],
     "address": "Αλ. Διάκου 7, Ρόδος 851 00, Ελλάδα",
-    "phone": "+30 22410 12345",
     "lat": 36.4481,
     "lng": 28.2160,
     "rating": 4.7,
@@ -179,7 +171,6 @@
       "assets/restaurants/sergio/sergio-4.jpg"
     ],
     "address": "Καρπάθου 18, Ρόδος 851 31, Ελλάδα",
-    "phone": "+30 22410 12345",
     "lat": 36.4476638,
     "lng": 28.2210289,
     "rating": 4.4,
@@ -197,7 +188,6 @@
       "assets/restaurants/sartaj/sartaj-4.jpg"
     ],
     "address": "Avenue ialisou rhodes 10 (20 magazia, Ρόδος 851 01, Ελλάδα",
-    "phone": "+30 22410 12345",
     "lat": 36.4282027,
     "lng": 28.1964537,
     "rating": 4.5,
@@ -215,7 +205,6 @@
       "assets/restaurants/marcopolo/marco-4.jpg"
     ],
     "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
-    "phone": "+30 22410 12345",
     "lat": 36.4427025,
     "lng": 28.2232316,
     "rating": 4.8,
@@ -234,7 +223,6 @@
       "assets/restaurants/kabuki/kabuki-4.jpg"
     ],
     "address": "Καρπάθου 21, Ρόδος 851 00, Ελλάδα",
-    "phone": "+30 22410 12345",
     "lat": 36.4477498,
     "lng": 28.2238981,
     "rating": 4.3,
