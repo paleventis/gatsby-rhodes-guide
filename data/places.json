@@ -210,5 +210,23 @@
     "rating": 4.8,
     "featured": true,
     "notes": "Fine dining in a historic courtyard."
+  },
+  {
+    "id": "r13",
+    "category": "restaurant",
+    "name": "Marco Polo Café & Restaurant",
+    "activities": ["eat", "fine dining"],
+    "photos": [
+      "assets/restaurants/marcopolo/marco-1.jpg",
+      "assets/restaurants/marcopolo/marco-2.jpg",
+      "assets/restaurants/marcopolo/marco-3.jpg",
+      "assets/restaurants/marcopolo/marco-4.jpg"
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining in a historic courtyard."
   }
 ]
