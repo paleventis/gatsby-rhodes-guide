@@ -25,7 +25,7 @@ let userLocation = null;
 
 // Initialize page
 function initPage() {
-  fetch('../data/places.json')
+  fetch('data/places.json')
     .then(res => res.json())
     .then(data => {
       const container = document.getElementById('places-container');
