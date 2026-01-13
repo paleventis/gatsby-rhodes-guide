@@ -18,7 +18,7 @@ navigator.geolocation.getCurrentPosition(
 );
 
 function loadPlaces(userLat, userLng) {
-  fetch('data/places.json')
+  fetch('/data/places.json')
     .then(r => r.json())
     .then(data => {
       let places = data.filter(p =>
