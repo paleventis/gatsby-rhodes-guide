@@ -61,4 +61,33 @@
       opacity: 0;
       transition: opacity .6s ease;
     }
-    .carous
+    .carousel img.active {
+      opacity: 1;
+    }
+    p {
+      margin: 0.3rem 0;
+      text-align: center;
+    }
+    .map-btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 5px 10px;
+      background: #0077ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .map-btn:hover {
+      background: #005ccc;
+    }
+  </style>
+</head>
+<body data-category="restaurant">
+  <h1>Restaurants in Rhodes</h1>
+  <div id="places-container"></div>
+
+  <!-- JS -->
+  <script src="js/places-page.js"></script>
+</body>
+</html>
