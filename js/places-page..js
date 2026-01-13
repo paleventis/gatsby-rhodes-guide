@@ -23,7 +23,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
 // User location
 let userLocation = null;
 
-// Load page after geolocation
+// Initialize page
 function initPage() {
   fetch('../data/places.json')
     .then(res => res.json())
@@ -72,7 +72,7 @@ function initPage() {
 
         place.photos.forEach((photo, i) => {
           const img = document.createElement('img');
-          img.src = photo; // Correct path relative to HTML
+          img.src = photo; // Correct relative path
           if (i === 0) img.classList.add('active');
           carousel.appendChild(img);
         });
@@ -86,7 +86,7 @@ function initPage() {
           card.appendChild(p);
         }
 
-        // Address + optional distance
+        // Address + distance
         const info = document.createElement('p');
         let distText = '';
         if (userLocation) {
@@ -101,7 +101,7 @@ function initPage() {
         info.innerHTML = `📍 ${place.address}${distText}`;
         card.appendChild(info);
 
-        // Phone number if available
+        // Phone number
         if (place.phone || place.tel) {
           const phone = document.createElement('p');
           phone.textContent = `📞 ${place.phone || place.tel}`;
@@ -149,9 +149,9 @@ if (navigator.geolocation) {
     },
     err => {
       console.warn('Geolocation denied or failed, using default order.');
-      initPage(); // still load page
+      initPage();
     }
   );
 } else {
-  initPage(); // fallback if browser does not support
+  initPage();
 }

@@ -1,62 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Restaurants in Rhodes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-
   <style>
-    /* Minimal required styles (safe fallback) */
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #fff;
-      margin: 0;
-      padding: 0;
+      font-family: sans-serif;
+      margin: 20px;
+      background: #fdfdfd;
+      color: #333;
     }
-
-    header {
-      padding: 1rem;
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    #places-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .restaurant-card {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      width: 300px;
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .badge {
+      background: gold;
+      padding: 3px 6px;
+      border-radius: 6px;
+      font-weight: bold;
+      align-self: flex-start;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin: 0.3rem 0;
       text-align: center;
     }
-
-    #places-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .restaurant-card {
-      background: #111827;
-      border-radius: 14px;
-      padding: 1rem;
-      position: relative;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-
-    .badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: gold;
-      color: #000;
-      padding: 4px 8px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .restaurant-card h2 {
-      margin: 0 0 .5rem 0;
-      font-size: 1.2rem;
-    }
-
     .carousel {
       position: relative;
       width: 100%;
@@ -65,7 +52,6 @@
       border-radius: 12px;
       margin-bottom: .75rem;
     }
-
     .carousel img {
       position: absolute;
       inset: 0;
@@ -75,57 +61,4 @@
       opacity: 0;
       transition: opacity .6s ease;
     }
-
-    .carousel img.active {
-      opacity: 1;
-    }
-
-    .map-btn {
-      display: inline-block;
-      margin-top: .5rem;
-      padding: .5rem .75rem;
-      background: #2563eb;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: .9rem;
-    }
-
-    .map-btn:hover {
-      background: #1d4ed8;
-    }
-
-    .back-home {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(37,99,235,.9);
-      padding: .6rem .9rem;
-      border-radius: 999px;
-      color: #fff;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(37,99,235,.6);
-    }
-  </style>
-</head>
-
-<!-- IMPORTANT: category binding -->
-<body data-category="restaurant">
-
-  <header>
-    <h1>🍽️ Restaurants in Rhodes</h1>
-    <p>Sorted by distance when location is enabled</p>
-  </header>
-
-  <main>
-    <div id="places-container">
-      <!-- Cards injected by JS -->
-    </div>
-  </main>
-
-  <a href="index.html" class="back-home">← Home</a>
-
-  <!-- ✅ CORRECT JS PATH -->
-  <script src="js/places-page.js"></script>
-</body>
-</html>
+    .carous
