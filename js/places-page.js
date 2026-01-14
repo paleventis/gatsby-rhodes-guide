@@ -25,7 +25,6 @@ let userLocation = null;
 
 // Initialize page
 function initPage() {
-  // FETCH path relative to HTML file
   fetch('data/places.json')
     .then(res => res.json())
     .then(data => {
@@ -53,14 +52,6 @@ function initPage() {
         const card = document.createElement('div');
         card.className = 'restaurant-card';
 
-        // Featured badge
-        if (place.featured) {
-          const badge = document.createElement('span');
-          badge.className = 'badge';
-          badge.textContent = '⭐ Featured';
-          card.appendChild(badge);
-        }
-
         // Name
         const h2 = document.createElement('h2');
         h2.textContent = place.name;
@@ -69,12 +60,22 @@ function initPage() {
         // Carousel
         const carousel = document.createElement('div');
         carousel.className = 'carousel';
+
         place.photos.forEach((photo, i) => {
           const img = document.createElement('img');
-          img.src = photo; // path relative to HTML
+          img.src = photo;
           if (i === 0) img.classList.add('active');
           carousel.appendChild(img);
         });
+
+        // ✅ FEATURED BADGE — MOVED INSIDE CAROUSEL
+        if (place.featured) {
+          const badge = document.createElement('span');
+          badge.className = 'badge';
+          badge.textContent = '⭐ Featured';
+          carousel.appendChild(badge);
+        }
+
         card.appendChild(carousel);
 
         // Notes
@@ -106,7 +107,7 @@ function initPage() {
           card.appendChild(phone);
         }
 
-        // Google Maps button
+        // Google Maps button (fixed via CSS)
         const mapBtn = document.createElement('a');
         mapBtn.href = `https://www.google.com/maps?q=${place.lat},${place.lng}`;
         mapBtn.target = '_blank';
@@ -145,8 +146,7 @@ if (navigator.geolocation) {
       };
       initPage();
     },
-    err => {
-      console.warn('Geolocation denied or failed, using default order.');
+    () => {
       initPage();
     }
   );
