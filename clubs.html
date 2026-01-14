@@ -1,20 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Clubs</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurants | Rhodes Guide</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Minimal styles for carousel and cards */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+
+    #places-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .restaurant-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+    }
+
+    .restaurant-card .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: gold;
+      padding: 5px 8px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .restaurant-card h2 {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .carousel {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .carousel img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .restaurant-card p {
+      margin: 5px 0;
+    }
+
+    .map-btn {
+      display: inline-block;
+      margin-top: 8px;
+      background: #0077cc;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .map-btn:hover {
+      background: #005fa3;
+    }
+  </style>
 </head>
-<body data-category="club">
 
+<body class="clubs-page" data-category="clubs">
+  <h1 style="text-align:center; padding:20px;">🎶 Clubs & Nightlife</h1>
 
-<h1>🎶 Clubs & Nightlife</h1>
-<div id="places-container"></div>
-<a href="index.html" class="back-home">⬅ Home</a>
+  <div id="places-container"></div>
 
-<script>
-  window.PAGE_CATEGORY = ['club','beachbar'];
-</script>
-<script src="js/places-page.js"></script>
-
+  <script src="js/places-page.js"></script>
 </body>
 </html>

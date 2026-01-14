@@ -219,3 +219,12 @@ body.activities-page {
     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
     url("../assets/activities-bg.jpg") center / cover no-repeat fixed;
 }
+
+/*sightseeing */
+
+body.sightseeing-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("../assets/sightseeing-bg.jpg") center / cover no-repeat fixed;
+}
