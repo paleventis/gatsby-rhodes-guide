@@ -228,5 +228,23 @@
     "rating": 4.8,
     "featured": true,
     "notes": "Fine dining vietnamese food."
+  },
+  {
+    "id": "c1",
+    "category": "coffee",
+    "name": "NAVAL",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/restaurants/kabuki/Kabuki-1.jpg",
+      "assets/restaurants/kabuki/Kabuki-2.jpg",
+      "assets/restaurants/kabuki/Kabuki-3.jpg",
+      "assets/restaurants/kabuki/Kabuki-4.jpg"
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
   }
 ]
