@@ -1,14 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>coffee</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>Coffee & Brunch – Rhodes Island Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-<h1>☕ coffee</h1>
-<div id="places-container"></div>
-<a href="index.html" class="back-home">⬅ Home</a>
-<script>window.PAGE_CATEGORY = ['coffee']</script>
-<script src="js/places-page.js"></script>
+
+<body data-category="coffee" class="coffee-page">
+
+  <!-- Floating back button -->
+  <a href="index.html" class="back-home">⬅ Home</a>
+
+  <header class="page-header">
+    <h1>☕ Coffee & Brunch</h1>
+    <p>Relax • Brunch • Specialty Coffee</p>
+  </header>
+
+  <!-- PLACES CONTAINER -->
+  <main id="places-container" class="places-container">
+    <!-- JS injects cards here -->
+  </main>
+
+  <!-- Shared JS -->
+  <script src="js/places-page.js"></script>
+
 </body>
 </html>

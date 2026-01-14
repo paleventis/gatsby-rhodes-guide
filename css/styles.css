@@ -123,6 +123,9 @@ body.restaurants-page {
 
 
 
+
+
+
 .restaurant-card {
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(6px);
@@ -181,3 +184,38 @@ body.restaurants-page {
 }
 
 
+/*coffee */
+
+body.coffee-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("../assets/coffee-bg.jpg") center / cover no-repeat fixed;
+}
+
+/*clubs */
+
+body.clubs-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("../assets/clubs-bg.jpg") center / cover no-repeat fixed;
+}
+
+/*beaches */
+
+body.beaches-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("../assets/beaches-bg.jpg") center / cover no-repeat fixed;
+}
+
+/*activities */
+
+body.activities-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("../assets/activities-bg.jpg") center / cover no-repeat fixed;
+}
