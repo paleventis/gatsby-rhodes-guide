@@ -270,12 +270,12 @@
 {
     "id": "c3",
     "category": "coffee",
-    "name": "Kouna",
+    "name": "Kounna",
     "activities": ["coffee", "brunch", "eat", "fine dining"],
     "photos": [
-      "assets/cafes/kouna/kouna1.jpg",
-     "assets/cafes/kouna/kouna2.jpg",
-     "assets/cafes/kouna/kouna3.jpg"
+      "assets/cafes/kounna/kounna1.jpg",
+     "assets/cafes/kounna/kounna2.jpg",
+     "assets/cafes/kounna/kounna3.jpg"
 
     ],
     "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
