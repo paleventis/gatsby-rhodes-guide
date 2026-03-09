@@ -394,6 +394,151 @@
     "featured": true,
     "notes": "Fine dining vietnamese food."
   },
+{
+    "id": "cl2",
+    "category": "clubs",
+    "name": "Bar one",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/clubs/barone/barone1.jpg",
+      "assets/clubs/barone/barone2.jpg",
+      "assets/clubs/barone/barone3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "cl3",
+    "category": "clubs",
+    "name": "colorado",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/clubs/colorado/colorado1.jpg",
+      "assets/clubs/colorado/colorado2.jpg", 
+      "assets/clubs/colorado/colorado3.jpg",
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+ {
+    "id": "cl4",
+    "category": "clubs",
+    "name": "kentrikon",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/clubs/kentrikon/kentrikon1.jpg",
+      "assets/clubs/kentrikon/kentrikon2.jpg",
+      "assets/clubs/kentrikon/kentrikon3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "cl5",
+    "category": "clubs",
+    "name": "laesquina",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/clubs/laesquina/laesquina1.jpg",
+      "assets/clubs/laesquina/laesquina2.jpg",
+      "assets/clubs/laesquina/laesquina3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "cl6",
+    "category": "clubs",
+    "name": "MACAO",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/clubs/macao/macao1.jpg",
+      "assets/clubs/macao/macao2.jpg",
+      "assets/clubs/macao/macao3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+ {
+    "id": "cl7",
+    "category": "clubs",
+    "name": "Myga",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/clubs/myga/myga1.jpg",
+      "assets/clubs/myga/myga2.jpg",
+      "assets/clubs/myga/myga3.jpg"
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "cl8",
+    "category": "clubs",
+    "name": "Ronda",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/clubbs/ronda/ronda1.jpg",
+      "assets/clus/ronda/ronda2.jpg",
+      "assets/clubs/ronda/ronda3.jpg"
+     
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "cl9",
+    "category": "clubs",
+    "name": "SWAN",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/clubs/swan/swan1.jpg",
+      "assets/clubs/swan/swan2.jpg",
+      "assets/clubs/swan/swan3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+
+
   {
     "id": "B1",
     "category": "beach",
