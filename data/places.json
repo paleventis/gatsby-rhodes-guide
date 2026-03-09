@@ -382,10 +382,10 @@
     "name": "NOR CLUB",
     "activities": ["coffee", "brunch", "eat", "fine dining"],
     "photos": [
-      "assets/restaurants/kabuki/Kabuki-1.jpg",
-      "assets/restaurants/kabuki/Kabuki-2.jpg",
-      "assets/restaurants/kabuki/Kabuki-3.jpg",
-      "assets/restaurants/kabuki/Kabuki-4.jpg"
+      "assets/clubs/nor/nor1.jpg",
+      "assets/clubs/nor/nor2.jpg",
+      "assets/clubs/nor/nor3.jpg"
+      
     ],
     "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
     "lat": 36.4427025,
