@@ -228,7 +228,7 @@
     "rating": 4.8,
     "featured": true,
     "notes": "Fine dining vietnamese food."
-  },
+  },----------------------------------------------------------------------------------------
   {
     "id": "c1",
     "category": "coffee",
@@ -247,6 +247,32 @@
     "featured": true,
     "notes": "Fine dining vietnamese food."
   },
+ {
+    "id": "c2",
+    "category": "coffee",
+    "name": "aktaion",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/cafes/aktaion/aktaion1.jpg",
+      "assets/cafes/aktaion/aktaion2.jpg",
+      "assets/cafes/aktaion/aktaion3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "all day coffe, brunch, restaurant"
+  },
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
   {
     "id": "cl1",
     "category": "clubs",
