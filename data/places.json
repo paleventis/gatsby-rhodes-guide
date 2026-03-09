@@ -400,9 +400,9 @@
     "name": "Bar one",
     "activities": ["coffee", "brunch", "eat", "fine dining"],
     "photos": [
-      "assets/clubs/barone/barone1.jpg",
-      "assets/clubs/barone/barone2.jpg",
-      "assets/clubs/barone/barone3.jpg"
+      "assets/clubs/barOne/barone1.jpg",
+      "assets/clubs/barOne/barone2.jpg",
+      "assets/clubs/barOne/barone3.jpg"
       
     ],
     "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
