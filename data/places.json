@@ -229,6 +229,7 @@
     "featured": true,
     "notes": "Fine dining vietnamese food."
   },
+-------------------------------------------------------------------------------------
   {
     "id": "c1",
     "category": "coffee",
@@ -256,6 +257,115 @@
       "assets/cafes/aktaion/aktaion1.jpg",
       "assets/cafes/aktaion/aktaion2.jpg",
       "assets/cafes/aktaion/aktaion3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "all day coffe, brunch, restaurant"
+  },
+
+{
+    "id": "c3",
+    "category": "coffee",
+    "name": "Kouna",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/cafes/kouna/kouna1.jpg",
+     "assets/cafes/kouna/kouna2.jpg",
+     "assets/cafes/kouna/kouna3.jpg"
+
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+ {
+    "id": "c4",
+    "category": "coffee",
+    "name": "Nor",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/cafes/nor/nor1.jpg",
+      "assets/cafes/nor/nor2.jpg",
+      "assets/cafes/nor/nor3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "all day coffe, brunch, restaurant"
+  },
+{
+    "id": "c5",
+    "category": "coffee",
+    "name": "Pier",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/cafes/pier/pier1.jpg",
+      "assets/cafes/pier/pier2.jpg",
+      "assets/cafes/pier/pier3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "all day coffe, brunch, restaurant"
+  },
+{
+    "id": "c6",
+    "category": "coffee",
+    "name": "Ronda",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/cafes/ronda/ronda1.jpg",
+      "assets/cafes/ronda/ronda2.jpg",
+      "assets/cafes/ronda/ronda3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "all day coffe, brunch, restaurant"
+  },
+{
+    "id": "c7",
+    "category": "coffee",
+    "name": "yachting",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/cafes/yachting/yachting1.jpg",
+      "assets/cafes/yachting/yachting2.jpg",
+      "assets/cafes/yachting/yachting3.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "all day coffe, brunch, restaurant"
+  },
+{
+    "id": "c8",
+    "category": "coffee",
+    "name": "yannis",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/cafes/yannis/yannis1.jpg",
+      "assets/cafes/yannis/yannis2.jpg",
+      "assets/cafes/yannis/yannis3.jpg"
       
     ],
     "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
