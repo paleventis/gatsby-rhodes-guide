@@ -507,8 +507,8 @@
     "name": "Ronda",
     "activities": ["coffee", "brunch", "eat", "fine dining"],
     "photos": [
-      "assets/clubbs/ronda/ronda1.jpg",
-      "assets/clus/ronda/ronda2.jpg",
+      "assets/clubs/ronda/ronda1.jpg",
+      "assets/clubs/ronda/ronda2.jpg",
       "assets/clubs/ronda/ronda3.jpg"
      
     ],
@@ -537,9 +537,7 @@
     "featured": true,
     "notes": "Fine dining vietnamese food."
   },
-
-
-  {
+ {
     "id": "B1",
     "category": "beach",
     "name": "TSAMBIKA",
