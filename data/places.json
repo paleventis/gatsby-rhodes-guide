@@ -574,11 +574,11 @@
 {
     "id": "B3",
     "category": "beach",
-    "name": "kalithea",
+    "name": "kallithea",
     "activities": ["coffee", "brunch", "eat", "fine dining"],
     "photos": [
-      "assets/beaches/kalithea/kalithea1.jpg",
-      "assets/beaches/kalithea/kalithea2.jpg"
+      "assets/beaches/kallithea/kallithea1.jpg",
+      "assets/beaches/kallithea/kallithea2.jpg"
       
     ],
     "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
