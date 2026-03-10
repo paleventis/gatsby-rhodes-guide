@@ -540,13 +540,182 @@
  {
     "id": "B1",
     "category": "beach",
+    "name": "faliraki",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/faliraki/faliraki1.jpg",
+      "assets/beaches/faliraki/faliraki2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B2",
+    "category": "beach",
+    "name": "kalami",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/kalami/kalami1.jpg",
+      "assets/beaches/kalami/kalami2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B3",
+    "category": "beach",
+    "name": "kalithea",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/kalithea/kalithea1.jpg",
+      "assets/beaches/kalithea/kalithea2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B4",
+    "category": "beach",
+    "name": "leebeach",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/leebeach/leebeach1.jpg",
+      "assets/beaches/leebeach/leebeach2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B5",
+    "category": "beach",
+    "name": "lindos",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/lindos/lindos1.jpg",
+      "assets/beaches/lindos/lindos2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B6",
+    "category": "beach",
+    "name": "Pefkos",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/pefkos/pefkos1.jpg",
+      "assets/beaches/pefkos/pefkos2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B7",
+    "category": "beach",
+    "name": "Stegna",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/stegna/stegna1.jpg",
+      "assets/beaches/stegna/stegna2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B8",
+    "category": "beach",
+    "name": "Prasonisi",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/prasonisi/prasonisi1.jpg",
+      "assets/beaches/prasonisi/prasonisi2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B9",
+    "category": "beach",
     "name": "TSAMBIKA",
     "activities": ["coffee", "brunch", "eat", "fine dining"],
     "photos": [
-      "assets/restaurants/kabuki/Kabuki-1.jpg",
-      "assets/restaurants/kabuki/Kabuki-2.jpg",
-      "assets/restaurants/kabuki/Kabuki-3.jpg",
-      "assets/restaurants/kabuki/Kabuki-4.jpg"
+      "assets/beaches/tsambika/tsambika1.jpg",
+      "assets/beaches/tsambika/tsambika2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B10",
+    "category": "beach",
+    "name": "elli",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/elli/elli1.jpg",
+      "assets/beaches/elli/elli2.jpg"
+      
+    ],
+    "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
+    "lat": 36.4427025,
+    "lng": 28.2232316,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining vietnamese food."
+  },
+{
+    "id": "B11",
+    "category": "beach",
+    "name": "agathi",
+    "activities": ["coffee", "brunch", "eat", "fine dining"],
+    "photos": [
+      "assets/beaches/agathi/agathi1.jpg",
+      "assets/beaches/agathi/agathi2.jpg"
+      
     ],
     "address": "Αγίου Φανουρίου 40-42, Ρόδος 851 00, Ελλάδα",
     "lat": 36.4427025,
