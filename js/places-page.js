@@ -165,14 +165,39 @@ function initPage() {
 
         const mapBtn = document.createElement('a');
 
-        mapBtn.href = `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`;
-        mapBtn.target = '_blank';
-        mapBtn.className = 'map-btn';
-        mapBtn.textContent = '🧭 Go';
+let origin;
 
-        card.appendChild(mapBtn);
+if (userLocation) {
+  origin = `${userLocation.lat},${userLocation.lng}`;
+} else {
+  origin = `${villaLocation.lat},${villaLocation.lng}`;
+}
+
+mapBtn.href =
+  `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${place.lat},${place.lng}&travelmode=driving`;
+
+mapBtn.target = '_blank';
+mapBtn.className = 'map-btn';
+mapBtn.textContent = '🧭 Go';
+
+card.appendChild(mapBtn);
+
+
+
+
 
         container.appendChild(card);
+
+
+
+
+
+
+
+
+
+
+
 
         // ---------------------------
         // Carousel animation
