@@ -11,7 +11,7 @@
 "id":"r2","category":"restaurant","name":"Ta Petaladika","activities":["eat","lunch","seafood"],
 "photos":["assets/restaurants/ta-petaladika/ta-petaladika-1.jpg","assets/restaurants/ta-petaladika/ta-petaladika-2.jpg","assets/restaurants/ta-petaladika/ta-petaladika-3.jpg","assets/restaurants/ta-petaladika/ta-petaladika-4.jpg"],
 "address":"Menekleous 8 Rhodes Old Town","phone":"+30 22410 12345",
-"lat":36.44437,"lng":28.22453,"rating":4.5,
+"lat":36.4437411,"lng":28.2208781,"rating":4.5,
 "notes":"Seafood meze restaurant known for fresh ingredients and cozy courtyard."
 },
 
