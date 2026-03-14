@@ -1,0 +1,179 @@
+
+[
+{
+"id":"r1","category":"restaurant","name":"Mama Sofia","activities":["eat","dinner","local cuisine"],
+"photos":["assets/restaurants/mama-sofia/mama-sofia-1.jpg","assets/restaurants/mama-sofia/mama-sofia-2.jpg","assets/restaurants/mama-sofia/mama-sofia-3.jpg","assets/restaurants/mama-sofia/mama-sofia-4.jpg"],
+"address":"Orfeos 38, Rhodes Old Town","lat":36.4441769,"lng":28.2235168,"rating":4.8,"featured":true,
+"notes":"Family-run taverna serving traditional Greek food near the Clock Tower."
+},
+
+{
+"id":"r2","category":"restaurant","name":"Ta Petaladika","activities":["eat","lunch","seafood"],
+"photos":["assets/restaurants/ta-petaladika/ta-petaladika-1.jpg","assets/restaurants/ta-petaladika/ta-petaladika-2.jpg","assets/restaurants/ta-petaladika/ta-petaladika-3.jpg","assets/restaurants/ta-petaladika/ta-petaladika-4.jpg"],
+"address":"Menekleous 8 Rhodes Old Town","phone":"+30 22410 12345",
+"lat":36.4437411,"lng":28.2208781,"rating":4.5,
+"notes":"Seafood meze restaurant known for fresh ingredients and cozy courtyard."
+},
+
+{
+"id":"r3","category":"beachbar","name":"Nor","activities":["eat","drink","brunch"],
+"photos":["assets/restaurants/nor-beach-house-project/nor1.jpg","assets/restaurants/nor-beach-house-project/nor2.jpg","assets/restaurants/nor-beach-house-project/nor3.jpg","assets/restaurants/nor-beach-house-project/nor4.jpg"],
+"address":"Kountourioti Square Rhodes","lat":36.45269,"lng":28.22701,
+"rating":4.4,"featured":true,
+"notes":"Trendy beach restaurant and bar with sea view."
+},
+
+{
+"id":"r4","category":"restaurant","name":"Ronda Beach Bar","activities":["eat","drink","swim"],
+"photos":["assets/restaurants/ronda/ronda-1.jpg","assets/restaurants/ronda/ronda-2.jpg","assets/restaurants/ronda/ronda-3.jpg","assets/restaurants/ronda/ronda-4.jpg"],
+"address":"Elli Beach Rhodes","lat":36.45421,"lng":28.23033,
+"rating":4.6,"featured":true,
+"notes":"Elegant beach club with Mediterranean cuisine and cocktails."
+},
+
+{
+"id":"r5","category":"restaurant","name":"Epta Piges","activities":["eat","nature"],
+"photos":["assets/restaurants/epta-phges/epta-1.jpg","assets/restaurants/epta-phges/epta-2.jpg","assets/restaurants/epta-phges/epta-3.jpg","assets/restaurants/epta-phges/epta-4.jpg"],
+"address":"Seven Springs Rhodes","lat":36.28891,"lng":28.08546,
+"rating":4.3,"notes":"Restaurant inside the Seven Springs natural park."
+},
+
+{
+"id":"r6","category":"restaurant","name":"To Nisaki","activities":["eat","lunch","seafood"],
+"photos":["assets/restaurants/to-nisaki/nisaki-1.jpg","assets/restaurants/to-nisaki/nisaki-2.jpg","assets/restaurants/to-nisaki/nisaki-3.jpg","assets/restaurants/to-nisaki/nisaki-4.jpg"],
+"address":"Kolymbia Beach Rhodes","lat":36.25394,"lng":28.17030,
+"rating":4.5,"notes":"Seaside taverna in Kolymbia known for fresh fish."
+},
+
+{
+"id":"r7","category":"restaurant","name":"Perigiali Sea Food Restaurant","activities":["eat","lunch","seafood"],
+"photos":["assets/restaurants/to-perigiali/perigiali-1.jpg","assets/restaurants/to-perigiali/perigiali-2.jpg","assets/restaurants/to-perigiali/perigiali-3.jpg","assets/restaurants/to-perigiali/perigiali-4.jpg"],
+"address":"Stegna Beach Rhodes","lat":36.20336,"lng":28.14019,
+"rating":4.7,"avoid":false,
+"notes":"Seaside seafood restaurant in Archangelos with bay views."
+},
+
+{
+"id":"r8","category":"restaurant","name":"Bakis Rodos","activities":["eat","dinner"],
+"photos":["assets/restaurants/bakis-rodos/bakis-1.jpg","assets/restaurants/bakis-rodos/bakis-2.jpg","assets/restaurants/bakis-rodos/bakis-3.jpg","assets/restaurants/bakis-rodos/bakis-4.jpg"],
+"address":"165 Georgiou Mavrou Rhodes","lat":36.44509,"lng":28.22116,
+"tel":"+30 2241 043193","rating":4.4,
+"notes":"Stylish fusion restaurant."
+},
+
+{
+"id":"r9","category":"restaurant","name":"Pan & Vino","activities":["eat","wine"],
+"photos":["assets/restaurants/pan-vino/pan-vino-1.jpg","assets/restaurants/pan-vino/pan-vino-2.jpg","assets/restaurants/pan-vino/pan-vino-3.jpg","assets/restaurants/pan-vino/pan-vino-4.jpg"],
+"address":"Alexandrou Diakou 7 Rhodes","lat":36.44793,"lng":28.21602,
+"rating":4.7,"notes":"Italian restaurant with handmade pasta."
+},
+
+{
+"id":"r10","category":"restaurant","name":"Sergio’s Downtown","activities":["eat","pizza"],
+"photos":["assets/restaurants/sergio/sergio-1.jpg","assets/restaurants/sergio/sergio-2.jpg","assets/restaurants/sergio/sergio-3.jpg","assets/restaurants/sergio/sergio-4.jpg"],
+"address":"Karpathou 18 Rhodes","lat":36.44766,"lng":28.22103,
+"rating":4.4,"notes":"Casual Italian trattoria."
+},
+
+{
+"id":"r11","category":"restaurant","name":"Sartaj Indian Restaurant","activities":["eat","dinner"],
+"photos":["assets/restaurants/sartaj/sartaj-1.jpg","assets/restaurants/sartaj/sartaj-2.jpg","assets/restaurants/sartaj/sartaj-3.jpg","assets/restaurants/sartaj/sartaj-4.jpg"],
+"address":"Ialyssou Avenue Rhodes","lat":36.42820,"lng":28.19645,
+"rating":4.5,"notes":"Indian cuisine hotspot."
+},
+
+{
+"id":"r12","category":"restaurant","name":"Marco Polo Café & Restaurant","activities":["eat","fine dining"],
+"photos":["assets/restaurants/marcopolo/marco-1.jpg","assets/restaurants/marcopolo/marco-2.jpg","assets/restaurants/marcopolo/marco-3.jpg","assets/restaurants/marcopolo/marco-4.jpg"],
+"address":"Agiou Fanouriou 42 Rhodes Old Town","lat":36.44270,"lng":28.22323,
+"rating":4.8,"featured":true,
+"notes":"Fine dining in a historic courtyard."
+},
+
+{
+"id":"r13","category":"restaurant","name":"Kabuki Canton","activities":["eat","fine dining"],
+"photos":["assets/restaurants/kabuki/Kabuki-1.jpg","assets/restaurants/kabuki/Kabuki-2.jpg","assets/restaurants/kabuki/Kabuki-3.jpg","assets/restaurants/kabuki/Kabuki-4.jpg"],
+"address":"Rhodes Old Town","lat":36.44270,"lng":28.22323,
+"rating":4.8,"featured":true,
+"notes":"Fine dining vietnamese food."
+},
+
+{
+"id":"c1","category":"coffee","name":"NAVAL",
+"photos":["assets/restaurants/kabuki/Kabuki-1.jpg","assets/restaurants/kabuki/Kabuki-2.jpg","assets/restaurants/kabuki/Kabuki-3.jpg","assets/restaurants/kabuki/Kabuki-4.jpg"],
+"address":"Rhodes New Marina","lat":36.44712,"lng":28.23042,"rating":4.8
+},
+
+{
+"id":"c2","category":"coffee","name":"Aktaion",
+"photos":["assets/cafes/aktaion/aktaion1.jpg","assets/cafes/aktaion/aktaion2.jpg","assets/cafes/aktaion/aktaion3.jpg"],
+"address":"Elli Beach Rhodes","lat":36.45523,"lng":28.22494,"rating":4.8
+},
+
+{
+"id":"c3","category":"coffee","name":"Kounna",
+"photos":["assets/cafes/kounna/kounna1.jpg","assets/cafes/kounna/kounna2.jpg","assets/cafes/kounna/kounna3.jpg"],
+"address":"Rhodes Town","lat":36.45170,"lng":28.22643,"rating":4.8
+},
+
+{
+"id":"c4","category":"coffee","name":"Nor",
+"photos":["assets/cafes/nor/nor1.jpg","assets/cafes/nor/nor2.jpg","assets/cafes/nor/nor3.jpg"],
+"address":"Rhodes Town","lat":36.45269,"lng":28.22701,"rating":4.8
+},
+
+{
+"id":"c5","category":"coffee","name":"Pier",
+"photos":["assets/cafes/pier/pier1.jpg","assets/cafes/pier/pier2.jpg","assets/cafes/pier/pier3.jpg"],
+"address":"Rhodes New Marina","lat":36.44712,"lng":28.23042,"rating":4.8
+},
+
+{
+"id":"c8","category":"coffee","name":"Yannis",
+"photos":["assets/cafes/yannis/yannis1.jpg","assets/cafes/yannis/yannis2.jpg","assets/cafes/yannis/yannis3.jpg"],
+"address":"Lindos Village","lat":36.09117,"lng":28.08700,"rating":4.8
+},
+
+{
+"id":"B1","category":"beach","name":"Faliraki Beach",
+"photos":["assets/beaches/faliraki/faliraki1.jpg","assets/beaches/faliraki/faliraki2.jpg"],
+"address":"Faliraki Rhodes","lat":36.33972,"lng":28.19979
+},
+
+{
+"id":"B5","category":"beach","name":"Lindos Beach",
+"photos":["assets/beaches/lindos/lindos1.jpg","assets/beaches/lindos/lindos2.jpg"],
+"address":"Lindos Rhodes","lat":36.09117,"lng":28.08700
+},
+
+{
+"id":"B9","category":"beach","name":"Tsambika Beach",
+"photos":["assets/beaches/tsambika/tsambika1.jpg","assets/beaches/tsambika/tsambika2.jpg"],
+"address":"Tsambika Rhodes","lat":36.24551,"lng":28.15989
+},
+
+{
+"id":"B10","category":"beach","name":"Elli Beach",
+"photos":["assets/beaches/elli/elli1.jpg","assets/beaches/elli/elli2.jpg"],
+"address":"Rhodes Town","lat":36.45421,"lng":28.23033
+},
+
+{
+"id":"B11","category":"beach","name":"Agathi Beach",
+"photos":["assets/beaches/agathi/agathi1.jpg","assets/beaches/agathi/agathi2.jpg"],
+"address":"Haraki Rhodes","lat":36.18693,"lng":28.09538
+},
+
+{
+"id":"A1","category":"activities","name":"Jet Ski Faliraki",
+"photos":["assets/restaurants/kabuki/Kabuki-1.jpg"],
+"address":"Faliraki Beach","lat":36.33972,"lng":28.19979
+},
+
+{
+"id":"S1","category":"sightseeing","name":"Lindos Village",
+"photos":["assets/restaurants/kabuki/Kabuki-1.jpg"],
+"address":"Lindos Rhodes","lat":36.09117,"lng":28.08700
+}
+]
+
