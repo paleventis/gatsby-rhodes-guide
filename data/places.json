@@ -143,11 +143,12 @@
     "activities": ["eat", "fine dining"],
     "photos": ["assets/restaurants/marcopolo/marco-1.jpg", "assets/restaurants/marcopolo/marco-2.jpg", "assets/restaurants/marcopolo/marco-3.jpg", "assets/restaurants/marcopolo/marco-4.jpg"],
     "address": "Agiou Fanouriou 40-42, Rhodes Old Town 851 00, Greece",
-    "lat": 36.4427,
-    "lng": 28.22323,
+    "lat": 36.4427025,
+    "lng": 28.2258065,
+    "tel":"2241025562",
     "rating": 4.8,
     "featured": true,
-    "notes": "Fine dining in a historic courtyard."
+    "notes": "Fine dining in a historic courtyard. With reservation"
   },
   {
     "id": "r13",
