@@ -165,39 +165,29 @@ function initPage() {
 
         const mapBtn = document.createElement('a');
 
-let origin;
+        // Determine origin: user location or villa location
+        let origin;
+        if (userLocation) {
+          origin = `${userLocation.lat},${userLocation.lng}`;
+        } else {
+          origin = `${villaLocation.lat},${villaLocation.lng}`;
+        }
 
-if (userLocation) {
-  origin = `${userLocation.lat},${userLocation.lng}`;
-} else {
-  origin = `${villaLocation.lat},${villaLocation.lng}`;
-}
+        // Destination: place coordinates and address
+        const destination = `${place.lat},${place.lng}`;
+        const destinationName = encodeURIComponent(place.address);
 
-mapBtn.href =
-  `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${place.lat},${place.lng}&travelmode=driving`;
+        // Google Maps Directions API URL
+        // Using both coordinates and address for better accuracy
+        mapBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&destination_name=${destinationName}&travelmode=driving`;
 
-mapBtn.target = '_blank';
-mapBtn.className = 'map-btn';
-mapBtn.textContent = '🧭 Go';
+        mapBtn.target = '_blank';
+        mapBtn.className = 'map-btn';
+        mapBtn.textContent = '🧭 Go';
 
-card.appendChild(mapBtn);
-
-
-
-
+        card.appendChild(mapBtn);
 
         container.appendChild(card);
-
-
-
-
-
-
-
-
-
-
-
 
         // ---------------------------
         // Carousel animation
@@ -263,4 +253,3 @@ if (navigator.geolocation) {
 
   initPage();
 }
-
