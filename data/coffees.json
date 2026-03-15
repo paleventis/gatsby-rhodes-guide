@@ -1,0 +1,63 @@
+[
+  
+  {
+    "id": "c1",
+    "category": "coffee",
+    "name": "NAVAL Cafe Bar Restaurant",
+    "photos": ["assets/restaurants/kabuki/Kabuki-1.jpg", "assets/restaurants/kabuki/Kabuki-2.jpg", "assets/restaurants/kabuki/Kabuki-3.jpg", "assets/restaurants/kabuki/Kabuki-4.jpg"],
+    "address": "Rhodes New Marina, Rhodes 851 00, Greece",
+    "lat": 36.4332358,
+    "lng": 28.2381441,
+    "rating": 4.8
+  },
+  {
+    "id": "c2",
+    "category": "coffee",
+    "name": "Aktaion Classic",
+    "photos": ["assets/cafes/aktaion/aktaion1.jpg", "assets/cafes/aktaion/aktaion2.jpg", "assets/cafes/aktaion/aktaion3.jpg"],
+    "address": "Pl. Eleftherias, Rhodes 851 00, Greece",
+    "lat": 36.4491476,
+    "lng": 28.2249653,
+    "rating": 4.8
+  },
+  {
+    "id": "c3",
+    "category": "coffee",
+    "name": "Kounna Beach & Resto Bar",
+    "photos": ["assets/cafes/kounna/kounna1.jpg", "assets/cafes/kounna/kounna2.jpg", "assets/cafes/kounna/kounna3.jpg"],
+    "address": "Ladiko, Faliraki 851 05, Greece",
+    "lat": 36.3213764,
+    "lng": 28.2089792,
+    "rating": 4.8
+  },
+  {
+    "id": "c4",
+    "category": "coffee",
+    "name": "Nor Beach House Project",
+    "photos": ["assets/cafes/nor/nor1.jpg", "assets/cafes/nor/nor2.jpg", "assets/cafes/nor/nor3.jpg"],
+    "address": "Pl. Kountourioti 9, Rhodes 851 00, Greece",
+    "lat": 36.45269,
+    "lng": 28.22701,
+    "rating": 4.8
+  },
+  {
+    "id": "c5",
+    "category": "coffee",
+    "name": "Pier Rhodes New Marina",
+    "photos": ["assets/cafes/pier/pier1.jpg", "assets/cafes/pier/pier2.jpg", "assets/cafes/pier/pier3.jpg"],
+    "address": "Rhodes New Marina, Rhodes 851 00, Greece",
+    "lat": 36.43777778,
+    "lng": 28.24055556,
+    "rating": 4.8
+  },
+  {
+    "id": "c8",
+    "category": "coffee",
+    "name": "Yannis Bar",
+    "photos": ["assets/cafes/yannis/yannis1.jpg", "assets/cafes/yannis/yannis2.jpg", "assets/cafes/yannis/yannis3.jpg"],
+    "address": "Lindos Village, Rhodes 851 07, Greece",
+    "lat": 36.09117,
+    "lng": 28.087,
+    "rating": 4.8
+  }
+]
