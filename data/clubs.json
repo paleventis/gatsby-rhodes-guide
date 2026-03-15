@@ -72,8 +72,8 @@
     "activities": ["cocktails", "nightlife", "music"],
     "photos": ["assets/clubs/macao/macao1.jpg", "assets/clubs/macao/macao2.jpg", "assets/clubs/macao/macao3.jpg"],
     "address": "Arhelaou 5 & Platia Arionos 1, Rhodes Old Town 851 00, Greece",
-    "lat": 36.4428,
-    "lng": 28.2245,
+    "lat": 36.4430510,
+    "lng": 28.224565,
     "rating": 4.8,
     "featured": true,
     "notes": "Trendy cocktail bar in the heart of the Old Town."
