@@ -173,7 +173,7 @@
     "lng": 28.2175938,
     "rating": 4.8,
     "featured": true,
-    "notes": "Fine dining Asian fusion food."
+    "notes": "Fine dining food."
   },
 {
     "id": "r15",
@@ -187,7 +187,7 @@
     "rating": 4.8,
     "tel.":"2244031810",
     "featured": true,
-    "notes": "Fine dining Asian fusion food."
+    "notes": "Fine dining, greek restaurant."
   },
 {
     "id": "r16",
@@ -201,7 +201,7 @@
     "rating": 4.8,
     "tel.":"2244033000",
     "featured": true,
-    "notes": "Fine dining Asian fusion food."
+    "notes": "Fine dining"
   },
 {
     "id": "r16",
@@ -215,6 +215,37 @@
     "rating": 4.8,
     "tel.":"2244048044",
     "featured": true,
-    "notes": "Fine dining Asian fusion food."
+    "notes": "Fish and greek food"
+  },
+{
+    "id": "r17",
+    "category": "restaurant",
+    "name": "Nor Beach house project",
+    "activities": ["eat", "fine dining"],
+    "photos": ["assets/restaurants/nor/nor1.jpg", "assets/restaurants/nor/nor2.jpg", "assets/restaurants/nor/nor3.jpg"],
+    "address": "Pl. Kountourioti 9, Rhodes 851 00, Greece",
+    "lat": 36.45269,
+    "lng": 28.22701,
+    "rating": 4.8,
+    "tel.":"2244048044",
+    "featured": true,
+    "notes": "Fine dining fusion food."
+  },
+{
+    "id": "r18",
+    "category": "restaurant",
+    "name": "Paragadi",
+    "activities": ["eat", "fine dining"],
+    "photos": ["assets/restaurants/paragadi/paragadi1.jpg", "assets/restaurants/paragadi/paragadi2.jpg", "assets/restaurants/paragadi/paragadi3.jpg"],
+    "address": "Karpathou 21, Rhodes 851 00, Greece",
+    "lat": 36.0704224,
+    "lng": 28.0506428,
+    "rating": 4.8,
+    "tel.":"2244048044",
+    "featured": true,
+    "notes": "Fish restaurant"
   }
+
+
+
 ]
