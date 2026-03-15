@@ -1,0 +1,15 @@
+[
+  
+  {
+    "id": "S1",
+    "category": "sightseeing",
+    "name": "Lindos Village",
+    "photos": ["assets/culture/lindos/lindos1.jpg","assets/culture/lindos/lindos2.jpg"],
+    "address": "Lindos, Rhodes 851 07, Greece",
+    "lat": 36.09117,
+    "lng": 28.087
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Visit the historical Acropolis of Lindos with The breathtaking view"
+  }
+]
