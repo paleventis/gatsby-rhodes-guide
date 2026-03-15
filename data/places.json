@@ -194,7 +194,7 @@
     "category": "restaurant",
     "name": "Tambakio",
     "activities": ["eat", "fine dining"],
-    "photos": ["assets/restaurants/Tambakio/Tambakio1.jpg", "assets/restaurants/Tambakio/Tambakio2.jpg", "assets/restaurants/Tambakio/Tambakio3.jpg"],
+    "photos": ["assets/restaurants/tambakio/tambakio1.jpg", "assets/restaurants/tambakio/tambakio2.jpg", "assets/restaurants/tambakio/tambakio3.jpg"],
     "address": "St Paul's Bay, Λίνδος 85107",
     "lat": 36.0862692,
     "lng": 28.0826783,
