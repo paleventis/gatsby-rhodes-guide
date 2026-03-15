@@ -1,0 +1,76 @@
+[
+  {
+    "id": "A1",
+    "category": "activities",
+    "name": "Watersport",
+    "photos":["assets/activities/watersports/watersport1.jpg",
+"assets/activities/watersports/watersport2.jpg",
+"assets/activities/watersports/watersport3.jpg"],
+    "address": "Faliraki Beach, Rhodes 851 05, Greece",
+    "lat": 36.340757,
+    "lng": 28.204632,
+    "rating": 4.8,
+    "tel:":"224100000",
+    "featured": true,
+    "notes": "watersports, ski, jetski, parachute, bananas" 
+  },
+  
+  {
+    "id": "A2",
+    "category": "activities",
+    "name": "Boat",
+    "photos": ["assets/activities/boat/boat1.jpg",
+    "assets/activities/boat/boat2.jpg",
+     "assets/activities/boat/boat3.jpg"],
+    "address": "Faliraki Beach, Rhodes 851 05, Greece",
+    "lat": 36.340757,
+    "lng": 28.204632,
+    "rating": 4.8,
+    "tel:":"224100000",
+    "featured": true,
+    "notes": "watersports, ski, jetski, parachute, bananas" 
+  },
+  {
+    "id": "A3",
+    "category": "activities",
+    "name": "safari",
+    "photos": ["assets/activities/safari/safari1.jpg",
+    "assets/activities/safari/safari2.jpg"],
+     "address": "Faliraki Beach, Rhodes 851 05, Greece",
+    "lat": 36.340757,
+    "lng": 28.204632,
+    "rating": 4.8,
+    "tel:":"224100000",
+    "featured": true,
+    "notes": "Safari around island mountains, rivers etc" 
+  },
+  {
+    "id": "A4",
+    "category": "activities",
+    "name": "Scuba",
+    "photos": ["assets/activities/Scuba/Scuba1.jpg",
+    "assets/activities/Scuba/Scuba2.jpg"],
+     "address": "Faliraki Beach, Rhodes 851 05, Greece",
+    "lat": 36.340757,
+    "lng": 28.204632,
+    "rating": 4.8,
+    "tel:":"224100000",
+    "featured": true,
+    "notes": "Discover the underwater world of Rhodes island" 
+  },
+  {
+    "id": "A5",
+    "category": "activities",
+    "name": "Tennis",
+    "photos": ["assets/activities/tennis/tennis1.jpg",
+    "assets/activities/tennis/tennis2.jpg"],
+     "address": "Faliraki Beach, Rhodes 851 05, Greece",
+    "lat": 36.340757,
+    "lng": 28.204632,
+    "rating": 4.8,
+    "tel:":"224100000",
+    "featured": true,
+    "notes": "watersports, ski, jetski, parachute, bananas" 
+  }
+  
+]
