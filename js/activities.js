@@ -35,7 +35,7 @@ let userLocation = null;
 // Initialize page
 function initPage() {
 
-  fetch('data/activities.json') // Changed from places.json to activities.json
+  fetch('../data/activities.json') // Changed from places.json to activities.json
     .then(res => res.json())
     .then(data => {
 
