@@ -161,5 +161,60 @@
     "rating": 4.8,
     "featured": true,
     "notes": "Fine dining Asian fusion food."
+  },
+{
+    "id": "r14",
+    "category": "restaurant",
+    "name": "Tamam",
+    "activities": ["eat", "fine dining"],
+    "photos": ["assets/restaurants/tamam/tamam1.jpg", "assets/restaurants/tamam/tamam2.jpg", "assets/restaurants/tamam/tamam3.jpg"],
+    "address": "leontos 1, Rhodes 851 00, Greece",
+    "lat": 36.4503564,
+    "lng": 28.2175938,
+    "rating": 4.8,
+    "featured": true,
+    "notes": "Fine dining Asian fusion food."
+  },
+{
+    "id": "r15",
+    "category": "restaurant",
+    "name": "Dionysos",
+    "activities": ["eat", "fine dining"],
+    "photos": ["assets/restaurants/dionysos/dionysos1.jpg", "assets/restaurants/dionysos/dionysos2.jpg", "assets/restaurants/dionysos/dionysos3.jpg"],
+    "address": "lindos, lindos 85107, Greece",
+    "lat": 36.0910765,
+    "lng": 28.0837232,
+    "rating": 4.8,
+    "tel.":"2244031810",
+    "featured": true,
+    "notes": "Fine dining Asian fusion food."
+  },
+{
+    "id": "r16",
+    "category": "restaurant",
+    "name": "Tambakio",
+    "activities": ["eat", "fine dining"],
+    "photos": ["assets/restaurants/Tambakio/Tambakio1.jpg", "assets/restaurants/Tambakio/Tambakio2.jpg", "assets/restaurants/Tambakio/Tambakio3.jpg"],
+    "address": "St Paul's Bay, Λίνδος 85107",
+    "lat": 36.0862692,
+    "lng": 28.0826783,
+    "rating": 4.8,
+    "tel.":"2244033000",
+    "featured": true,
+    "notes": "Fine dining Asian fusion food."
+  },
+{
+    "id": "r16",
+    "category": "restaurant",
+    "name": "filosofia",
+    "activities": ["eat", "fine dining"],
+    "photos": ["assets/restaurants/filosofia/filosofia1.jpg", "assets/restaurants/filosofia/filosofia2.jpg", "assets/restaurants/filosofia/filosofia3.jpg"],
+    "address": "Karpathou 21, Rhodes 851 00, Greece",
+    "lat": 36.0704224,
+    "lng": 28.0506428,
+    "rating": 4.8,
+    "tel.":"2244048044",
+    "featured": true,
+    "notes": "Fine dining Asian fusion food."
   }
 ]
