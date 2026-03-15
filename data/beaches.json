@@ -1,0 +1,48 @@
+[
+  
+  {
+    "id": "B1",
+    "category": "beach",
+    "name": "Faliraki Beach",
+    "photos": ["assets/beaches/faliraki/faliraki1.jpg", "assets/beaches/faliraki/faliraki2.jpg"],
+    "address": "Faliraki, Rhodes 851 05, Greece",
+    "lat": 36.340757,
+    "lng": 28.204632
+  },
+  {
+    "id": "B5",
+    "category": "beach",
+    "name": "Lindos Beach",
+    "photos": ["assets/beaches/lindos/lindos1.jpg", "assets/beaches/lindos/lindos2.jpg"],
+    "address": "Lindos, Rhodes 851 07, Greece",
+    "lat": 36.09117,
+    "lng": 28.087
+  },
+  {
+    "id": "B9",
+    "category": "beach",
+    "name": "Tsambika Beach",
+    "photos": ["assets/beaches/tsambika/tsambika1.jpg", "assets/beaches/tsambika/tsambika2.jpg"],
+    "address": "Tsambika, Rhodes 851 02, Greece",
+    "lat": 36.228402,
+    "lng": 28.148142
+  },
+  {
+    "id": "B10",
+    "category": "beach",
+    "name": "Elli Beach",
+    "photos": ["assets/beaches/elli/elli1.jpg", "assets/beaches/elli/elli2.jpg"],
+    "address": "Rhodes Town 851 00, Greece",
+    "lat": 36.45536,
+    "lng": 28.21909
+  },
+  {
+    "id": "B11",
+    "category": "beach",
+    "name": "Agathi Beach",
+    "photos": ["assets/beaches/agathi/agathi1.jpg", "assets/beaches/agathi/agathi2.jpg"],
+    "address": "Haraki, Rhodes 851 02, Greece",
+    "lat": 36.176115,
+    "lng": 28.098537
+  }
+]
