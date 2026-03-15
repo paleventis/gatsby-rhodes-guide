@@ -1,6 +1,5 @@
-
 // ---------------------------
-// Places Page JS (FULL VERSION)
+// Activities Page JS
 // ---------------------------
 
 // Gatsby Rhodes Villas fallback location
@@ -36,7 +35,7 @@ let userLocation = null;
 // Initialize page
 function initPage() {
 
-  fetch('data/activities.json')
+  fetch('../data/activities.json') // Changed from places.json to activities.json
     .then(res => res.json())
     .then(data => {
 
@@ -58,14 +57,14 @@ function initPage() {
       }
 
       if (places.length === 0) {
-        container.innerHTML = '<p>No places found.</p>';
+        container.innerHTML = '<p>No activities found.</p>'; // Changed message
         return;
       }
 
       places.forEach(place => {
 
         const card = document.createElement('div');
-        card.className = 'restaurant-card';
+        card.className = 'restaurant-card'; // Reusing class name for styling consistency
 
         // Name
         const title = document.createElement('h2');
@@ -217,7 +216,7 @@ function initPage() {
       console.error(err);
 
       document.body.innerHTML +=
-        '<p style="color:red">Failed to load activities.json</p>';
+        '<p style="color:red">Failed to load activities.json</p>'; // Changed message
     });
 }
 
