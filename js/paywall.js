@@ -1,11 +1,11 @@
 // PAYWALL SYSTEM
 //  change version  when you change free access codes
-const CODE_VERSION = "v2";
+const CODE_VERSION = "v3";
 
 
 const validCodes = [
- "gatsby",
- "vip"
+ "Gatsby",
+ "Vip"
 ];
 
 function checkQRUnlock(){
@@ -16,8 +16,8 @@ function checkQRUnlock(){
  if(!code) return;
 
  const validCodes = [
-  "gatsby",
-  "vip"
+  "Gatsby",
+  "Vip"
  ];
 
  if(validCodes.includes(code)){
