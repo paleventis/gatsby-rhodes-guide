@@ -91,12 +91,54 @@
       background: #005fa3;
     }
   </style>
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 </head>
 
 <body class="beaches-page" data-category="beach">
   <h1 style="text-align:center; padding:20px;">🏖️ Beaches</h1>
 
   <div id="places-container"></div>
+
+
+<div id="map"></div>
+
+
+
+<div id="unlockModal" class="modal">
+
+<div class="modal-box">
+
+<h2>Unlock Rhodes Guide</h2>
+
+<p>Access all locations for 3 months</p>
+
+<input id="userEmail" placeholder="Email">
+
+<button onclick="startPayment(https://buy.stripe.com/bJefZgdvx3g2dfx48ceQM02)">Pay €7.99</button>
+
+<hr>
+
+<h3>Have a code?</h3>
+
+<input id="accessCode" placeholder="Enter code">
+
+<button onclick="unlockWithCode()">Unlock with code</button>
+
+<br><br>
+
+<button onclick="closeUnlockModal()">Close</button>
+
+</div>
+
+</div>
+
+
+<script src="js/paywall.js"></script>
 
   <script src="js/beaches.js"></script>
 </body>
