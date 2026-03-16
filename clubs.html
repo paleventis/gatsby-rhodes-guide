@@ -105,33 +105,47 @@ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <div id="places-container"></div>
 
 
-<div id="map"></div>
 
 
 
-<div id="unlockModal" class="modal">
 
-<div class="modal-box">
+<div id="unlockModal" class="unlock-modal">
 
-<h2>Unlock Rhodes Guide</h2>
+<div class="unlock-container">
 
-<p>Access all locations for 3 months</p>
+<button class="unlock-close" onclick="closeUnlockModal()">✕</button>
 
-<input id="userEmail" placeholder="Email">
+<h2>Unlock the BestRhodes Guide</h2>
 
-<button onclick="startPayment(https://buy.stripe.com/bJefZgdvx3g2dfx48ceQM02)">Pay €7.99</button>
+<p class="unlock-subtitle">
+Discover the best restaurants, cafes, clubs, activities, beaches and hidden gems near you.
+</p>
 
-<hr>
+<div class="unlock-benefits">
 
-<h3>Have a code?</h3>
+<div>📍 Navigation to all locations</div>
+<div>⭐ Handpicked places</div>
+<div>🌴 Exclusive villa recommendations</div>
 
-<input id="accessCode" placeholder="Enter code">
+</div>
 
-<button onclick="unlockWithCode()">Unlock with code</button>
+<input id="userEmail" class="unlock-input" type="email" required placeholder="Enter your email" />
 
-<br><br>
+<button class="unlock-pay" onclick="startPayment()">
+Unlock Full Guide – €4.99
+</button>
 
-<button onclick="closeUnlockModal()">Close</button>
+<div class="unlock-divider">or</div>
+
+<input 
+id="accessCode"
+class="unlock-input"
+placeholder="Enter access code"
+/>
+
+<button class="unlock-code" onclick="unlockWithCode()">
+Unlock with Code
+</button>
 
 </div>
 
