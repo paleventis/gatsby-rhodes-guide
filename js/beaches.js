@@ -1,8 +1,10 @@
+
 // ---------------------------
-// Activities Page JS
+// Places Page JS (FULL VERSION)
 // ---------------------------
 
 // Gatsby Rhodes Villas fallback location
+const unlocked = hasAccess();
 const villaLocation = {
   lat: 36.2553,
   lng: 28.1676
@@ -35,7 +37,7 @@ let userLocation = null;
 // Initialize page
 function initPage() {
 
-  fetch('data/beaches.json') // Changed from places.json to activities.json
+  fetch('data/beaches.json')
     .then(res => res.json())
     .then(data => {
 
@@ -57,18 +59,20 @@ function initPage() {
       }
 
       if (places.length === 0) {
-        container.innerHTML = '<p>No activities found.</p>'; // Changed message
+        container.innerHTML = '<p>No places found.</p>';
         return;
       }
 
-      places.forEach(place => {
+      places.forEach((place,index) => {
+
+     const locked = !unlocked && index >= 2;
 
         const card = document.createElement('div');
-        card.className = 'restaurant-card'; // Reusing class name for styling consistency
+        card.className = 'restaurant-card';
 
         // Name
         const title = document.createElement('h2');
-        title.textContent = place.name;
+        title.textContent = locked ? "Hidden location" : place.name;
         card.appendChild(title);
 
         // ---------------------------
@@ -83,11 +87,20 @@ function initPage() {
           img.src = photo;
 
           if (i === 0) img.classList.add('active');
+          
+          if (locked) {
+          img.style.filter = "blur(6px)";
+          img.style.opacity = "0.4";
+          }
+
 
           carousel.appendChild(img);
         });
 
-        // Featured badge
+       
+
+
+ // Featured badge
         if (place.featured) {
 
           const badge = document.createElement('span');
@@ -142,21 +155,32 @@ function initPage() {
           distanceText = `<br>📏 ${d.toFixed(1)} km from Gatsby Rhodes Villas`;
         }
 
-        info.innerHTML = `📍 ${place.address}${distanceText}`;
+        if(locked){
+
+ info.innerHTML = `📍 Hidden location${distanceText}`;
+
+}else{
+
+ info.innerHTML = `📍 ${place.address}${distanceText}`;
+
+}
+
+
         card.appendChild(info);
 
         // ---------------------------
         // Phone
         // ---------------------------
 
-        if (place.phone || place.tel) {
+        if (!locked && (place.phone || place.tel)) {
 
-          const phone = document.createElement('p');
+ const phone = document.createElement('p');
 
-          phone.textContent = `📞 ${place.phone || place.tel}`;
+ phone.textContent = `📞 ${place.phone || place.tel}`;
 
-          card.appendChild(phone);
-        }
+ card.appendChild(phone);
+
+}
 
         // ---------------------------
         // Google Maps navigation
@@ -178,13 +202,32 @@ function initPage() {
 
         // Google Maps Directions API URL
         // Using both coordinates and address for better accuracy
-        mapBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&destination_name=${destinationName}&travelmode=driving`;
+       if(!locked){
+ mapBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&destination_name=${destinationName}&travelmode=driving`;
 
         mapBtn.target = '_blank';
         mapBtn.className = 'map-btn';
         mapBtn.textContent = '🧭 Go';
 
         card.appendChild(mapBtn);
+}else{
+mapBtn.href="#";
+ mapBtn.textContent="Unlock to Go";
+ mapBtn.style.background="gray";
+ mapBtn.onclick = openUnlockModal;
+}
+       if(locked){
+
+ const unlockBtn = document.createElement("button");
+
+ unlockBtn.className = "unlock-btn";
+ unlockBtn.textContent = "Unlock";
+
+ unlockBtn.onclick = openUnlockModal;
+
+ card.appendChild(unlockBtn);
+
+}
 
         container.appendChild(card);
 
@@ -216,7 +259,7 @@ function initPage() {
       console.error(err);
 
       document.body.innerHTML +=
-        '<p style="color:red">Failed to load activities.json</p>'; // Changed message
+        '<p style="color:red">Failed to load places.json</p>';
     });
 }
 
