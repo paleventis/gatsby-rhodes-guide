@@ -1,4 +1,36 @@
 // PAYWALL SYSTEM
+//  change version  when you change free access codes
+const CODE_VERSION = "v2";
+
+
+const validCodes = [
+ "gatsby",
+ "vip"
+];
+
+function checkQRUnlock(){
+
+ const params = new URLSearchParams(window.location.search);
+ const code = params.get("access");
+
+ if(!code) return;
+
+ const validCodes = [
+  "gatsby",
+  "vip"
+ ];
+
+ if(validCodes.includes(code)){
+
+   unlockGuide(90);
+
+ }
+
+}
+
+
+
+
 
 let deviceId = localStorage.getItem("deviceId");
 
@@ -10,12 +42,12 @@ if (!deviceId) {
 function hasAccess(){
 
  const unlocked = localStorage.getItem("guideUnlocked");
-
- if(!unlocked) return false;
-
  const expire = localStorage.getItem("guideExpire");
+ const version = localStorage.getItem("guideCodeVersion");
 
- if(!expire) return false;
+ if(!unlocked || !expire) return false;
+
+ if(version !== CODE_VERSION) return false;
 
  return new Date(expire) > new Date();
 }
@@ -27,6 +59,7 @@ function unlockGuide(days=90){
 
  localStorage.setItem("guideUnlocked",true);
  localStorage.setItem("guideExpire",expire);
+ localStorage.setItem("guideCodeVersion",CODE_VERSION);
 
  location.reload();
 }
@@ -57,10 +90,7 @@ function unlockWithCode(){
 
  const code=document.getElementById("accessCode").value;
 
- const validCodes=[
-  "gatsby",
-  "vip"
- ];
+
 
  if(validCodes.includes(code)){
   unlockGuide(90);
@@ -78,3 +108,6 @@ document.getElementById("unlockModal").style.display="flex";
 function closeUnlockModal(){
 document.getElementById("unlockModal").style.display="none";
 }
+
+
+checkQRUnlock();
