@@ -1,3 +1,13 @@
+@media (max-width:600px){
+
+.unlock-btn{
+padding:12px 18px;
+font-size:15px;
+}
+
+}
+
+
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
@@ -359,3 +369,60 @@ cursor:pointer;
 margin:15px 0;
 opacity:.6;
 }
+
+
+.restaurant-card{
+position:relative;
+padding-bottom:60px;
+}
+
+
+.unlock-btn{
+
+position:absolute;
+bottom:15px;
+right:15px;
+
+background:linear-gradient(135deg,#caa75c,#e0c27a);
+color:white;
+
+border:none;
+padding:10px 16px;
+
+border-radius:20px;
+
+font-size:14px;
+font-weight:600;
+
+cursor:pointer;
+
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+
+transition:all .2s ease;
+
+}
+
+.unlock-btn:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 6px 18px rgba(0,0,0,0.4);
+
+}
+
+.unlock-btn{
+
+animation:unlockPulse 2s infinite;
+
+}
+
+@keyframes unlockPulse{
+
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+
+}
+
+
+

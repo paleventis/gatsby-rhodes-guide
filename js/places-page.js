@@ -212,20 +212,20 @@ function initPage() {
         card.appendChild(mapBtn);
 }else{
 mapBtn.href="#";
- mapBtn.textContent="Unlock to Go";
- mapBtn.style.background="gray";
+ mapBtn.style.display="none";
  mapBtn.onclick = openUnlockModal;
 }
        if(locked){
 
  const unlockBtn = document.createElement("button");
 
- unlockBtn.className = "unlock-btn";
- unlockBtn.textContent = "Unlock";
+unlockBtn.className = "unlock-btn";
 
- unlockBtn.onclick = openUnlockModal;
+unlockBtn.innerHTML = "🔓 Unlock";
 
- card.appendChild(unlockBtn);
+unlockBtn.onclick = openUnlockModal;
+
+card.appendChild(unlockBtn);
 
 }
 
