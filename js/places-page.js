@@ -4,6 +4,7 @@
 // ---------------------------
 
 // Gatsby Rhodes Villas fallback location
+const unlocked = hasAccess();
 const villaLocation = {
   lat: 36.2553,
   lng: 28.1676
@@ -62,14 +63,16 @@ function initPage() {
         return;
       }
 
-      places.forEach(place => {
+      places.forEach((place,index) => {
+
+     const locked = !unlocked && index >= 2;
 
         const card = document.createElement('div');
         card.className = 'restaurant-card';
 
         // Name
         const title = document.createElement('h2');
-        title.textContent = place.name;
+        title.textContent = locked ? "Hidden location" : place.name;
         card.appendChild(title);
 
         // ---------------------------
@@ -84,11 +87,20 @@ function initPage() {
           img.src = photo;
 
           if (i === 0) img.classList.add('active');
+          
+          if (locked) {
+          img.style.filter = "blur(6px)";
+          img.style.opacity = "0.4";
+          }
+
 
           carousel.appendChild(img);
         });
 
-        // Featured badge
+       
+
+
+ // Featured badge
         if (place.featured) {
 
           const badge = document.createElement('span');
@@ -156,6 +168,7 @@ function initPage() {
 
           phone.textContent = `📞 ${place.phone || place.tel}`;
 
+
           card.appendChild(phone);
         }
 
@@ -179,13 +192,32 @@ function initPage() {
 
         // Google Maps Directions API URL
         // Using both coordinates and address for better accuracy
-        mapBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&destination_name=${destinationName}&travelmode=driving`;
+       if(!locked){
+ mapBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&destination_name=${destinationName}&travelmode=driving`;
 
         mapBtn.target = '_blank';
         mapBtn.className = 'map-btn';
         mapBtn.textContent = '🧭 Go';
 
         card.appendChild(mapBtn);
+}else{
+mapBtn.href="#";
+ mapBtn.textContent="Unlock to Go";
+ mapBtn.style.background="gray";
+ mapBtn.onclick = openUnlockModal;
+}
+       if(locked){
+
+ const unlockBtn = document.createElement("button");
+
+ unlockBtn.className = "unlock-btn";
+ unlockBtn.textContent = "Unlock";
+
+ unlockBtn.onclick = openUnlockModal;
+
+ card.appendChild(unlockBtn);
+
+}
 
         container.appendChild(card);
 
