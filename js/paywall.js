@@ -16,8 +16,8 @@ function checkQRUnlock(){
  if(!code) return;
 
  const validCodes = [
-  "Gatsby",
-  "Vip"
+  "gatsby1",
+  "vip1"
  ];
 
  if(validCodes.includes(code)){
