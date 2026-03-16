@@ -50,7 +50,7 @@ function startPayment(){
 
  localStorage.setItem("userEmail",email);
 
- window.location.href="https://buy.stripe.com/YOUR_STRIPE_LINK";
+ window.location.href="https://buy.stripe.com/bJefZgdvx3g2dfx48ceQM02";
 }
 
 function unlockWithCode(){
@@ -68,4 +68,13 @@ function unlockWithCode(){
   alert("Invalid code");
  }
 
+}
+
+
+function openUnlockModal(){
+document.getElementById("unlockModal").style.display="flex";
+}
+
+function closeUnlockModal(){
+document.getElementById("unlockModal").style.display="none";
 }
