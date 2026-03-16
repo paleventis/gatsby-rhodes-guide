@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Payment Successful</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#111;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+height:100vh;
+text-align:center;
+}
+
+.box{
+background:#1f1f1f;
+padding:40px;
+border-radius:10px;
+max-width:420px;
+}
+
+button{
+margin-top:20px;
+padding:12px 24px;
+border:none;
+border-radius:6px;
+background:#caa75c;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🎉 Payment Successful</h1>
+
+<p>Your Rhodes Guide has been unlocked for <b>3 months</b>.</p>
+
+<p>You can now access all locations and navigation.</p>
+
+<button onclick="goBack()">Open Guide</button>
+
+</div>
+
+<script src="js/paywall.js"></script>
+
+<script>
+
+// unlock guide for 90 days
+unlockGuide(90);
+
+// redirect function
+function goBack(){
+window.location.href="/gatsby-rhodes-guide/";
+}
+
+// optional auto redirect after 4 seconds
+setTimeout(()=>{
+window.location.href="/gatsby-rhodes-guide/";
+},4000);
+
+</script>
+
+</body>
+
+</html>

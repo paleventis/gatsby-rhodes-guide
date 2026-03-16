@@ -68,3 +68,5 @@ fetch('data/places.json')
     });
   })
   .catch(err => console.error(err));
+
+initMap(places,userLocation);
