@@ -296,4 +296,3 @@ if (navigator.geolocation) {
   initPage();
 }
 
-initMap(places,userLocation);
