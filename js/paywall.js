@@ -83,7 +83,7 @@ function startPayment(){
 
  localStorage.setItem("userEmail",email);
 
- window.location.href="https://buy.stripe.com/bJefZgdvx3g2dfx48ceQM02";
+ window.location.href="https://buy.stripe.com/9B628q3UXbMy3EX7koeQM03";
 }
 
 function unlockWithCode(){
