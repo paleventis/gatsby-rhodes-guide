@@ -155,22 +155,32 @@ function initPage() {
           distanceText = `<br>📏 ${d.toFixed(1)} km from Gatsby Rhodes Villas`;
         }
 
-        info.innerHTML = `📍 ${place.address}${distanceText}`;
+        if(locked){
+
+ info.innerHTML = `📍 Hidden location${distanceText}`;
+
+}else{
+
+ info.innerHTML = `📍 ${place.address}${distanceText}`;
+
+}
+
+
         card.appendChild(info);
 
         // ---------------------------
         // Phone
         // ---------------------------
 
-        if (place.phone || place.tel) {
+        if (!locked && (place.phone || place.tel)) {
 
-          const phone = document.createElement('p');
+ const phone = document.createElement('p');
 
-          phone.textContent = `📞 ${place.phone || place.tel}`;
+ phone.textContent = `📞 ${place.phone || place.tel}`;
 
+ card.appendChild(phone);
 
-          card.appendChild(phone);
-        }
+}
 
         // ---------------------------
         // Google Maps navigation
