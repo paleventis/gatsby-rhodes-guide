@@ -58,8 +58,8 @@ function unlockWithCode(){
  const code=document.getElementById("accessCode").value;
 
  const validCodes=[
-  "gatsby2026",
-  "vip2026"
+  "gatsby",
+  "vip"
  ];
 
  if(validCodes.includes(code)){
