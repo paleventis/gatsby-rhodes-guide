@@ -69,30 +69,21 @@
 
 <script>
 
-const translations = {
-  en: "Emergency & Useful Numbers",
-  fr: "Urgences & Numéros Utiles",
-  de: "Notfall & Wichtige Nummern"
-};
+const savedLang = localStorage.getItem("lang");
 
 const buttons = document.querySelectorAll('.lang-switch button');
 
 buttons.forEach(btn => {
 
+  if(btn.dataset.lang === savedLang){
+    btn.classList.add("active");
+  }
+
   btn.addEventListener('click', () => {
 
-    const selectedLang = btn.dataset.lang;
+    localStorage.setItem('lang', btn.dataset.lang);
 
-    // Save language
-    localStorage.setItem("lang", selectedLang);
-
-    // Update text instantly
-    document.getElementById("emergencyText").textContent =
-      translations[selectedLang];
-
-    // Redirect after small delay (optional smoother UX)
-   // setTimeout(()=>{window.location.href = "restaurants.html";
-   // },300);
+   // window.location.href = "restaurants.html";
 
   });
 
