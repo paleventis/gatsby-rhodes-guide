@@ -58,7 +58,7 @@
 
 
     <button id="use-location" class="location-btn" onclick="window.location.href='useful-numbers.html'">
-     📞 Emergency & Useful Numbers
+     📞 <span id="emergencyText">Emergency & Useful Numbers</span>
      </button>
 
 
@@ -69,25 +69,54 @@
 
 <script>
 
-const savedLang = localStorage.getItem("lang");
+const translations = {
+  en: "Emergency & Useful Numbers",
+  fr: "Urgences & Numéros Utiles",
+  de: "Notfall & Wichtige Nummern"
+};
 
 const buttons = document.querySelectorAll('.lang-switch button');
 
 buttons.forEach(btn => {
 
-  if(btn.dataset.lang === savedLang){
-    btn.classList.add("active");
-  }
-
   btn.addEventListener('click', () => {
 
-    localStorage.setItem('lang', btn.dataset.lang);
+    const selectedLang = btn.dataset.lang;
 
-    //window.location.href = "restaurants.html";
+    // Save language
+    localStorage.setItem("lang", selectedLang);
+
+    // Update text instantly
+    document.getElementById("emergencyText").textContent =
+      translations[selectedLang];
+
+    // Redirect after small delay (optional smoother UX)
+   // setTimeout(()=>{window.location.href = "restaurants.html";
+   // },300);
 
   });
 
 });
+
+</script>
+
+
+<script>
+
+const translations = {
+  en: "Emergency & Useful Numbers",
+  fr: "Urgences & Numéros Utiles",
+  de: "Notfall & Wichtige Nummern"
+};
+
+// Get saved language
+const lang = localStorage.getItem("lang") || "en";
+
+// Apply translation on page load
+const el = document.getElementById("emergencyText");
+if(el){
+  el.textContent = translations[lang];
+}
 
 </script>
 
