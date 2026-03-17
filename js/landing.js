@@ -1,23 +1,4 @@
-// 📍 Use my location
-const locationBtn = document.getElementById('use-location');
 
-if (locationBtn) {
-  locationBtn.addEventListener('click', () => {
-    if (!navigator.geolocation) {
-      alert('Geolocation is not supported.');
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      pos => {
-        const { latitude, longitude } = pos.coords;
-        window.location.href =
-          `restaurants.html?lat=${latitude}&lng=${longitude}#restaurants`;
-      },
-      () => alert('Location access denied.')
-    );
-  });
-}
 
 // 🌍 Language switch
 const translations = {
