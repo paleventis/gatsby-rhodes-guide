@@ -1,96 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Useful Numbers - Rhodes Island Guide</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="landing.css" />
-  <style>
-    .numbers-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .number-tab {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      border-left: 5px solid #00c2cb;
-      text-decoration: none;
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
+<title>Useful Numbers</title>
 
-    .number-tab:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateX(10px);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-    .number-tab h3 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
+<style>
 
-    .number-tab p {
-      margin: 5px 0;
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#111;
+color:#fff;
+padding:20px;
+}
 
-    .back-btn {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-      z-index: 10;
-    }
+.page-title{
+font-family:'Playfair Display', serif;
+font-size:34px;
+text-align:center;
+margin-bottom:25px;
+text-shadow:0 2px 8px rgba(0,0,0,0.7);
+}
 
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
+.section{
+margin-bottom:25px;
+}
 
-    .category-title {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      text-align: center;
-      color: #d4af37;
-    }
-  </style>
+.section h2{
+font-size:18px;
+margin-bottom:10px;
+color:#d4af37;
+}
+
+.card{
+background:#1c1c1c;
+border-radius:16px;
+padding:15px;
+margin-bottom:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.4);
+}
+
+.card h3{
+margin:0 0 5px 0;
+font-size:16px;
+}
+
+.actions{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.btn{
+flex:1;
+padding:10px;
+border-radius:10px;
+text-align:center;
+text-decoration:none;
+font-size:14px;
+}
+
+.call{ background:#28a745; color:white; }
+.whatsapp{ background:#25D366; color:white; }
+
+</style>
 </head>
 
 <body>
 
-  <!-- Back Button -->
-  <button class="back-btn" onclick="goBack()">← Back</button>
+<h1 class="page-title" id="title"></h1>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Useful Numbers</h1>
-    <p id="subtitle">Emergency & Services</p>
+<div id="content"></div>
 
-    <div id="numbers-container" class="numbers-container"></div>
-  </section>
+<script>
 
-  <script src="useful-numbers.js"></script>
+// ---------------- LANGUAGE ----------------
+
+const lang = localStorage.getItem("lang") || "en";
+
+const t = {
+
+en:{
+title:"📞 Useful Numbers",
+emergency:"Emergency & Safety",
+services:"Services",
+call:"Call",
+whatsapp:"WhatsApp",
+
+police:"Police",
+touristPolice:"Tourist Police",
+hospital:"General Hospital of Rhodes",
+port:"Port Authority Rhodes",
+airport:"Rhodes Airport (Diagoras)",
+fire:"Fire Department",
+ambulance:"Ambulance",
+
+securityOffice:"Security / Passport Office",
+doctor:"Emergency Doctor",
+lawyer:"Lawyer",
+taxi:"Radio Taxi Rhodes"
+},
+
+fr:{
+title:"📞 Numéros Utiles",
+emergency:"Urgence & Sécurité",
+services:"Services",
+call:"Appeler",
+whatsapp:"WhatsApp",
+
+police:"Police",
+touristPolice:"Police Touristique",
+hospital:"Hôpital Général de Rhodes",
+port:"Autorité Portuaire Rhodes",
+airport:"Aéroport de Rhodes (Diagoras)",
+fire:"Pompiers",
+ambulance:"Ambulance",
+
+securityOffice:"Service Sécurité / Passeports",
+doctor:"Médecin d'urgence",
+lawyer:"Avocat",
+taxi:"Radio Taxi Rhodes"
+},
+
+de:{
+title:"📞 Wichtige Nummern",
+emergency:"Notfall & Sicherheit",
+services:"Dienstleistungen",
+call:"Anrufen",
+whatsapp:"WhatsApp",
+
+police:"Polizei",
+touristPolice:"Touristenpolizei",
+hospital:"Allgemeines Krankenhaus Rhodos",
+port:"Hafenbehörde Rhodos",
+airport:"Flughafen Rhodos (Diagoras)",
+fire:"Feuerwehr",
+ambulance:"Krankenwagen",
+
+securityOffice:"Sicherheitsdienst / Reisepässe",
+doctor:"Notarzt",
+lawyer:"Anwalt",
+taxi:"Radio Taxi Rhodos"
+}
+
+};
+
+// ---------------- DATA ----------------
+
+const emergency = [
+{ name:"police", number:"100" },
+{ name:"police", number:"+302241023849" },
+{ name:"touristPolice", number:"+302241027423" },
+{ name:"hospital", number:"+302241080000" },
+{ name:"port", number:"+302241022220" },
+{ name:"airport", number:"+302241088700" },
+{ name:"fire", number:"199" },
+{ name:"ambulance", number:"166" }
+];
+
+const services = [
+{ name:"securityOffice", number:"+302241024138" },
+{ name:"doctor", number:"+306934889551" },
+{ name:"lawyer", number:"+306948404427" },
+{ name:"taxi", number:"+302241069700" },
+{ name:"taxi", number:"+302241069600" }
+];
+
+// ---------------- RENDER ----------------
+
+document.getElementById("title").textContent = t[lang].title;
+
+const container = document.getElementById("content");
+
+// Section builder
+function createSection(title, list){
+
+const section = document.createElement("div");
+section.className="section";
+
+const h2 = document.createElement("h2");
+h2.textContent = title;
+section.appendChild(h2);
+
+list.forEach(item=>{
+
+const card = document.createElement("div");
+card.className="card";
+
+const name = document.createElement("h3");
+name.textContent = t[lang][item.name];
+card.appendChild(name);
+
+const actions = document.createElement("div");
+actions.className="actions";
+
+// CALL
+const call = document.createElement("a");
+call.href = `tel:${item.number}`;
+call.className="btn call";
+call.textContent = t[lang].call;
+actions.appendChild(call);
+
+// WHATSAPP (only for mobile numbers)
+if(item.number.startsWith("+306")){
+
+const wa = document.createElement("a");
+wa.href = `https://wa.me/${item.number.replace("+","")}`;
+wa.className="btn whatsapp";
+wa.textContent = t[lang].whatsapp;
+actions.appendChild(wa);
+
+}
+
+card.appendChild(actions);
+section.appendChild(card);
+
+});
+
+container.appendChild(section);
+}
+
+// Render both sections
+createSection(t[lang].emergency, emergency);
+createSection(t[lang].services, services);
+
+</script>
 
 </body>
 </html>

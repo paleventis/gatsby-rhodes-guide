@@ -452,3 +452,8 @@ text-shadow:
 .index-page{
 padding-top:3px;
 }
+
+.lang-switch button.active{
+background:#d4af37;
+color:black;
+}

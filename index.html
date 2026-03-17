@@ -58,7 +58,7 @@
 
 
     <button id="use-location" class="location-btn" onclick="window.location.href='useful-numbers.html'">
-     📞 Useful Numbers
+     📞 Emergency & Useful Numbers
      </button>
 
 
@@ -66,6 +66,30 @@
 
 <script src="js/landing.js"></script>
 
+
+<script>
+
+const savedLang = localStorage.getItem("lang");
+
+const buttons = document.querySelectorAll('.lang-switch button');
+
+buttons.forEach(btn => {
+
+  if(btn.dataset.lang === savedLang){
+    btn.classList.add("active");
+  }
+
+  btn.addEventListener('click', () => {
+
+    localStorage.setItem('lang', btn.dataset.lang);
+
+    //window.location.href = "restaurants.html";
+
+  });
+
+});
+
+</script>
 
 </body>
 </html>
