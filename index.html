@@ -7,64 +7,79 @@
   <link rel="stylesheet" href="landing.css" />
 </head>
 
-
-
-
-
-
-
-
 <body>
 
-<div class="lang-switch">
-  <button data-lang="en">EN</button>
-  <button data-lang="fr">FR</button>
-  <button data-lang="de">DE</button>
-</div>
+  <!-- Top Right Controls -->
+  <div class="top-right-controls">
+    <div class="lang-switch">
+      <button data-lang="en">EN</button>
+      <button data-lang="fr">FR</button>
+      <button data-lang="de">DE</button>
+    </div>
+    <button class="useful-numbers-btn">
+      📞 Useful Numbers
+    </button>
+  </div>
 
-
-
-
-
+  <!-- Hero Section -->
   <section class="hero">
     <h1>Rhodes Island</h1>
     <p>Experience and Discover the most curated places on the island</p>
 
     <div class="menu">
-  <a href="restaurants.html" class="tab restaurants">
-    🍽️ Restaurants
-  </a>
+      <a href="restaurants.html" class="tab restaurants">
+        🍽️ Restaurants
+      </a>
 
-  <a href="coffee.html" class="tab coffee">
-    ☕ Coffee & Brunch
-  </a>
+      <a href="coffee.html" class="tab coffee">
+        ☕ Coffee & Brunch
+      </a>
 
-  <a href="clubs.html" class="tab clubs">
-    🎶 Clubs & Nightlife
-  </a>
+      <a href="clubs.html" class="tab clubs">
+        🎶 Clubs & Nightlife
+      </a>
 
-  <a href="beaches.html" class="tab beaches">
-    🏖️ Beaches
-  </a>
+      <a href="beaches.html" class="tab beaches">
+        🏖️ Beaches
+      </a>
 
-  <a href="activities.html" class="tab activities">
-    🚴 Activities
-  </a>
+      <a href="activities.html" class="tab activities">
+        🚴 Activities
+      </a>
 
-  <a href="sightseeing.html" class="tab sightseeing">
-    🏛️ Culture
-  </a>
-</div>
-
-    <button id="use-location" class="location-btn">
-     📍 Use my location
-     </button>
-
-
+      <a href="sightseeing.html" class="tab sightseeing">
+        🏛️ Culture
+      </a>
+    </div>
   </section>
 
-<script src="js/landing.js"></script>
+  <!-- Cookie Consent Modal -->
+  <div id="cookie-consent" class="cookie-consent">
+    <div class="cookie-content">
+      <h3>Cookie Settings</h3>
+      <p>We use cookies to enhance your experience. You can choose to accept all, reject all, or customize your preferences.</p>
+    </div>
+    <div class="cookie-btns">
+      <button class="accept-all" onclick="handleCookie('accept')">Accept All</button>
+      <button class="customize" onclick="handleCookie('customize')">Customize</button>
+      <button class="reject-all" onclick="handleCookie('reject')">Reject All</button>
+    </div>
+  </div>
 
+  <script>
+    // Cookie Consent Logic
+    window.onload = function() {
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-consent').style.display = 'flex';
+      }
+    };
+
+    function handleCookie(choice) {
+      localStorage.setItem('cookieConsent', choice);
+      document.getElementById('cookie-consent').style.display = 'none';
+      console.log('User choice:', choice);
+    }
+  </script>
 
 </body>
 </html>

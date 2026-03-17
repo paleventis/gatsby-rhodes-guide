@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.75)
+  ),
+  url("assets/hero-rhodes.jpg") center / cover no-repeat;
+  color: white;
+}
+
+.hero {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.tab {
+  padding: 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+
+
+.tab:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.28);
+  box-shadow: 0 0 25px rgba(255,255,255,0.15);
+}
+
+
+
+.location-btn {
+  margin-top: 2rem;
+  padding: 1rem 1.6rem;
+  font-size: 1.1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #00bbf9, #00f5d4);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.location-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,187,249,0.4);
+}
+
+
+
+.lang-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-switch button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lang-switch button:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+
+
+
+
+
+
+
+
+
+/* Accent colors per category */
+.restaurants { border-left: 6px solid #ff9f1c; }
+.coffee      { border-left: 6px solid #e58f5d; }
+.clubs       { border-left: 6px solid #9b5de5; }
+.beaches     { border-left: 6px solid #00bbf9; }
+.activities  { border-left: 6px solid #00f5d4; }
+.sightseeing { border-left: 6px solid #f15bb5; }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .tab {
+    font-size: 1.2rem;
+    padding: 1.4rem;
+  }
+}
+
+
+
