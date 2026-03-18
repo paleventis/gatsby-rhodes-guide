@@ -91,7 +91,24 @@ buttons.forEach(btn => {
 
 </script>
 
+<script>
 
+const translations = {
+  en: "Emergency & Useful Numbers",
+  fr: "Urgences & Numéros Utiles",
+  de: "Notfall & Wichtige Nummern"
+};
+
+// Get saved language
+const lang = localStorage.getItem("lang") || "en";
+
+// Apply translation on page load
+const el = document.getElementById("emergencyText");
+if(el){
+  el.textContent = translations[lang];
+}
+
+</script>
 
 
 </body>
