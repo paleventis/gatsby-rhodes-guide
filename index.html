@@ -9,15 +9,33 @@
 
 <body class="index-page">
 
+  <!-- ===================== COOKIE CONSENT MODAL ===================== -->
+  <div id="cookieOverlay" class="cookie-overlay">
+    <div class="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
+      <div class="cookie-icon">🍪</div>
+      <h2 id="cookieTitle">We use cookies</h2>
+      <p>
+        This site uses cookies to enhance your browsing experience, analyse traffic,
+        and personalise content. You can choose how we use your data below.
+      </p>
+      <div class="cookie-actions">
+        <button class="cookie-btn accept"  onclick="handleCookies('accept')">Accept All</button>
+        <button class="cookie-btn modify"  onclick="handleCookies('modify')">Manage Preferences</button>
+        <button class="cookie-btn reject"  onclick="handleCookies('reject')">Reject All</button>
+      </div>
+    </div>
+  </div>
+  <!-- ================================================================ -->
+
+  <!-- Top-right controls: language buttons stacked above emergency btn -->
   <div class="top-right-controls">
     <div class="lang-switch">
       <button data-lang="en">EN</button>
       <button data-lang="fr">FR</button>
       <button data-lang="de">DE</button>
-  
     </div>
-  <button id="emergencyBtn" class="emergencyBtn-btn" onclick="goToUsefulNumbers()">
-      📞 Emergency & Useful Numbers
+    <button id="emergencyBtn" class="emergencyBtn-btn" onclick="goToUsefulNumbers()">
+      📞 Emergency &amp; Useful Numbers
     </button>
   </div>
 
@@ -26,40 +44,37 @@
     <p id="heroSubtitle">Discover • Taste • Explore • Experience</p>
 
     <div class="menu">
-      <a href="restaurants.html" class="tab restaurants">
-        🍽️ Restaurants
-      </a>
-
-      <a href="coffee.html" class="tab coffee">
-        ☕ Coffee & Brunch
-      </a>
-
-      <a href="clubs.html" class="tab clubs">
-        🎶 Clubs & Nightlife
-      </a>
-
-      <a href="beaches.html" class="tab beaches">
-        🏖️ Beaches
-      </a>
-
-      <a href="activities.html" class="tab activities">
-        🚴 Activities
-      </a>
-
-      <a href="sightseeing.html" class="tab sightseeing">
-        🏛️ Culture
-      </a>
-
-
+      <a href="restaurants.html" class="tab restaurants">🍽️ Restaurants</a>
+      <a href="coffee.html"      class="tab coffee">☕ Coffee &amp; Brunch</a>
+      <a href="clubs.html"       class="tab clubs">🎶 Clubs &amp; Nightlife</a>
+      <a href="beaches.html"     class="tab beaches">🏖️ Beaches</a>
+      <a href="activities.html"  class="tab activities">🚴 Activities</a>
+      <a href="sightseeing.html" class="tab sightseeing">🏛️ Culture</a>
     </div>
-
-
-
   </section>
 
-
-
   <script>
+    // ---------------------------
+    // COOKIE CONSENT
+    // ---------------------------
+
+    function handleCookies(choice) {
+      localStorage.setItem('cookieConsent', choice);
+      const overlay = document.getElementById('cookieOverlay');
+      overlay.classList.add('cookie-overlay--hidden');
+      // Remove from DOM after fade-out transition
+      overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+    }
+
+    // Show overlay only if user hasn't already chosen
+    window.addEventListener('DOMContentLoaded', function () {
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookieOverlay').classList.add('cookie-overlay--visible');
+      } else {
+        document.getElementById('cookieOverlay').remove();
+      }
+    });
+
     // ---------------------------
     // TRANSLATIONS
     // ---------------------------
@@ -87,42 +102,26 @@
     // ---------------------------
 
     function initializePage() {
-      // Get saved language or default to English
       const savedLang = localStorage.getItem("selectedLanguage") || "en";
-      
-      // Update all text content
       updatePageContent(savedLang);
-      
-      // Highlight active language button
       highlightActiveLanguage(savedLang);
     }
 
     function updatePageContent(lang) {
-      // Update title
       const heroTitle = document.getElementById("heroTitle");
-      if (heroTitle) {
-        heroTitle.textContent = translations.title[lang];
-      }
+      if (heroTitle) heroTitle.textContent = translations.title[lang];
 
-      // Update subtitle
       const heroSubtitle = document.getElementById("heroSubtitle");
-      if (heroSubtitle) {
-        heroSubtitle.textContent = translations.subtitle[lang];
-      }
+      if (heroSubtitle) heroSubtitle.textContent = translations.subtitle[lang];
 
-      // Update emergency button
       const emergencyBtn = document.getElementById("emergencyBtn");
-      if (emergencyBtn) {
-        emergencyBtn.textContent = translations.emergencyBtn[lang];
-      }
+      if (emergencyBtn) emergencyBtn.textContent = translations.emergencyBtn[lang];
     }
 
     function highlightActiveLanguage(lang) {
       document.querySelectorAll('.lang-switch button').forEach(btn => {
         btn.classList.remove("active");
-        if (btn.dataset.lang === lang) {
-          btn.classList.add("active");
-        }
+        if (btn.dataset.lang === lang) btn.classList.add("active");
       });
     }
 
@@ -131,16 +130,10 @@
     // ---------------------------
 
     document.querySelectorAll('.lang-switch button').forEach(btn => {
-      btn.addEventListener('click', function() {
+      btn.addEventListener('click', function () {
         const selectedLang = this.dataset.lang;
-        
-        // Save language to localStorage
         localStorage.setItem("selectedLanguage", selectedLang);
-        
-        // Update all page content immediately
         updatePageContent(selectedLang);
-        
-        // Highlight active button
         highlightActiveLanguage(selectedLang);
       });
     });
@@ -150,8 +143,6 @@
     // ---------------------------
 
     function goToUsefulNumbers() {
-      // Save language to localStorage
-        
       window.location.href = 'useful-numbers.html';
     }
 
@@ -159,7 +150,7 @@
     // INITIALIZE ON PAGE LOAD
     // ---------------------------
 
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       initializePage();
     });
   </script>

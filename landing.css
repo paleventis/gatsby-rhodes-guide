@@ -1,3 +1,6 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,48 +9,58 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.75)
-  ),
-  url("assets/hero-rhodes.jpg") center / cover no-repeat;
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.75)
+    ),
+    url("assets/hero-rhodes.jpg") center / cover no-repeat fixed;
   color: white;
 }
 
+/* ============================================================
+   HERO SECTION — title & subtitle pushed toward the top
+   ============================================================ */
 .hero {
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* Push content toward the upper-third of the viewport */
+  justify-content: flex-start;
+  padding-top: 12vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
   text-align: center;
-  padding: 2rem;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 6vw, 3.5rem);
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
 }
 
 .hero p {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   opacity: 0.9;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
+/* ============================================================
+   MENU GRID — responsive, wraps on small screens
+   ============================================================ */
 .menu {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   width: 100%;
-  max-width: 420px;
+  max-width: 520px;
 }
 
 .tab {
-  padding: 1.6rem;
-  font-size: 1.4rem;
+  padding: 1.4rem 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   font-weight: 600;
   text-decoration: none;
   color: white;
@@ -55,9 +68,8 @@ body {
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(6px);
   transition: transform 0.25s ease, background 0.25s ease;
+  text-align: center;
 }
-
-
 
 .tab:hover {
   transform: scale(1.05);
@@ -65,32 +77,30 @@ body {
   box-shadow: 0 0 25px rgba(255,255,255,0.15);
 }
 
+/* Accent colours per category */
+.restaurants { border-left: 6px solid #ff9f1c; }
+.coffee      { border-left: 6px solid #e58f5d; }
+.clubs       { border-left: 6px solid #9b5de5; }
+.beaches     { border-left: 6px solid #00bbf9; }
+.activities  { border-left: 6px solid #00f5d4; }
+.sightseeing { border-left: 6px solid #f15bb5; }
 
-
-.emergencyBtn-btn {
-  margin-top: 2rem;
-  padding: 1rem 1.6rem;
-  font-size: 1.1rem;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  background: linear-gradient(135deg, #00bbf9, #00f5d4);
-  box-shadow: 0 0 0 rgba(0,0,0,0);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+/* ============================================================
+   TOP-RIGHT CONTROLS
+   Language buttons stacked on top, emergency button below
+   ============================================================ */
+.top-right-controls {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  z-index: 100;
 }
-
-.emergencyBtn-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0,187,249,0.4);
-}
-
-
 
 .lang-switch {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   display: flex;
   gap: 0.5rem;
 }
@@ -102,40 +112,185 @@ body {
   padding: 0.4rem 0.7rem;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
 }
 
 .lang-switch button:hover {
   background: rgba(255,255,255,0.35);
 }
 
+.lang-switch button.active {
+  background: #d4af37;
+  color: black;
+}
 
+/* Emergency button sits directly below the lang-switch */
+.emergencyBtn-btn {
+  padding: 0.65rem 1.1rem;
+  font-size: clamp(0.75rem, 1.8vw, 1rem);
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #00bbf9, #00f5d4);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
 
+.emergencyBtn-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0,187,249,0.4);
+}
 
+/* ============================================================
+   COOKIE CONSENT OVERLAY & MODAL
+   ============================================================ */
 
+/* Full-screen frosted-glass backdrop */
+.cookie-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Start invisible; JS adds --visible to trigger fade-in */
+  opacity: 0;
+  pointer-events: none;
+  /* Backdrop blur + semi-transparent dark tint */
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.35s ease;
+}
 
+.cookie-overlay--visible {
+  opacity: 1;
+  pointer-events: all;
+}
 
+.cookie-overlay--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 
+/* Modal card */
+.cookie-modal {
+  background: rgba(20, 20, 30, 0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+  animation: cookiePop 0.35s ease both;
+  color: #fff;
+}
 
+@keyframes cookiePop {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
 
-/* Accent colors per category */
-.restaurants { border-left: 6px solid #ff9f1c; }
-.coffee      { border-left: 6px solid #e58f5d; }
-.clubs       { border-left: 6px solid #9b5de5; }
-.beaches     { border-left: 6px solid #00bbf9; }
-.activities  { border-left: 6px solid #00f5d4; }
-.sightseeing { border-left: 6px solid #f15bb5; }
+.cookie-icon {
+  font-size: 2.6rem;
+  margin-bottom: 0.6rem;
+}
 
-/* Mobile */
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2.6rem;
+.cookie-modal h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.cookie-modal p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  opacity: 0.82;
+  margin-bottom: 1.6rem;
+}
+
+/* Action buttons row */
+.cookie-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.cookie-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.cookie-btn:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.cookie-btn.accept {
+  background: linear-gradient(135deg, #00bbf9, #00f5d4);
+  color: #000;
+}
+
+.cookie-btn.modify {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.cookie-btn.reject {
+  background: rgba(255,60,60,0.25);
+  color: #ff9090;
+  border: 1px solid rgba(255,60,60,0.35);
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet — single column menu */
+@media (max-width: 600px) {
+  .menu {
+    grid-template-columns: 1fr;
+    max-width: 360px;
   }
 
-  .tab {
-    font-size: 1.2rem;
-    padding: 1.4rem;
+  .hero {
+    padding-top: 10vh;
+  }
+
+  .top-right-controls {
+    top: 10px;
+    right: 10px;
+  }
+
+  .emergencyBtn-btn {
+    font-size: 0.78rem;
+    padding: 0.55rem 0.9rem;
   }
 }
 
+/* Small phones */
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
 
+  .lang-switch button {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.78rem;
+  }
 
+  .cookie-modal {
+    padding: 1.6rem 1.2rem;
+  }
+}
