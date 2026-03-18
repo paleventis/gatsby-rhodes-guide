@@ -57,8 +57,8 @@
 </div>
 
 
-    <button id="use-location" class="location-btn" onclick="window.location.href='useful-numbers.html'">
-     📞 <span id="emergencyText">Emergency & Useful Numbers</span>
+    <button id="emergencyBtn" class="emergencyBtn-btn" onclick="window.location.href='useful-numbers.html'">
+    Emergency & Useful Numbers
      </button>
 
 
@@ -69,38 +69,69 @@
 
 <script>
 
+// ---------------------------
+// TRANSLATIONS
+// ---------------------------
+
 const translations = {
   en: "Emergency & Useful Numbers",
   fr: "Urgences & Numéros Utiles",
   de: "Notfall & Wichtige Nummern"
 };
 
-const buttons = document.querySelectorAll('.lang-switch button');
+// ---------------------------
+// APPLY SAVED LANGUAGE
+// ---------------------------
 
-buttons.forEach(btn => {
+const savedLang = localStorage.getItem("lang") || "en";
+
+document.getElementById("emergencyBtn").textContent = translations[savedLang];
+
+// Highlight selected button
+document.querySelectorAll('.lang-switch button').forEach(btn=>{
+  if(btn.dataset.lang === savedLang){
+    btn.classList.add("active");
+  }
+});
+
+// ---------------------------
+// LANGUAGE SWITCH HANDLER
+// ---------------------------
+
+document.querySelectorAll('.lang-switch button').forEach(btn => {
 
   btn.addEventListener('click', () => {
 
     const selectedLang = btn.dataset.lang;
 
-  if(btn.dataset.lang === savedLang){
-    btn.classList.add("active");
-  }
-
     // Save language
     localStorage.setItem("lang", selectedLang);
 
-    // Update text instantly
-    document.getElementById("emergencyText").textContent =
+    // Update button text instantly
+    document.getElementById("emergencyBtn").textContent =
       translations[selectedLang];
 
-    // Redirect after small delay (optional smoother UX)
-    setTimeout(()=>{
-      window.location.href = "restaurants.html";
-    },300);
+    // Highlight active
+    document.querySelectorAll('.lang-switch button')
+      .forEach(b=>b.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    // Redirect after slight delay (smooth UX)
+  //  setTimeout(()=>{
+   //   window.location.href = "restaurants.html";
+  //  },300);
 
   });
 
+});
+
+// ---------------------------
+// EMERGENCY BUTTON ACTION
+// ---------------------------
+
+document.getElementById("emergencyBtn").addEventListener("click", ()=>{
+  window.location.href = "useful-numbers.html";
 });
 
 </script>

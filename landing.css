@@ -67,7 +67,7 @@ body {
 
 
 
-.location-btn {
+.emergencyBtn-btn {
   margin-top: 2rem;
   padding: 1rem 1.6rem;
   font-size: 1.1rem;
@@ -80,7 +80,7 @@ body {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.location-btn:hover {
+.emergencyBtn-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(0,187,249,0.4);
 }
