@@ -35,12 +35,35 @@
       <button data-lang="de">DE</button>
     </div>
     <button id="emergencyBtn" class="emergencyBtn-btn" onclick="goToUsefulNumbers()">
-      📞Useful Numbers
+      📞 Emergency &amp; Useful Numbers
     </button>
   </div>
 
   <section class="hero">
-    <h1 id="heroTitle">Rhodes Island</h1>
+    <h1 id="heroTitle">Rhodes <span class="island-wrap">
+      <span class="sun-icon">☀️</span>
+      <span class="island-text">Island</span>
+      <span class="sunglasses-overlay" aria-hidden="true">
+        <svg class="sunglasses-svg" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bridge -->
+          <line x1="42" y1="18" x2="78" y2="18" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+          <!-- Left arm -->
+          <line x1="4" y1="14" x2="18" y2="18" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+          <!-- Right arm -->
+          <line x1="102" y1="14" x2="116" y2="18" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+          <!-- Left lens -->
+          <rect x="8" y="8" width="34" height="22" rx="8" ry="8"
+                fill="rgba(0,0,0,0.35)" stroke="#333" stroke-width="2.5"/>
+          <!-- Right lens -->
+          <rect x="78" y="8" width="34" height="22" rx="8" ry="8"
+                fill="rgba(0,0,0,0.35)" stroke="#333" stroke-width="2.5"/>
+          <!-- Left lens shine -->
+          <ellipse cx="20" cy="14" rx="6" ry="3" fill="rgba(255,255,255,0.18)" transform="rotate(-15 20 14)"/>
+          <!-- Right lens shine -->
+          <ellipse cx="90" cy="14" rx="6" ry="3" fill="rgba(255,255,255,0.18)" transform="rotate(-15 90 14)"/>
+        </svg>
+      </span>
+    </span></h1>
     <p id="heroSubtitle">Discover • Taste • Explore • Experience</p>
 
     <div class="menu">
@@ -91,9 +114,9 @@
         de: "Entdecken • Genießen • Erkunden • Erleben"
       },
       emergencyBtn: {
-        en: "📞Useful Numbers",
-        fr: "📞Numéros Utiles",
-        de: "📞Wichtige Nummern"
+        en: "📞 Emergency & Useful Numbers",
+        fr: "📞 Urgences & Numéros Utiles",
+        de: "📞 Notfall & Wichtige Nummern"
       }
     };
 
@@ -109,7 +132,27 @@
 
     function updatePageContent(lang) {
       const heroTitle = document.getElementById("heroTitle");
-      if (heroTitle) heroTitle.textContent = translations.title[lang];
+      if (heroTitle) {
+        // Split on the last space so the decorated word stays intact
+        const parts = translations.title[lang].split(' ');
+        const first = parts.slice(0, -1).join(' ');
+        const last  = parts[parts.length - 1];
+        heroTitle.innerHTML =
+          first + ' <span class="island-wrap">' +
+          '<span class="sun-icon">☀️</span>' +
+          '<span class="island-text">' + last + '</span>' +
+          '<span class="sunglasses-overlay" aria-hidden="true">' +
+          '<svg class="sunglasses-svg" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">' +
+          '<line x1="42" y1="18" x2="78" y2="18" stroke="#222" stroke-width="3" stroke-linecap="round"/>' +
+          '<line x1="4" y1="14" x2="18" y2="18" stroke="#222" stroke-width="3" stroke-linecap="round"/>' +
+          '<line x1="102" y1="14" x2="116" y2="18" stroke="#222" stroke-width="3" stroke-linecap="round"/>' +
+          '<rect x="8" y="8" width="34" height="22" rx="8" ry="8" fill="rgba(0,0,0,0.35)" stroke="#333" stroke-width="2.5"/>' +
+          '<rect x="78" y="8" width="34" height="22" rx="8" ry="8" fill="rgba(0,0,0,0.35)" stroke="#333" stroke-width="2.5"/>' +
+          '<ellipse cx="20" cy="14" rx="6" ry="3" fill="rgba(255,255,255,0.18)" transform="rotate(-15 20 14)"/>' +
+          '<ellipse cx="90" cy="14" rx="6" ry="3" fill="rgba(255,255,255,0.18)" transform="rotate(-15 90 14)"/>' +
+          '</svg></span>' +
+          '</span>';
+      }
 
       const heroSubtitle = document.getElementById("heroSubtitle");
       if (heroSubtitle) heroSubtitle.textContent = translations.subtitle[lang];

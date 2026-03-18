@@ -26,9 +26,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Push content toward the upper-third of the viewport */
+  /* Push content close to the top — roughly half a menu-button above the grid */
   justify-content: flex-start;
-  padding-top: 12vh;
+  padding-top: 4vh;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 2rem;
@@ -251,6 +251,69 @@ body {
   background: rgba(255,60,60,0.25);
   color: #ff9090;
   border: 1px solid rgba(255,60,60,0.35);
+}
+
+/* ============================================================
+   HERO TITLE DECORATIONS — sunglasses overlay + pulsing sun
+   ============================================================ */
+
+/* Wrapper around the last word of the title (e.g. "Island") */
+.island-wrap {
+  position: relative;
+  display: inline-block;
+  /* Enough top space for the sun sitting above */
+  padding-top: 0.55em;
+}
+
+/* The word text itself — nothing special, just keeps it in flow */
+.island-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Sunglasses SVG — centred over the word, semi-transparent */
+.sunglasses-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -42%);
+  width: 100%;         /* stretch to match the word width */
+  /* Semi-transparent so the word 'Island' shows through */
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 2;
+  line-height: 0;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+}
+
+.sunglasses-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ☀️  Sun — floats above the letter 'd' (right side of the word) */
+.sun-icon {
+  position: absolute;
+  /* Sit just above the top of the text */
+  top: -0.05em;
+  /* Align with the right ~80% of the word — roughly above the 'd' */
+  right: 0;
+  font-size: 0.7em;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 3;
+  /* Pulsing glow identical to .unlock-btn animation */
+  animation: unlockPulse 2s infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 220, 50, 0.85))
+           drop-shadow(0 0 14px rgba(255, 180, 0, 0.5));
+}
+
+/* Pulse keyframes — same as styles.css .unlock-btn */
+@keyframes unlockPulse {
+  0%   { transform: scale(1);    }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1);    }
 }
 
 /* ============================================================
