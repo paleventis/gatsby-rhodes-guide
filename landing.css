@@ -254,7 +254,7 @@ body {
 }
 
 /* ============================================================
-   HERO TITLE DECORATIONS — sunglasses overlay + pulsing sun
+   HERO TITLE DECORATIONS — pulsing sun above 'Island'
    ============================================================ */
 
 /* Wrapper around the last word of the title (e.g. "Island") */
@@ -269,27 +269,6 @@ body {
 .island-text {
   position: relative;
   z-index: 1;
-}
-
-/* Sunglasses SVG — centred over the word, semi-transparent */
-.sunglasses-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -42%);
-  width: 100%;         /* stretch to match the word width */
-  /* Semi-transparent so the word 'Island' shows through */
-  opacity: 0.55;
-  pointer-events: none;
-  z-index: 2;
-  line-height: 0;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
-}
-
-.sunglasses-svg {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 /* ☀️  Sun — floats above the letter 'd' (right side of the word) */
