@@ -7,135 +7,152 @@
   <link rel="stylesheet" href="landing.css" />
 </head>
 
-
-
-
-
-
-
-
 <body class="index-page">
 
-<div class="lang-switch">
-  <button data-lang="en">EN</button>
-  <button data-lang="fr">FR</button>
-  <button data-lang="de">DE</button>
-</div>
-
-
-
-
+  <div class="top-right-controls">
+    <div class="lang-switch">
+      <button data-lang="en">EN</button>
+      <button data-lang="fr">FR</button>
+      <button data-lang="de">DE</button>
+    </div>
+    <button id="emergencyBtn" class="useful-numbers-btn" onclick="goToUsefulNumbers()">
+      📞 Emergency & Useful Numbers
+    </button>
+  </div>
 
   <section class="hero">
     <h1>Rhodes Island</h1>
     <p>Discover • Taste • Explore • Experience</p>
 
     <div class="menu">
-  <a href="restaurants.html" class="tab restaurants">
-    🍽️ Restaurants
-  </a>
+      <a href="restaurants.html" class="tab restaurants">
+        🍽️ Restaurants
+      </a>
 
-  <a href="coffee.html" class="tab coffee">
-    ☕ Coffee & Brunch
-  </a>
+      <a href="coffee.html" class="tab coffee">
+        ☕ Coffee & Brunch
+      </a>
 
-  <a href="clubs.html" class="tab clubs">
-    🎶 Clubs & Nightlife
-  </a>
+      <a href="clubs.html" class="tab clubs">
+        🎶 Clubs & Nightlife
+      </a>
 
-  <a href="beaches.html" class="tab beaches">
-    🏖️ Beaches
-  </a>
+      <a href="beaches.html" class="tab beaches">
+        🏖️ Beaches
+      </a>
 
-  <a href="activities.html" class="tab activities">
-    🚴 Activities
-  </a>
+      <a href="activities.html" class="tab activities">
+        🚴 Activities
+      </a>
 
-  <a href="sightseeing.html" class="tab sightseeing">
-    🏛️ Culture
-  </a>
-</div>
-
-
-    <button id="emergencyBtn" class="emergencyBtn-btn" onclick="window.location.href='useful-numbers.html'">
-   Emergency & Useful Numbers
-     </button>
-
-
+      <a href="sightseeing.html" class="tab sightseeing">
+        🏛️ Culture
+      </a>
+    </div>
   </section>
 
-<script src="js/landing.js"></script>
+  <!-- Cookie Consent Modal -->
+  <div id="cookie-consent" class="cookie-consent">
+    <div class="cookie-content">
+      <h3>Cookie Settings</h3>
+      <p>We use cookies to enhance your experience. You can choose to accept all, reject all, or customize your preferences.</p>
+    </div>
+    <div class="cookie-btns">
+      <button class="accept-all" onclick="handleCookie('accept')">Accept All</button>
+      <button class="customize" onclick="handleCookie('customize')">Customize</button>
+      <button class="reject-all" onclick="handleCookie('reject')">Reject All</button>
+    </div>
+  </div>
 
+  <script>
+    // ---------------------------
+    // TRANSLATIONS
+    // ---------------------------
 
-<script>
+    const translations = {
+      en: "📞 Emergency & Useful Numbers",
+      fr: "📞 Urgences & Numéros Utiles",
+      de: "📞 Notfall & Wichtige Nummern"
+    };
 
-// ---------------------------
-// TRANSLATIONS
-// ---------------------------
+    // ---------------------------
+    // INITIALIZE PAGE
+    // ---------------------------
 
-const translations = {
-  en: "Emergency & Useful Numbers",
-  fr: "Urgences & Numéros Utiles",
-  de: "Notfall & Wichtige Nummern"
-};
+    function initializePage() {
+      // Get saved language or default to English
+      const savedLang = localStorage.getItem("selectedLanguage") || "en";
+      
+      // Update button text
+      updateButtonText(savedLang);
+      
+      // Highlight active language button
+      highlightActiveLanguage(savedLang);
+    }
 
-// ---------------------------
-// APPLY SAVED LANGUAGE
-// ---------------------------
+    function updateButtonText(lang) {
+      const emergencyBtn = document.getElementById("emergencyBtn");
+      if (emergencyBtn) {
+        emergencyBtn.textContent = translations[lang];
+      }
+    }
 
-const savedLang = localStorage.getItem("lang") || "en";
+    function highlightActiveLanguage(lang) {
+      document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.remove("active");
+        if (btn.dataset.lang === lang) {
+          btn.classList.add("active");
+        }
+      });
+    }
 
-document.getElementById("emergencyBtn").textContent = translations[savedLang];
+    // ---------------------------
+    // LANGUAGE SWITCH HANDLER
+    // ---------------------------
 
-// Highlight selected button
-document.querySelectorAll('.lang-switch button').forEach(btn=>{
-  if(btn.dataset.lang === savedLang){
-    btn.classList.add("active");
-  }
-});
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const selectedLang = this.dataset.lang;
+        
+        // Save language to localStorage
+        localStorage.setItem("selectedLanguage", selectedLang);
+        
+        // Update button text immediately
+        updateButtonText(selectedLang);
+        
+        // Highlight active button
+        highlightActiveLanguage(selectedLang);
+      });
+    });
 
-// ---------------------------
-// LANGUAGE SWITCH HANDLER
-// ---------------------------
+    // ---------------------------
+    // EMERGENCY BUTTON ACTION
+    // ---------------------------
 
-document.querySelectorAll('.lang-switch button').forEach(btn => {
+    function goToUsefulNumbers() {
+      window.location.href = 'useful-numbers.html';
+    }
 
-  btn.addEventListener('click', () => {
+    // ---------------------------
+    // COOKIE CONSENT LOGIC
+    // ---------------------------
 
-    const selectedLang = btn.dataset.lang;
+    window.addEventListener('load', function() {
+      // Initialize page on load
+      initializePage();
+      
+      // Show cookie consent if not already accepted
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-consent').style.display = 'flex';
+      }
+    });
 
-    // Save language
-    localStorage.setItem("lang", selectedLang);
-
-    // Update button text instantly
-    document.getElementById("emergencyBtn").textContent =
-      translations[selectedLang];
-
-    // Highlight active
-    document.querySelectorAll('.lang-switch button')
-      .forEach(b=>b.classList.remove("active"));
-
-    btn.classList.add("active");
-
-    // Redirect after slight delay (smooth UX)
-  //  setTimeout(()=>{
-   //   window.location.href = "restaurants.html";
-  //  },300);
-
-  });
-
-});
-
-// ---------------------------
-// EMERGENCY BUTTON ACTION
-// ---------------------------
-
-document.getElementById("emergencyBtn").addEventListener("click", ()=>{
-  window.location.href = "useful-numbers.html";
-});
-
-</script>
-
+    function handleCookie(choice) {
+      localStorage.setItem('cookieConsent', choice);
+      document.getElementById('cookie-consent').style.display = 'none';
+      console.log('User cookie choice:', choice);
+    }
+  </script>
 
 </body>
 </html>
