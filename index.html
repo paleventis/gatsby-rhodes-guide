@@ -7,67 +7,51 @@
   <link rel="stylesheet" href="landing.css" />
 </head>
 
-
-
-
-
-
-
-
 <body class="index-page">
 
-<div class="lang-switch">
-  <button data-lang="en">EN</button>
-  <button data-lang="fr">FR</button>
-  <button data-lang="de">DE</button>
-</div>
-
-
-
-
+  <div class="top-right-controls">
+    <div class="lang-switch">
+      <button data-lang="en">EN</button>
+      <button data-lang="fr">FR</button>
+      <button data-lang="de">DE</button>
+    </div>
+    <button id="emergencyBtn" class="emergencyBtn-btn" onclick="goToUsefulNumbers()">
+      📞 Emergency & Useful Numbers
+    </button>
+  </div>
 
   <section class="hero">
     <h1>Rhodes Island</h1>
     <p>Discover • Taste • Explore • Experience</p>
 
     <div class="menu">
-  <a href="restaurants.html" class="tab restaurants">
-    🍽️ Restaurants
-  </a>
+      <a href="restaurants.html" class="tab restaurants">
+        🍽️ Restaurants
+      </a>
 
-  <a href="coffee.html" class="tab coffee">
-    ☕ Coffee & Brunch
-  </a>
+      <a href="coffee.html" class="tab coffee">
+        ☕ Coffee & Brunch
+      </a>
 
-  <a href="clubs.html" class="tab clubs">
-    🎶 Clubs & Nightlife
-  </a>
+      <a href="clubs.html" class="tab clubs">
+        🎶 Clubs & Nightlife
+      </a>
 
-  <a href="beaches.html" class="tab beaches">
-    🏖️ Beaches
-  </a>
+      <a href="beaches.html" class="tab beaches">
+        🏖️ Beaches
+      </a>
 
-  <a href="activities.html" class="tab activities">
-    🚴 Activities
-  </a>
+      <a href="activities.html" class="tab activities">
+        🚴 Activities
+      </a>
 
-  <a href="sightseeing.html" class="tab sightseeing">
-    🏛️ Culture
-  </a>
-</div>
-
-
-    <button id="emergencyBtn" class="emergencyBtn-btn" onclick="window.location.href='useful-numbers.html'">
-     📞 <span id="emergencyText">Emergency & Useful Numbers</span>
-     </button>
-
-
+      <a href="sightseeing.html" class="tab sightseeing">
+        🏛️ Culture
+      </a>
+    </div>
   </section>
 
-<script src="js/landing.js"></script>
-
-
- <script>
+  <script>
     // ---------------------------
     // TRANSLATIONS
     // ---------------------------
@@ -144,7 +128,6 @@
       initializePage();
     });
   </script>
-
 
 </body>
 </html>
