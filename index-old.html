@@ -14,7 +14,7 @@
 
 
 
-<body>
+<body class="index-page">
 
 <div class="lang-switch">
   <button data-lang="en">EN</button>
@@ -28,7 +28,7 @@
 
   <section class="hero">
     <h1>Rhodes Island</h1>
-    <p>Experience and Discover the most curated places on the island</p>
+    <p>Discover • Taste • Explore • Experience</p>
 
     <div class="menu">
   <a href="restaurants.html" class="tab restaurants">
@@ -56,14 +56,59 @@
   </a>
 </div>
 
-    <button id="use-location" class="location-btn">
-     📍 Use my location
+
+    <button id="use-location" class="location-btn" onclick="window.location.href='useful-numbers.html'">
+     📞 <span id="emergencyText">Emergency & Useful Numbers</span>
      </button>
 
 
   </section>
 
 <script src="js/landing.js"></script>
+
+
+<script>
+
+const savedLang = localStorage.getItem("lang");
+
+const buttons = document.querySelectorAll('.lang-switch button');
+
+buttons.forEach(btn => {
+
+  if(btn.dataset.lang === savedLang){
+    btn.classList.add("active");
+  }
+
+  btn.addEventListener('click', () => {
+
+    localStorage.setItem('lang', btn.dataset.lang);
+
+   // window.location.href = "restaurants.html";
+
+  });
+
+});
+
+</script>
+
+<script>
+
+const translations = {
+  en: "Emergency & Useful Numbers",
+  fr: "Urgences & Numéros Utiles",
+  de: "Notfall & Wichtige Nummern"
+};
+
+// Get saved language
+const lang = localStorage.getItem("lang") || "en";
+
+// Apply translation on page load
+const el = document.getElementById("emergencyText");
+if(el){
+  el.textContent = translations[lang];
+}
+
+</script>
 
 
 </body>

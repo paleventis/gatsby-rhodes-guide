@@ -69,44 +69,39 @@
 
 <script>
 
-const savedLang = localStorage.getItem("lang");
-
-const buttons = document.querySelectorAll('.lang-switch button');
-
-buttons.forEach(btn => {
-
-  if(btn.dataset.lang === savedLang){
-    btn.classList.add("active");
-  }
-
-  btn.addEventListener('click', () => {
-
-    localStorage.setItem('lang', btn.dataset.lang);
-
-   // window.location.href = "restaurants.html";
-
-  });
-
-});
-
-</script>
-
-<script>
-
 const translations = {
   en: "Emergency & Useful Numbers",
   fr: "Urgences & Numéros Utiles",
   de: "Notfall & Wichtige Nummern"
 };
 
-// Get saved language
-const lang = localStorage.getItem("lang") || "en";
+const buttons = document.querySelectorAll('.lang-switch button');
 
-// Apply translation on page load
-const el = document.getElementById("emergencyText");
-if(el){
-  el.textContent = translations[lang];
-}
+buttons.forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    const selectedLang = btn.dataset.lang;
+
+  if(btn.dataset.lang === savedLang){
+    btn.classList.add("active");
+  }
+
+    // Save language
+    localStorage.setItem("lang", selectedLang);
+
+    // Update text instantly
+    document.getElementById("emergencyText").textContent =
+      translations[selectedLang];
+
+    // Redirect after small delay (optional smoother UX)
+    setTimeout(()=>{
+      window.location.href = "restaurants.html";
+    },300);
+
+  });
+
+});
 
 </script>
 
