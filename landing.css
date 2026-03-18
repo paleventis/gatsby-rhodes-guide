@@ -26,9 +26,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Push content close to the top — roughly half a menu-button above the grid */
+  /* Title & sun sit noticeably lower from the top */
   justify-content: flex-start;
-  padding-top: 4vh;
+  padding-top: 18vh;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 2rem;
