@@ -21,8 +21,8 @@
   </div>
 
   <section class="hero">
-    <h1>Rhodes Island</h1>
-    <p>Discover • Taste • Explore • Experience</p>
+    <h1 id="heroTitle">Rhodes Island</h1>
+    <p id="heroSubtitle">Discover • Taste • Explore • Experience</p>
 
     <div class="menu">
       <a href="restaurants.html" class="tab restaurants">
@@ -57,9 +57,21 @@
     // ---------------------------
 
     const translations = {
-      en: "📞 Emergency & Useful Numbers",
-      fr: "📞 Urgences & Numéros Utiles",
-      de: "📞 Notfall & Wichtige Nummern"
+      title: {
+        en: "Rhodes Island",
+        fr: "Île de Rhodes",
+        de: "Insel Rhodos"
+      },
+      subtitle: {
+        en: "Discover • Taste • Explore • Experience",
+        fr: "Découvrez • Goûtez • Explorez • Vivez",
+        de: "Entdecken • Genießen • Erkunden • Erleben"
+      },
+      emergencyBtn: {
+        en: "📞 Emergency & Useful Numbers",
+        fr: "📞 Urgences & Numéros Utiles",
+        de: "📞 Notfall & Wichtige Nummern"
+      }
     };
 
     // ---------------------------
@@ -70,17 +82,30 @@
       // Get saved language or default to English
       const savedLang = localStorage.getItem("selectedLanguage") || "en";
       
-      // Update button text
-      updateButtonText(savedLang);
+      // Update all text content
+      updatePageContent(savedLang);
       
       // Highlight active language button
       highlightActiveLanguage(savedLang);
     }
 
-    function updateButtonText(lang) {
+    function updatePageContent(lang) {
+      // Update title
+      const heroTitle = document.getElementById("heroTitle");
+      if (heroTitle) {
+        heroTitle.textContent = translations.title[lang];
+      }
+
+      // Update subtitle
+      const heroSubtitle = document.getElementById("heroSubtitle");
+      if (heroSubtitle) {
+        heroSubtitle.textContent = translations.subtitle[lang];
+      }
+
+      // Update emergency button
       const emergencyBtn = document.getElementById("emergencyBtn");
       if (emergencyBtn) {
-        emergencyBtn.textContent = translations[lang];
+        emergencyBtn.textContent = translations.emergencyBtn[lang];
       }
     }
 
@@ -104,8 +129,8 @@
         // Save language to localStorage
         localStorage.setItem("selectedLanguage", selectedLang);
         
-        // Update button text immediately
-        updateButtonText(selectedLang);
+        // Update all page content immediately
+        updatePageContent(selectedLang);
         
         // Highlight active button
         highlightActiveLanguage(selectedLang);
