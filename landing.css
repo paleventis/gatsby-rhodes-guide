@@ -370,10 +370,10 @@ body {
   filter: none;
   animation: unlockPulse 2s infinite;
   background: transparent;
-  border: none;      /* Added to remove any default borders */
-  padding: 0;        /* Added to remove internal spacing */
-  margin: 0;         /* Added to ensure no external spacing */
-  display: inline-block; /* Added for consistent rendering */
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
 }
 
 /* ---- Film-strip wrapper ---- */
