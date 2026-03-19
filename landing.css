@@ -360,6 +360,7 @@ body {
   color: #f5d87a;
   text-shadow: 0 0 12px rgba(245, 180, 30, 0.55);
   letter-spacing: 0.5px;
+   background:transparent;
 }
 
 .gems-diamond {
@@ -373,7 +374,7 @@ body {
 
 
 .gems-diamond{
- z-index: 3;
+ 
 display:block;
 background:transparent;
 }
