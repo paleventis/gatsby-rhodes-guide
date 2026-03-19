@@ -367,18 +367,12 @@ body {
   width: 1.6em;
   height: 1.6em;
   object-fit: contain;
+
+  /* REMOVE drop-shadow (this is the problem) */
   filter: none;
+
   animation: unlockPulse 2s infinite;
-}
-
-.gems-diamond{
-background:none !important;
-}
-
-.gems-diamond{
- 
-display:block;
-background:transparent;
+  background: transparent;
 }
 
 /* ---- Film-strip wrapper ---- */
