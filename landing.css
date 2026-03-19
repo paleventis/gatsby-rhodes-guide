@@ -367,12 +367,13 @@ body {
   width: 1.6em;
   height: 1.6em;
   object-fit: contain;
-
-  /* REMOVE drop-shadow (this is the problem) */
   filter: none;
-
   animation: unlockPulse 2s infinite;
   background: transparent;
+  border: none;      /* Added to remove any default borders */
+  padding: 0;        /* Added to remove internal spacing */
+  margin: 0;         /* Added to ensure no external spacing */
+  display: inline-block; /* Added for consistent rendering */
 }
 
 /* ---- Film-strip wrapper ---- */
