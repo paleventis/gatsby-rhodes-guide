@@ -1,0 +1,555 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.75)
+    ),
+    url("assets/hero-rhodes.jpg") center / cover no-repeat fixed;
+  color: white;
+}
+
+/* ============================================================
+   HERO SECTION — title & subtitle pushed toward the top
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Title & sun — 4 px lower than before */
+  justify-content: flex-start;
+  padding-top: calc(18vh + 4px);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+/* ============================================================
+   MENU GRID — responsive, wraps on small screens
+   ============================================================ */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 520px;
+}
+
+.tab {
+  padding: 1.4rem 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, background 0.25s ease;
+  text-align: center;
+}
+
+.tab:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.28);
+  box-shadow: 0 0 25px rgba(255,255,255,0.15);
+}
+
+/* Accent colours per category */
+.restaurants { border-left: 6px solid #ff9f1c; }
+.coffee      { border-left: 6px solid #e58f5d; }
+.clubs       { border-left: 6px solid #9b5de5; }
+.beaches     { border-left: 6px solid #00bbf9; }
+.activities  { border-left: 6px solid #00f5d4; }
+.sightseeing { border-left: 6px solid #f15bb5; }
+
+/* ============================================================
+   TOP-RIGHT CONTROLS
+   Language buttons stacked on top, emergency button below
+   ============================================================ */
+.top-right-controls {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  z-index: 100;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-switch button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.lang-switch button:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+.lang-switch button.active {
+  background: #d4af37;
+  color: black;
+}
+
+/* Emergency button sits directly below the lang-switch */
+.emergencyBtn-btn {
+  padding: 0.65rem 1.1rem;
+  font-size: clamp(0.75rem, 1.8vw, 1rem);
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #00bbf9, #00f5d4);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+
+.emergencyBtn-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0,187,249,0.4);
+}
+
+/* ============================================================
+   COOKIE CONSENT OVERLAY & MODAL
+   ============================================================ */
+
+/* Full-screen frosted-glass backdrop */
+.cookie-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Start invisible; JS adds --visible to trigger fade-in */
+  opacity: 0;
+  pointer-events: none;
+  /* Backdrop blur + semi-transparent dark tint */
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.35s ease;
+}
+
+.cookie-overlay--visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.cookie-overlay--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Modal card */
+.cookie-modal {
+  background: rgba(20, 20, 30, 0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+  animation: cookiePop 0.35s ease both;
+  color: #fff;
+}
+
+@keyframes cookiePop {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.cookie-icon {
+  font-size: 2.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.cookie-modal h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.cookie-modal p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  opacity: 0.82;
+  margin-bottom: 1.6rem;
+}
+
+/* Action buttons row */
+.cookie-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.cookie-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.cookie-btn:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.cookie-btn.accept {
+  background: linear-gradient(135deg, #00bbf9, #00f5d4);
+  color: #000;
+}
+
+.cookie-btn.modify {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.cookie-btn.reject {
+  background: rgba(255,60,60,0.25);
+  color: #ff9090;
+  border: 1px solid rgba(255,60,60,0.35);
+}
+
+/* ============================================================
+   HERO TITLE DECORATIONS — pulsing sun above 'Island'
+   ============================================================ */
+
+/* Wrapper around the last word of the title (e.g. "Island") */
+.island-wrap {
+  position: relative;
+  display: inline-block;
+  /* Enough top space for the sun sitting above */
+  padding-top: 0.55em;
+}
+
+/* The word text itself — nothing special, just keeps it in flow */
+.island-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* ☀️  Sun — floats above the letter 'd' (right side of the word) */
+.sun-icon {
+  position: absolute;
+  /* Sit just above the top of the text */
+  top: -0.05em;
+  /* Align with the right ~80% of the word — roughly above the 'd' */
+  right: 0;
+  font-size: 0.7em;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 3;
+  /* Pulsing glow identical to .unlock-btn animation */
+  animation: unlockPulse 2s infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 220, 50, 0.85))
+           drop-shadow(0 0 14px rgba(255, 180, 0, 0.5));
+}
+
+/* Pulse keyframes — same as styles.css .unlock-btn */
+@keyframes unlockPulse {
+  0%   { transform: scale(1);    }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1);    }
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet — single column menu */
+@media (max-width: 600px) {
+  .menu {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
+
+  .hero {
+    padding-top: 10vh;
+  }
+
+  .top-right-controls {
+    top: 10px;
+    right: 10px;
+  }
+
+  .emergencyBtn-btn {
+    font-size: 0.78rem;
+    padding: 0.55rem 0.9rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .lang-switch button {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .cookie-modal {
+    padding: 1.6rem 1.2rem;
+  }
+}
+
+/* ============================================================
+   HIDDEN GEMS TRAILER SECTION
+   ============================================================ */
+
+.gems-section {
+  width: 100%;
+  max-width: 560px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Heading row — diamond icon + title */
+.gems-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  font-weight: 700;
+  color: #f5d87a;
+  text-shadow: 0 0 12px rgba(245, 180, 30, 0.55);
+  letter-spacing: 0.5px;
+}
+
+.gems-diamond {
+  width: 1.6em;
+  height: 1.6em;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255, 200, 30, 0.7));
+  animation: unlockPulse 2s infinite;
+}
+
+/* ---- Film-strip wrapper ---- */
+.gems-trailer-wrapper {
+  position: relative;
+  width: 100%;
+  height: 160px;          /* visible window height */
+  overflow: hidden;
+  border-radius: 14px;
+  /* Fade edges to black so only the centre is fully visible */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 82%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 82%,
+    transparent 100%
+  );
+}
+
+/* The track holds all cards in a row via absolute positioning */
+.gems-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Individual gem card ---- */
+.gems-card {
+  position: absolute;
+  top: 50%;
+  width: 200px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+              filter   0.55s ease,
+              opacity  0.55s ease,
+              left     0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-50%) scale(0.78);
+  filter: blur(3px) brightness(0.55);
+  opacity: 0.7;
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+}
+
+.gems-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gems-card-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.3rem 0.5rem;
+  background: rgba(0,0,0,0.55);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Centre card — fully sharp, larger, label visible */
+.gems-card.center {
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  filter: none;
+  opacity: 1;
+  border-color: rgba(245, 216, 122, 0.6);
+  box-shadow: 0 0 28px rgba(245, 180, 30, 0.35), 0 6px 24px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.gems-card.center .gems-card-label {
+  opacity: 1;
+}
+
+/* Immediately adjacent cards */
+.gems-card.near-left {
+  left: calc(50% - 210px);
+  transform: translateY(-50%) scale(0.85);
+  filter: blur(1.5px) brightness(0.65);
+  opacity: 0.8;
+  z-index: 5;
+}
+
+.gems-card.near-right {
+  left: calc(50% + 10px);
+  transform: translateY(-50%) scale(0.85);
+  filter: blur(1.5px) brightness(0.65);
+  opacity: 0.8;
+  z-index: 5;
+}
+
+/* Far cards — mostly hidden by the mask */
+.gems-card.far-left {
+  left: calc(50% - 390px);
+  transform: translateY(-50%) scale(0.7);
+  filter: blur(4px) brightness(0.4);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.gems-card.far-right {
+  left: calc(50% + 190px);
+  transform: translateY(-50%) scale(0.7);
+  filter: blur(4px) brightness(0.4);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* ---- Unlock button ---- */
+.gems-unlock-row {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gems-unlock-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a0a00;
+  background: linear-gradient(135deg, #f5d87a, #e8a020, #f5d87a);
+  background-size: 200% 200%;
+  animation: goldShimmer 3s ease infinite, unlockPulse 2s infinite;
+  box-shadow: 0 0 14px rgba(245, 180, 30, 0.55),
+              0 4px 14px rgba(0,0,0,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.gems-unlock-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 24px rgba(245, 180, 30, 0.8),
+              0 6px 20px rgba(0,0,0,0.4);
+}
+
+.gems-unlock-icon {
+  width: 1.3em;
+  height: 1.3em;
+  object-fit: contain;
+}
+
+@keyframes goldShimmer {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Responsive — tighten trailer on small screens */
+@media (max-width: 600px) {
+  .gems-trailer-wrapper {
+    height: 130px;
+  }
+
+  .gems-card {
+    width: 160px;
+    height: 110px;
+  }
+
+  .gems-card.near-left  { left: calc(50% - 170px); }
+  .gems-card.near-right { left: calc(50% + 10px);  }
+  .gems-card.far-left   { left: calc(50% - 320px); }
+  .gems-card.far-right  { left: calc(50% + 160px); }
+}
