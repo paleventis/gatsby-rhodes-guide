@@ -371,7 +371,9 @@ body {
   animation: unlockPulse 2s infinite;
 }
 
-
+.gems-diamond{
+background:none !important;
+}
 
 .gems-diamond{
  
