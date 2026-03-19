@@ -364,7 +364,7 @@ body {
   border: none !important;
   padding: 0 !important;
 }
-<!--
+
 .gems-diamond {
   width: 1.6em;
   height: 1.6em;
@@ -380,9 +380,9 @@ body {
   outline: none !important;
   -webkit-appearance: none;
   appearance: none;
-}-->
+}
 
-.gems-diamond {
+<-- .gems-diamond {
   width: 1.6em;
   height: 1.6em;
   object-fit: contain;
@@ -392,7 +392,7 @@ body {
 
   filter: brightness(1.15) contrast(1.1);
 }
-
+-->
 /* ---- Film-strip wrapper ---- */
 .gems-trailer-wrapper {
   position: relative;
