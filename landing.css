@@ -375,6 +375,8 @@ width:40px;
 background:transparent;
 mix-blend-mode:multiply;
 filter:contrast(1.1);
+border:none;
+box-shadow:none;
 }
 
 
