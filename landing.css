@@ -369,7 +369,7 @@ body {
   width: 1.6em;
   height: 1.6em;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(1) sepia(1) hue-rotate(0deg) saturate(0%) brightness(1) contrast(1);
+  filter: none;
   animation: unlockPulse 2s infinite;
   background: transparent !important;
   border: none !important;
@@ -387,7 +387,7 @@ body {
   height: 1.6em;
   object-fit: contain;
   display: block;
-
+filter: brightness(0) saturate(100%) invert(1) sepia(1) hue-rotate(0deg) saturate(0%) brightness(1) contrast(1);
   animation: unlockPulse 2s infinite;
 
   filter: brightness(1.15) contrast(1.1);
