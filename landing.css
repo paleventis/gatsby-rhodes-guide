@@ -367,7 +367,7 @@ body {
   width: 1.6em;
   height: 1.6em;
   object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(255, 200, 30, 0.7));
+  filter: none;
   animation: unlockPulse 2s infinite;
 }
 
