@@ -370,6 +370,14 @@ body {
   animation: unlockPulse 2s infinite;
 }
 
+.gems-diamond{
+background: transparent;
+mix-blend-mode: multiply;
+}
+
+
+
+
 /* ---- Film-strip wrapper ---- */
 .gems-trailer-wrapper {
   position: relative;
