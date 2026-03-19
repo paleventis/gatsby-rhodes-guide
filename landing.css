@@ -360,20 +360,26 @@ body {
   color: #f5d87a;
   text-shadow: 0 0 12px rgba(245, 180, 30, 0.55);
   letter-spacing: 0.5px;
-   background:transparent;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
 .gems-diamond {
   width: 1.6em;
   height: 1.6em;
   object-fit: contain;
-  filter: none;
+  filter: brightness(0) saturate(100%) invert(1) sepia(1) hue-rotate(0deg) saturate(0%) brightness(1) contrast(1);
   animation: unlockPulse 2s infinite;
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
   display: inline-block;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 /* ---- Film-strip wrapper ---- */
