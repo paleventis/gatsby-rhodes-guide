@@ -137,20 +137,14 @@
       display: block;
     }
 
-    /* Locked overlay on card image */
-    .gems-big-card .card-lock-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      opacity: 0;
-      transition: opacity 0.3s;
+    /* Locked card — blur image and label only */
+    .gems-big-card.locked img {
+      filter: blur(7px) brightness(0.55);
     }
-
-    .gems-big-card.locked .card-lock-overlay { opacity: 1; }
+    .gems-big-card.locked .gems-big-card-label {
+      filter: blur(4px);
+      opacity: 0.7;
+    }
 
     .gems-big-card-label {
       position: absolute;
@@ -303,10 +297,7 @@
       pointer-events: none;
     }
 
-    /* Locked centre card gets extra blur on the image */
-    .gems-big-card.center.locked img {
-      filter: blur(6px) brightness(0.55);
-    }
+
 
     /* ---- Go button (free gems) ---- */
     .gems-go-btn {
@@ -473,31 +464,26 @@
 
       <div class="gems-big-card free" data-index="0">
         <img src="assets/gem-placeholder-1.jpg" alt="Lindos Acropolis" />
-        <div class="card-lock-overlay"></div>
         <span class="gems-big-card-label">Lindos Acropolis</span>
       </div>
 
       <div class="gems-big-card free" data-index="1">
         <img src="assets/gem-placeholder-2.jpg" alt="Anthony Quinn Bay" />
-        <div class="card-lock-overlay"></div>
         <span class="gems-big-card-label">Anthony Quinn Bay</span>
       </div>
 
       <div class="gems-big-card locked" data-index="2">
         <img src="assets/gem-placeholder-3.jpg" alt="Valley of Butterflies" />
-        <div class="card-lock-overlay">🔒</div>
         <span class="gems-big-card-label">Valley of Butterflies</span>
       </div>
 
       <div class="gems-big-card locked" data-index="3">
         <img src="assets/gem-placeholder-4.jpg" alt="Monolithos Castle" />
-        <div class="card-lock-overlay">🔒</div>
         <span class="gems-big-card-label">Monolithos Castle</span>
       </div>
 
       <div class="gems-big-card locked" data-index="4">
         <img src="assets/gem-placeholder-5.jpg" alt="Prasonisi Cape" />
-        <div class="card-lock-overlay">🔒</div>
         <span class="gems-big-card-label">Prasonisi Cape</span>
       </div>
 
