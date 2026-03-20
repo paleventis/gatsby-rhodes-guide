@@ -1,23 +1,55 @@
 [
   {
     "name": "Red Sand Beach",
-    "photos": ["assets/gems/red-sand.jpg"],
+    "photos": ["assets/gem/redsand1.jpg"],
     "address": "Rhodes, Greece",
     "lat": 36.0905,
     "lng": 28.0863,
     "notes": "A rare red-colored beach with stunning natural beauty."
   },
   {
-    "name": "Secret Cove",
-    "photos": ["assets/gems/secret.jpg"],
+    "name": "Chalki Gateaway",
+    "photos": ["assets/gem/chalki1.jpg"],
     "address": "Hidden Rhodes",
     "lat": 36.2000,
     "lng": 28.1500,
     "notes": "A peaceful hidden cove away from the crowds."
   },
   {
-    "name": "Hidden Cliff",
-    "photos": ["assets/gems/cliff.jpg"],
+    "name": "Butterly",
+    "photos": ["assets/gem/butterly.jpg"],
+    "address": "South Rhodes",
+    "lat": 36.0500,
+    "lng": 28.0000,
+    "notes": "A dramatic cliffside view over the Aegean Sea."
+  },
+  {
+    "name": "Antony Quinn's Bay",
+    "photos": ["assets/gem/antony1.jpg"],
+    "address": "South Rhodes",
+    "lat": 36.0500,
+    "lng": 28.0000,
+    "notes": "A dramatic cliffside view over the Aegean Sea."
+  },
+  {
+    "name": Monolithos Castle",
+    "photos": ["assets/gem/monolithos1.jpg"],
+    "address": "South Rhodes",
+    "lat": 36.0500,
+    "lng": 28.0000,
+    "notes": "A dramatic cliffside view over the Aegean Sea."
+  },
+  {
+    "name": "Prasonisi",
+    "photos": ["assets/gem/prasonisi1.jpg"],
+    "address": "South Rhodes",
+    "lat": 36.0500,
+    "lng": 28.0000,
+    "notes": "A dramatic cliffside view over the Aegean Sea."
+  },
+  {
+    "name": "Symi Gateaway",
+    "photos": ["assets/gem/symi1.jpg"],
     "address": "South Rhodes",
     "lat": 36.0500,
     "lng": 28.0000,
