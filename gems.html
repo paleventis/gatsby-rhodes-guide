@@ -333,10 +333,27 @@
       box-shadow: 0 6px 20px rgba(0,122,255,0.55);
     }
 
-    @keyframes goldShimmer {
-      0%   { background-position: 0%   50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0%   50%; }
+    /* Override .unlock-btn positioning for the info panel context */
+    .gems-info-panel .unlock-btn {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: linear-gradient(135deg, #caa75c, #e0c27a);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      animation: unlockPulse 2s infinite;
+      transition: transform 0.2s, box-shadow 0.2s;
+      z-index: 10;
+    }
+    .gems-info-panel .unlock-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
     }
 
     /* ============================================================
