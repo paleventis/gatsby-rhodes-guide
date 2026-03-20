@@ -292,11 +292,20 @@
       white-space: nowrap;
     }
 
-    /* Blurred locked state */
-    .gems-info-panel.locked-panel {
+    /* Blurred locked state — only the content wrapper blurs, not the whole panel */
+    .gems-info-content {
+      transition: filter 0.3s ease;
+    }
+
+    .gems-info-panel.locked-panel .gems-info-content {
       filter: blur(5px);
       user-select: none;
       pointer-events: none;
+    }
+
+    /* Locked centre card gets extra blur on the image */
+    .gems-big-card.center.locked img {
+      filter: blur(6px) brightness(0.55);
     }
 
     /* ---- Go button (free gems) ---- */
@@ -322,38 +331,6 @@
     .gems-go-btn:hover {
       transform: scale(1.06);
       box-shadow: 0 6px 20px rgba(0,122,255,0.55);
-    }
-
-    /* ---- Unlock button (locked gems) ---- */
-    .gems-unlock-action-btn {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #1a0a00;
-      background: linear-gradient(135deg, #f5d87a, #e8a020, #f5d87a);
-      background-size: 200% 200%;
-      animation: goldShimmer 3s ease infinite, unlockPulse 2s infinite;
-      box-shadow: 0 0 14px rgba(245,180,30,0.55), 0 4px 14px rgba(0,0,0,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
-      white-space: nowrap;
-    }
-    .gems-unlock-action-btn:hover {
-      transform: scale(1.06);
-      box-shadow: 0 0 24px rgba(245,180,30,0.8), 0 6px 20px rgba(0,0,0,0.4);
-    }
-    .gems-unlock-action-btn img {
-      width: 1.2em;
-      height: 1.2em;
-      object-fit: contain;
     }
 
     @keyframes goldShimmer {
@@ -464,9 +441,6 @@
 
 <body class="gems-page">
 
-  <!-- Back to home -->
-  <a href="index.html" class="gems-back-btn">← Home</a>
-
   <!-- ===== PAGE HEADER ===== -->
   <div class="gems-page-header">
     <span class="sun-pulse">☀️</span>
@@ -515,26 +489,29 @@
 
   <!-- ===== INFO PANEL ===== -->
   <div class="gems-info-panel" id="gemsInfoPanel">
-    <h2 id="gemInfoTitle">Lindos Acropolis</h2>
-    <div class="gem-meta" id="gemInfoMeta"></div>
-    <p id="gemInfoText"></p>
 
-    <!-- Address + distance row -->
-    <div class="gem-location-row" id="gemLocationRow">
-      <span class="gem-address-icon">📍</span>
-      <span class="gem-address-text" id="gemAddressText"></span>
-      <span class="gem-distance-badge" id="gemDistanceBadge">📡 …</span>
+    <!-- Blurrable content wrapper -->
+    <div class="gems-info-content" id="gemsInfoContent">
+      <h2 id="gemInfoTitle">Lindos Acropolis</h2>
+      <div class="gem-meta" id="gemInfoMeta"></div>
+      <p id="gemInfoText"></p>
+
+      <!-- Address + distance row -->
+      <div class="gem-location-row" id="gemLocationRow">
+        <span class="gem-address-icon">📍</span>
+        <span class="gem-address-text" id="gemAddressText"></span>
+        <span class="gem-distance-badge" id="gemDistanceBadge">📡 …</span>
+      </div>
     </div>
 
-    <!-- Go button (free) — opens Google Maps directions -->
+    <!-- Go button (free) — outside blur wrapper, always sharp -->
     <a href="#" class="gems-go-btn" id="gemGoBtn" target="_blank" rel="noopener">
-      🧭 <span id="gemGoBtnLabel">Go</span>
+      🧭 Go
     </a>
 
-    <!-- Unlock button (locked) — hidden by default -->
-    <button class="gems-unlock-action-btn" id="gemUnlockBtn" onclick="openUnlockModal()" style="display:none;">
-      <img src="assets/gem.png" alt="" />
-      <span id="gemUnlockBtnLabel">Unlock All Gems</span>
+    <!-- Unlock button (locked) — outside blur wrapper, always sharp and clickable -->
+    <button class="unlock-btn" id="gemUnlockBtn" onclick="openUnlockModal()" style="display:none;">
+      🔓 Unlock
     </button>
   </div>
 
@@ -659,8 +636,7 @@
     // ============================================================
     const t = {
       pageTitle:   { en: "Hidden Gems of Rhodes",          fr: "Joyaux Cachés de Rhodes",         de: "Verborgene Schätze von Rhodos" },
-      goBtn:       { en: "Go",                             fr: "Aller",                           de: "Los" },
-      unlockBtn:   { en: "Unlock All Gems",                fr: "Déverrouiller tous les joyaux",   de: "Alle Schätze freischalten" },
+
       lockedTitle: { en: "🔒 Locked Gem",                  fr: "🔒 Joyau verrouillé",             de: "🔒 Gesperrtes Juwel" },
       lockedText:  { en: "Unlock the full guide to discover this hidden gem and many more secret spots across Rhodes.", fr: "Déverrouillez le guide complet pour découvrir ce joyau caché et bien d'autres endroits secrets à Rhodes.", de: "Schalten Sie den vollständigen Reiseführer frei, um dieses verborgene Juwel und viele weitere Geheimtipps auf Rhodos zu entdecken." },
       modalTitle:  { en: "Unlock the Best Rhodes Guide",   fr: "Déverrouillez le Meilleur Guide de Rhodes", de: "Bestes Rhodos-Reiseführer freischalten" },
@@ -670,8 +646,6 @@
 
     function applyTranslations() {
       document.getElementById("gemsPageTitle").textContent  = t.pageTitle[lang];
-      document.getElementById("gemGoBtnLabel").textContent  = t.goBtn[lang];
-      document.getElementById("gemUnlockBtnLabel").textContent = t.unlockBtn[lang];
       document.getElementById("modalTitle").textContent     = t.modalTitle[lang];
       document.getElementById("modalSubtitle").textContent  = t.modalSub[lang];
       document.getElementById("payBtn").textContent         = t.payBtn[lang];
@@ -744,7 +718,7 @@
         document.getElementById("gemInfoText").textContent  = t.lockedText[lang];
         locRow.style.display = "none";
         goBtn.style.display  = "none";
-        ulBtn.style.display  = "inline-flex";
+        ulBtn.style.display  = "inline-block";
       }
     }
 
@@ -802,7 +776,8 @@
       // Clicking a card:
       //  - always stops auto-advance
       //  - side card: jump to it
-      //  - centre card: navigate or open unlock
+      //  - centre card (free/unlocked): navigate to gem page
+      //  - centre card (locked): do nothing extra — blurred panel + Unlock btn already visible
       cards.forEach((card, i) => {
         card.addEventListener("click", (e) => {
           e.stopPropagation();
@@ -810,10 +785,9 @@
           if (card.classList.contains("center")) {
             const gem = gems[i];
             if (gem.free || localStorage.getItem("gemsUnlocked") === "true") {
-              window.location.href = gem.href[lang];
-            } else {
-              openUnlockModal();
+              window.location.href = `https://www.google.com/maps/dir/?api=1&destination=${gem.coords.lat},${gem.coords.lng}&travelmode=driving`;
             }
+            // locked centre card: panel is already showing blurred content + Unlock btn
           } else {
             current = i;
             applyPositions();
