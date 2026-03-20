@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Red Sand Beach",
+    "photos": ["assets/gems/red-sand.jpg"],
+    "address": "Rhodes, Greece",
+    "lat": 36.0905,
+    "lng": 28.0863,
+    "notes": "A rare red-colored beach with stunning natural beauty."
+  },
+  {
+    "name": "Secret Cove",
+    "photos": ["assets/gems/secret.jpg"],
+    "address": "Hidden Rhodes",
+    "lat": 36.2000,
+    "lng": 28.1500,
+    "notes": "A peaceful hidden cove away from the crowds."
+  },
+  {
+    "name": "Hidden Cliff",
+    "photos": ["assets/gems/cliff.jpg"],
+    "address": "South Rhodes",
+    "lat": 36.0500,
+    "lng": 28.0000,
+    "notes": "A dramatic cliffside view over the Aegean Sea."
+  }
+]
