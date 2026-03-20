@@ -2,170 +2,858 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rhodes Island Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hidden Gems | Rhodes Guide</title>
   <link rel="stylesheet" href="landing.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       GEMS PAGE — layout & trailer (larger version of index trailer)
+       ============================================================ */
+
+    body.gems-page {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.72)),
+        url("assets/hero-rhodes.jpg") center / cover no-repeat fixed;
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* ---- Page header ---- */
+    .gems-page-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 2.2rem 1rem 1.2rem;
+      position: relative;
+    }
+
+    .gems-page-header .sun-pulse {
+      font-size: 2rem;
+      animation: unlockPulse 2s infinite;
+      filter: drop-shadow(0 0 8px rgba(255,220,50,0.9));
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .gems-page-title-box {
+      background: rgba(0,80,60,0.82);
+      border: 2px solid rgba(245,216,122,0.55);
+      border-radius: 12px;
+      padding: 0.7rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.6rem;
+    }
+
+    .gems-page-title-box img.gem-icon {
+      width: 1.8rem;
+      height: 1.8rem;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(255,200,30,0.7));
+      animation: unlockPulse 2s infinite;
+    }
+
+    .gems-page-title-box h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      color: #f5d87a;
+      text-shadow: 0 0 10px rgba(245,180,30,0.5);
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* ---- Back button ---- */
+    .gems-back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      transition: background 0.2s;
+    }
+    .gems-back-btn:hover { background: rgba(0,0,0,0.9); }
+
+    /* ============================================================
+       LARGE FILM-STRIP TRAILER
+       ============================================================ */
+
+    .gems-big-trailer-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto 0;
+      height: 280px;
+      overflow: hidden;
+      border-radius: 18px;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%);
+      mask-image:         linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%);
+    }
+
+    .gems-big-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .gems-big-card {
+      position: absolute;
+      top: 50%;
+      width: 300px;
+      height: 220px;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                  filter   0.55s ease,
+                  opacity  0.55s ease,
+                  left     0.55s cubic-bezier(0.4,0,0.2,1);
+      transform: translateY(-50%) scale(0.78);
+      filter: blur(3px) brightness(0.5);
+      opacity: 0.65;
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+    }
+
+    .gems-big-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Locked overlay on card image */
+    .gems-big-card .card-lock-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gems-big-card.locked .card-lock-overlay { opacity: 1; }
+
+    .gems-big-card-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.4rem 0.6rem;
+      background: rgba(0,0,0,0.6);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    /* Centre card — sharp, large, label visible */
+    .gems-big-card.center {
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      filter: none;
+      opacity: 1;
+      border-color: rgba(245,216,122,0.65);
+      box-shadow: 0 0 32px rgba(245,180,30,0.4), 0 8px 28px rgba(0,0,0,0.55);
+      z-index: 10;
+    }
+
+    .gems-big-card.center .gems-big-card-label { opacity: 1; }
+
+    .gems-big-card.near-left  {
+      left: calc(50% - 320px);
+      transform: translateY(-50%) scale(0.86);
+      filter: blur(2px) brightness(0.6);
+      opacity: 0.78;
+      z-index: 5;
+    }
+    .gems-big-card.near-right {
+      left: calc(50% + 20px);
+      transform: translateY(-50%) scale(0.86);
+      filter: blur(2px) brightness(0.6);
+      opacity: 0.78;
+      z-index: 5;
+    }
+    .gems-big-card.far-left {
+      left: calc(50% - 600px);
+      transform: translateY(-50%) scale(0.7);
+      filter: blur(5px) brightness(0.35);
+      opacity: 0.45;
+      z-index: 1;
+    }
+    .gems-big-card.far-right {
+      left: calc(50% + 300px);
+      transform: translateY(-50%) scale(0.7);
+      filter: blur(5px) brightness(0.35);
+      opacity: 0.45;
+      z-index: 1;
+    }
+
+    /* ============================================================
+       INFO PANEL
+       ============================================================ */
+
+    .gems-info-panel {
+      position: relative;
+      max-width: 700px;
+      margin: 1.4rem auto 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 1.6rem 1.8rem 4.5rem;
+      color: #111;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      min-height: 200px;
+      transition: opacity 0.35s ease;
+    }
+
+    .gems-info-panel h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      margin-bottom: 0.5rem;
+      color: #1a4a3a;
+    }
+
+    .gems-info-panel .gem-meta {
+      font-size: 0.82rem;
+      color: #555;
+      margin-bottom: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .gems-info-panel .gem-meta span {
+      background: rgba(0,100,70,0.1);
+      border-radius: 999px;
+      padding: 2px 10px;
+    }
+
+    .gems-info-panel p {
+      font-size: 0.97rem;
+      line-height: 1.7;
+      color: #222;
+    }
+
+    /* ---- Address + distance row ---- */
+    .gem-location-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+      margin-bottom: 0.5rem;
+      padding: 0.55rem 0.8rem;
+      background: rgba(0,100,70,0.07);
+      border-radius: 10px;
+      border: 1px solid rgba(0,100,70,0.15);
+      font-size: 0.85rem;
+      color: #333;
+    }
+
+    .gem-address-icon { font-size: 1rem; flex-shrink: 0; }
+
+    .gem-address-text {
+      flex: 1;
+      min-width: 0;
+      font-size: 0.83rem;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .gem-distance-badge {
+      flex-shrink: 0;
+      background: rgba(0,122,255,0.1);
+      color: #005ec2;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Blurred locked state */
+    .gems-info-panel.locked-panel {
+      filter: blur(5px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* ---- Go button (free gems) ---- */
+    .gems-go-btn {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: #007aff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,122,255,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+    }
+    .gems-go-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 6px 20px rgba(0,122,255,0.55);
+    }
+
+    /* ---- Unlock button (locked gems) ---- */
+    .gems-unlock-action-btn {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1a0a00;
+      background: linear-gradient(135deg, #f5d87a, #e8a020, #f5d87a);
+      background-size: 200% 200%;
+      animation: goldShimmer 3s ease infinite, unlockPulse 2s infinite;
+      box-shadow: 0 0 14px rgba(245,180,30,0.55), 0 4px 14px rgba(0,0,0,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .gems-unlock-action-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 24px rgba(245,180,30,0.8), 0 6px 20px rgba(0,0,0,0.4);
+    }
+    .gems-unlock-action-btn img {
+      width: 1.2em;
+      height: 1.2em;
+      object-fit: contain;
+    }
+
+    @keyframes goldShimmer {
+      0%   { background-position: 0%   50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0%   50%; }
+    }
+
+    /* ============================================================
+       UNLOCK PAYWALL MODAL  (same look as restaurants.html)
+       ============================================================ */
+
+    .unlock-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+    }
+    .unlock-modal.open { display: flex; }
+
+    .unlock-container {
+      background: #111;
+      color: white;
+      padding: 40px;
+      border-radius: 14px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      animation: unlockPop 0.3s ease;
+      position: relative;
+    }
+
+    @keyframes unlockPop {
+      from { transform: scale(0.8); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+
+    .unlock-close {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .unlock-subtitle { opacity: 0.8; margin-bottom: 20px; }
+
+    .unlock-benefits { margin: 20px 0; text-align: left; font-size: 14px; }
+    .unlock-benefits div { margin: 6px 0; }
+
+    .unlock-input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+
+    .unlock-pay {
+      width: 100%;
+      margin-top: 15px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #caa75c;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .unlock-code {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #333;
+      color: white;
+      cursor: pointer;
+    }
+
+    .unlock-divider { margin: 15px 0; opacity: 0.6; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 640px) {
+      .gems-big-trailer-wrapper { height: 200px; }
+      .gems-big-card { width: 220px; height: 160px; }
+      .gems-big-card.near-left  { left: calc(50% - 235px); }
+      .gems-big-card.near-right { left: calc(50% + 15px);  }
+      .gems-big-card.far-left   { left: calc(50% - 440px); }
+      .gems-big-card.far-right  { left: calc(50% + 220px); }
+      .gems-info-panel { margin: 1rem 0.8rem 0; padding: 1.2rem 1.2rem 4.5rem; }
+    }
+  </style>
 </head>
 
-<body class="index-page">
+<body class="gems-page">
 
-  <!-- ===================== COOKIE CONSENT MODAL ===================== -->
-  <div id="cookieOverlay" class="cookie-overlay">
-    <div class="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
-      <div class="cookie-icon">🍪</div>
-      <h2 id="cookieTitle">We use cookies</h2>
-      <p>
-        This site uses cookies to enhance your browsing experience, analyse traffic,
-        and personalise content. You can choose how we use your data below.
-      </p>
-      <div class="cookie-actions">
-        <button class="cookie-btn accept"  onclick="handleCookies('accept')">Accept All</button>
-        <button class="cookie-btn modify"  onclick="handleCookies('modify')">Manage Preferences</button>
-        <button class="cookie-btn reject"  onclick="handleCookies('reject')">Reject All</button>
-      </div>
+  <!-- Back to home -->
+  <a href="index.html" class="gems-back-btn">← Home</a>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <div class="gems-page-header">
+    <span class="sun-pulse">☀️</span>
+    <div class="gems-page-title-box">
+      <img src="assets/gem.png" class="gem-icon" alt="gem" />
+      <h1 id="gemsPageTitle">Hidden Gems of Rhodes</h1>
     </div>
   </div>
-  <!-- ================================================================ -->
 
-  <!-- Top-right controls: language buttons stacked above emergency btn -->
-  <div class="top-right-controls">
-    <div class="lang-switch">
-      <button data-lang="en">EN</button>
-      <button data-lang="fr">FR</button>
-      <button data-lang="de">DE</button>
+  <!-- ===== LARGE FILM-STRIP TRAILER ===== -->
+  <div class="gems-big-trailer-wrapper">
+    <div class="gems-big-track" id="gemsBigTrack">
+
+      <div class="gems-big-card free" data-index="0">
+        <img src="assets/gem-placeholder-1.jpg" alt="Lindos Acropolis" />
+        <div class="card-lock-overlay"></div>
+        <span class="gems-big-card-label">Lindos Acropolis</span>
+      </div>
+
+      <div class="gems-big-card free" data-index="1">
+        <img src="assets/gem-placeholder-2.jpg" alt="Anthony Quinn Bay" />
+        <div class="card-lock-overlay"></div>
+        <span class="gems-big-card-label">Anthony Quinn Bay</span>
+      </div>
+
+      <div class="gems-big-card locked" data-index="2">
+        <img src="assets/gem-placeholder-3.jpg" alt="Valley of Butterflies" />
+        <div class="card-lock-overlay">🔒</div>
+        <span class="gems-big-card-label">Valley of Butterflies</span>
+      </div>
+
+      <div class="gems-big-card locked" data-index="3">
+        <img src="assets/gem-placeholder-4.jpg" alt="Monolithos Castle" />
+        <div class="card-lock-overlay">🔒</div>
+        <span class="gems-big-card-label">Monolithos Castle</span>
+      </div>
+
+      <div class="gems-big-card locked" data-index="4">
+        <img src="assets/gem-placeholder-5.jpg" alt="Prasonisi Cape" />
+        <div class="card-lock-overlay">🔒</div>
+        <span class="gems-big-card-label">Prasonisi Cape</span>
+      </div>
+
     </div>
-    <button id="emergencyBtn" class="emergencyBtn-btn" onclick="goToUsefulNumbers()">
-      📞 Emergency &amp; Useful Numbers
+  </div>
+
+  <!-- ===== INFO PANEL ===== -->
+  <div class="gems-info-panel" id="gemsInfoPanel">
+    <h2 id="gemInfoTitle">Lindos Acropolis</h2>
+    <div class="gem-meta" id="gemInfoMeta"></div>
+    <p id="gemInfoText"></p>
+
+    <!-- Address + distance row -->
+    <div class="gem-location-row" id="gemLocationRow">
+      <span class="gem-address-icon">📍</span>
+      <span class="gem-address-text" id="gemAddressText"></span>
+      <span class="gem-distance-badge" id="gemDistanceBadge">📡 …</span>
+    </div>
+
+    <!-- Go button (free) — opens Google Maps directions -->
+    <a href="#" class="gems-go-btn" id="gemGoBtn" target="_blank" rel="noopener">
+      🧭 <span id="gemGoBtnLabel">Go</span>
+    </a>
+
+    <!-- Unlock button (locked) — hidden by default -->
+    <button class="gems-unlock-action-btn" id="gemUnlockBtn" onclick="openUnlockModal()" style="display:none;">
+      <img src="assets/gem.png" alt="" />
+      <span id="gemUnlockBtnLabel">Unlock All Gems</span>
     </button>
   </div>
 
-  <section class="hero">
-    <h1 id="heroTitle">Rhodes <span class="island-wrap">
-      <span class="sun-icon">☀️</span>
-      <span class="island-text">Island</span>
-    </span></h1>
-    <p id="heroSubtitle">Discover • Taste • Explore • Experience</p>
-
-    <div class="menu">
-      <a href="restaurants.html" class="tab restaurants">🍽️ Restaurants</a>
-      <a href="coffee.html"      class="tab coffee">☕ Coffee &amp; Brunch</a>
-      <a href="clubs.html"       class="tab clubs">🎶 Clubs &amp; Nightlife</a>
-      <a href="beaches.html"     class="tab beaches">🏖️ Beaches</a>
-      <a href="activities.html"  class="tab activities">🚴 Activities</a>
-      <a href="sightseeing.html" class="tab sightseeing">🏛️ Culture</a>
+  <!-- ===== UNLOCK PAYWALL MODAL ===== -->
+  <div id="unlockModal" class="unlock-modal">
+    <div class="unlock-container">
+      <button class="unlock-close" onclick="closeUnlockModal()">✕</button>
+      <h2 id="modalTitle">Unlock the Best Rhodes Guide</h2>
+      <p class="unlock-subtitle" id="modalSubtitle">
+        Discover all hidden gems, beaches, activities and exclusive spots on the island.
+      </p>
+      <div class="unlock-benefits">
+        <div>💎 All Hidden Gems unlocked</div>
+        <div>📍 Navigation to every location</div>
+        <div>⭐ Handpicked secret spots</div>
+        <div>🌴 Exclusive villa recommendations</div>
+      </div>
+      <input id="userEmail" class="unlock-input" type="email" placeholder="Enter your email" />
+      <button class="unlock-pay" onclick="startPayment()" id="payBtn">
+        Unlock Full Guide – €2.99
+      </button>
+      <div class="unlock-divider">or</div>
+      <input id="accessCode" class="unlock-input" placeholder="Enter access code" />
+      <button class="unlock-code" onclick="unlockWithCode()">Unlock with Code</button>
     </div>
-  </section>
+  </div>
 
   <script>
-    // ---------------------------
-    // COOKIE CONSENT
-    // ---------------------------
-
-    function handleCookies(choice) {
-      localStorage.setItem('cookieConsent', choice);
-      const overlay = document.getElementById('cookieOverlay');
-      overlay.classList.add('cookie-overlay--hidden');
-      // Remove from DOM after fade-out transition
-      overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
-    }
-
-    // Show overlay only if user hasn't already chosen
-    window.addEventListener('DOMContentLoaded', function () {
-      if (!localStorage.getItem('cookieConsent')) {
-        document.getElementById('cookieOverlay').classList.add('cookie-overlay--visible');
-      } else {
-        document.getElementById('cookieOverlay').remove();
+    // ============================================================
+    // GEM DATA — replace placeholder text & hrefs with real content
+    // ============================================================
+    const gems = [
+      {
+        free: true,
+        name:    { en: "Lindos Acropolis",       fr: "Acropole de Lindos",        de: "Akropolis von Lindos" },
+        address: { en: "Lindos Village, 851 07 Rhodes, Greece",
+                   fr: "Village de Lindos, 851 07 Rhodes, Grèce",
+                   de: "Dorf Lindos, 851 07 Rhodos, Griechenland" },
+        coords:  { lat: 36.0917, lng: 28.0850 },
+        meta:    { en: ["History","Ancient site","South Rhodes"],
+                   fr: ["Histoire","Site antique","Sud de Rhodes"],
+                   de: ["Geschichte","Antike Stätte","Süd-Rhodos"] },
+        text:  {
+          en: "Perched high above the village of Lindos, the ancient Acropolis offers breathtaking views of the turquoise bay below. Dating back to the 4th century BC, its Doric columns and medieval walls tell a story spanning thousands of years. The climb through the cobblestone village is itself a journey through time.",
+          fr: "Perchée au-dessus du village de Lindos, l'Acropole antique offre une vue imprenable sur la baie turquoise. Datant du IVe siècle avant J.-C., ses colonnes doriques et ses remparts médiévaux racontent une histoire millénaire. La montée à travers le village pavé est elle-même un voyage dans le temps.",
+          de: "Hoch über dem Dorf Lindos thront die antike Akropolis mit atemberaubendem Blick auf die türkisfarbene Bucht. Sie stammt aus dem 4. Jahrhundert v. Chr. — ihre dorischen Säulen und mittelalterlichen Mauern erzählen eine jahrtausendealte Geschichte. Der Aufstieg durch das Kopfsteinpflasterdorf ist selbst eine Zeitreise."
+        }
+      },
+      {
+        free: true,
+        name:    { en: "Anthony Quinn Bay",      fr: "Baie d'Anthony Quinn",       de: "Anthony Quinn Bucht" },
+        address: { en: "Faliraki, 851 05 Rhodes, Greece",
+                   fr: "Faliraki, 851 05 Rhodes, Grèce",
+                   de: "Faliraki, 851 05 Rhodos, Griechenland" },
+        coords:  { lat: 36.3356, lng: 28.2031 },
+        meta:    { en: ["Beach","Snorkelling","North-East Rhodes"],
+                   fr: ["Plage","Plongée en apnée","Nord-Est de Rhodes"],
+                   de: ["Strand","Schnorcheln","Nordost-Rhodos"] },
+        text:  {
+          en: "Named after the Hollywood legend who fell in love with this cove while filming 'The Guns of Navarone', Anthony Quinn Bay is a hidden gem of crystal-clear water and dramatic rocky cliffs. The natural pools and rich marine life make it a paradise for snorkellers and free-divers alike.",
+          fr: "Nommée d'après la légende hollywoodienne qui tomba amoureux de cette crique lors du tournage des 'Canons de Navarone', la Baie d'Anthony Quinn est un joyau caché aux eaux cristallines et aux falaises rocheuses spectaculaires. Ses piscines naturelles et sa vie marine abondante en font un paradis pour les plongeurs.",
+          de: "Benannt nach der Hollywood-Legende, die sich beim Dreh von 'Die Kanonen von Navarone' in diese Bucht verliebte, ist die Anthony Quinn Bucht ein verborgenes Juwel mit kristallklarem Wasser und dramatischen Felsenklippen. Natürliche Pools und reiches Meeresleben machen sie zum Paradies für Schnorchler."
+        }
+      },
+      {
+        free: false,
+        name:    { en: "Valley of Butterflies",  fr: "Vallée des Papillons",       de: "Schmetterlingstal" },
+        address: { en: "Petaloudes, 851 06 Rhodes, Greece",
+                   fr: "Petaloudes, 851 06 Rhodes, Grèce",
+                   de: "Petaloudes, 851 06 Rhodos, Griechenland" },
+        coords:  { lat: 36.3497, lng: 28.0736 },
+        meta:    { en: ["Nature","Wildlife","West Rhodes"],
+                   fr: ["Nature","Faune","Ouest de Rhodes"],
+                   de: ["Natur","Tierwelt","West-Rhodos"] },
+        text:  {
+          en: "Every summer, thousands of Jersey tiger moths gather in this lush green valley, creating one of nature's most magical spectacles. Wooden walkways wind through the stream-fed forest, past waterfalls and ancient plane trees draped in vines.",
+          fr: "Chaque été, des milliers de papillons tigres de Jersey se rassemblent dans cette vallée verdoyante, créant l'un des spectacles les plus magiques de la nature. Des passerelles en bois serpentent à travers la forêt, longeant cascades et vieux platanes couverts de lianes.",
+          de: "Jeden Sommer versammeln sich Tausende von Spanischen Flaggen in diesem üppigen grünen Tal und schaffen eines der zauberhaftesten Naturschauspiele. Holzstege schlängeln sich durch den Bach-gesäumten Wald, vorbei an Wasserfällen und alten Platanen."
+        }
+      },
+      {
+        free: false,
+        name:    { en: "Monolithos Castle",      fr: "Château de Monolithos",      de: "Burg Monolithos" },
+        address: { en: "Monolithos Village, 851 06 Rhodes, Greece",
+                   fr: "Village de Monolithos, 851 06 Rhodes, Grèce",
+                   de: "Dorf Monolithos, 851 06 Rhodos, Griechenland" },
+        coords:  { lat: 36.1197, lng: 27.7406 },
+        meta:    { en: ["History","Panoramic view","South-West Rhodes"],
+                   fr: ["Histoire","Vue panoramique","Sud-Ouest de Rhodes"],
+                   de: ["Geschichte","Panoramablick","Südwest-Rhodos"] },
+        text:  {
+          en: "Built by the Knights of St John in 1476 atop a 236-metre monolithic rock, this medieval fortress offers jaw-dropping panoramic views of the Aegean Sea and the island of Chalki. The ruins of the castle chapel and the dramatic setting make it one of the most photogenic spots on the island.",
+          fr: "Construit par les Chevaliers de Saint-Jean en 1476 au sommet d'un rocher monolithique de 236 mètres, cette forteresse médiévale offre des vues panoramiques époustouflantes sur la mer Égée et l'île de Chalki. Les ruines de la chapelle et le cadre dramatique en font l'un des endroits les plus photogéniques de l'île.",
+          de: "1476 von den Johannitern auf einem 236 Meter hohen Monolithen erbaut, bietet diese mittelalterliche Festung atemberaubende Panoramablicke auf die Ägäis und die Insel Chalki. Die Ruinen der Burgkapelle und die dramatische Kulisse machen sie zu einem der fotogensten Orte der Insel."
+        }
+      },
+      {
+        free: false,
+        name:    { en: "Prasonisi Cape",         fr: "Cap Prasonisi",              de: "Kap Prasonisi" },
+        address: { en: "Prasonisi, 851 09 Rhodes, Greece",
+                   fr: "Prasonisi, 851 09 Rhodes, Grèce",
+                   de: "Prasonisi, 851 09 Rhodos, Griechenland" },
+        coords:  { lat: 35.8878, lng: 27.7869 },
+        meta:    { en: ["Beach","Windsurfing","Southern tip"],
+                   fr: ["Plage","Planche à voile","Pointe sud"],
+                   de: ["Strand","Windsurfen","Südspitze"] },
+        text:  {
+          en: "At the very southern tip of Rhodes, a narrow sandy isthmus connects the mainland to a small rocky island, creating a unique phenomenon: calm Mediterranean waters on one side and wild Aegean waves on the other. This dual-sea spectacle makes Prasonisi a world-class windsurfing and kitesurfing destination.",
+          fr: "À la pointe sud de Rhodes, un étroit isthme de sable relie la terre ferme à un petit îlot rocheux, créant un phénomène unique : des eaux méditerranéennes calmes d'un côté et des vagues égéennes sauvages de l'autre. Ce spectacle à double mer fait de Prasonisi une destination de planche à voile de classe mondiale.",
+          de: "An der südlichsten Spitze von Rhodos verbindet ein schmaler Sandisthmus das Festland mit einer kleinen Felseninsel — ein einzigartiges Phänomen: ruhiges Mittelmeer auf einer Seite, wilde Ägäiswellen auf der anderen. Dieses Zwei-Meere-Spektakel macht Prasonisi zu einem weltklasse Windsurfziel."
+        }
       }
-    });
+    ];
 
-    // ---------------------------
+    // ============================================================
+    // LANGUAGE — read from localStorage (set by index.html)
+    // ============================================================
+    let lang = localStorage.getItem("selectedLanguage") || "en";
+
+    // ============================================================
     // TRANSLATIONS
-    // ---------------------------
-
-    const translations = {
-      title: {
-        en: "Rhodes Island",
-        fr: "Île de Rhodes",
-        de: "Insel Rhodos"
-      },
-      subtitle: {
-        en: "Discover • Taste • Explore • Experience",
-        fr: "Découvrez • Goûtez • Explorez • Vivez",
-        de: "Entdecken • Genießen • Erkunden • Erleben"
-      },
-      emergencyBtn: {
-        en: "📞 Emergency & Useful Numbers",
-        fr: "📞 Urgences & Numéros Utiles",
-        de: "📞 Notfall & Wichtige Nummern"
-      }
+    // ============================================================
+    const t = {
+      pageTitle:   { en: "Hidden Gems of Rhodes",          fr: "Joyaux Cachés de Rhodes",         de: "Verborgene Schätze von Rhodos" },
+      goBtn:       { en: "Go",                             fr: "Aller",                           de: "Los" },
+      unlockBtn:   { en: "Unlock All Gems",                fr: "Déverrouiller tous les joyaux",   de: "Alle Schätze freischalten" },
+      lockedTitle: { en: "🔒 Locked Gem",                  fr: "🔒 Joyau verrouillé",             de: "🔒 Gesperrtes Juwel" },
+      lockedText:  { en: "Unlock the full guide to discover this hidden gem and many more secret spots across Rhodes.", fr: "Déverrouillez le guide complet pour découvrir ce joyau caché et bien d'autres endroits secrets à Rhodes.", de: "Schalten Sie den vollständigen Reiseführer frei, um dieses verborgene Juwel und viele weitere Geheimtipps auf Rhodos zu entdecken." },
+      modalTitle:  { en: "Unlock the Best Rhodes Guide",   fr: "Déverrouillez le Meilleur Guide de Rhodes", de: "Bestes Rhodos-Reiseführer freischalten" },
+      modalSub:    { en: "Discover all hidden gems, beaches, activities and exclusive spots on the island.", fr: "Découvrez tous les joyaux cachés, plages, activités et endroits exclusifs de l'île.", de: "Entdecken Sie alle verborgenen Juwelen, Strände, Aktivitäten und exklusiven Orte der Insel." },
+      payBtn:      { en: "Unlock Full Guide – €2.99",      fr: "Déverrouiller le guide complet – 2,99 €", de: "Vollständigen Reiseführer freischalten – 2,99 €" }
     };
 
-    // ---------------------------
-    // INITIALIZE PAGE
-    // ---------------------------
-
-    function initializePage() {
-      const savedLang = localStorage.getItem("selectedLanguage") || "en";
-      updatePageContent(savedLang);
-      highlightActiveLanguage(savedLang);
+    function applyTranslations() {
+      document.getElementById("gemsPageTitle").textContent  = t.pageTitle[lang];
+      document.getElementById("gemGoBtnLabel").textContent  = t.goBtn[lang];
+      document.getElementById("gemUnlockBtnLabel").textContent = t.unlockBtn[lang];
+      document.getElementById("modalTitle").textContent     = t.modalTitle[lang];
+      document.getElementById("modalSubtitle").textContent  = t.modalSub[lang];
+      document.getElementById("payBtn").textContent         = t.payBtn[lang];
     }
 
-    function updatePageContent(lang) {
-      const heroTitle = document.getElementById("heroTitle");
-      if (heroTitle) {
-        // Split on the last space so the decorated word stays intact
-        const parts = translations.title[lang].split(' ');
-        const first = parts.slice(0, -1).join(' ');
-        const last  = parts[parts.length - 1];
-        heroTitle.innerHTML =
-          first + ' <span class="island-wrap">' +
-          '<span class="sun-icon">☀️</span>' +
-          '<span class="island-text">' + last + '</span>' +
-          '</span>';
+    // ============================================================
+    // DISTANCE HELPER
+    // ============================================================
+    function haversineKm(lat1, lng1, lat2, lng2) {
+      const R = 6371;
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLng = (lng2 - lng1) * Math.PI / 180;
+      const a = Math.sin(dLat/2)**2 +
+                Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) *
+                Math.sin(dLng/2)**2;
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    }
+
+    let userLat = null, userLng = null;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        pos => { userLat = pos.coords.latitude; userLng = pos.coords.longitude; },
+        ()  => {}
+      );
+    }
+
+    function distanceLabel(gem) {
+      if (userLat === null) return null;
+      const km = haversineKm(userLat, userLng, gem.coords.lat, gem.coords.lng);
+      return km < 1
+        ? Math.round(km * 1000) + ' m'
+        : km.toFixed(1) + ' km';
+    }
+
+    // ============================================================
+    // INFO PANEL — populate for a given gem index
+    // ============================================================
+    function showGemInfo(idx) {
+      const gem   = gems[idx];
+      const panel = document.getElementById("gemsInfoPanel");
+      const goBtn = document.getElementById("gemGoBtn");
+      const ulBtn = document.getElementById("gemUnlockBtn");
+      const locRow = document.getElementById("gemLocationRow");
+
+      if (gem.free || localStorage.getItem("gemsUnlocked") === "true") {
+        // Free or unlocked
+        panel.classList.remove("locked-panel");
+        document.getElementById("gemInfoTitle").textContent = gem.name[lang];
+        document.getElementById("gemInfoMeta").innerHTML =
+          (gem.meta[lang] || []).map(m => `<span>${m}</span>`).join("");
+        document.getElementById("gemInfoText").textContent = gem.text[lang];
+
+        // Address + distance
+        document.getElementById("gemAddressText").textContent = gem.address['en'];
+        const dist = distanceLabel(gem);
+        const badge = document.getElementById("gemDistanceBadge");
+        badge.textContent = dist ? '📡 ' + dist + ' away' : '📡 …';
+        locRow.style.display = "flex";
+
+        // Go button → Google Maps directions
+        const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${gem.coords.lat},${gem.coords.lng}&travelmode=driving`;
+        goBtn.href = mapsUrl;
+        goBtn.style.display = "flex";
+        ulBtn.style.display = "none";
+      } else {
+        // Locked
+        panel.classList.add("locked-panel");
+        document.getElementById("gemInfoTitle").textContent = t.lockedTitle[lang];
+        document.getElementById("gemInfoMeta").innerHTML    = "";
+        document.getElementById("gemInfoText").textContent  = t.lockedText[lang];
+        locRow.style.display = "none";
+        goBtn.style.display  = "none";
+        ulBtn.style.display  = "inline-flex";
+      }
+    }
+
+    // ============================================================
+    // FILM-STRIP TRAILER
+    // Auto-advances every 4 s.
+    // Clicking a card OR the info panel STOPS the auto-advance.
+    // Clicking a side card also jumps to that gem (and stops).
+    // Clicking the centre card navigates / opens unlock modal.
+    // ============================================================
+    (function () {
+      const track     = document.getElementById("gemsBigTrack");
+      const infoPanel = document.getElementById("gemsInfoPanel");
+      const cards     = Array.from(track.querySelectorAll(".gems-big-card"));
+      const total     = cards.length;
+      let current     = 0;
+      let timer       = null;
+      let paused      = false;
+
+      function applyPositions() {
+        cards.forEach((card, i) => {
+          card.classList.remove("center","near-left","near-right","far-left","far-right");
+          const diff = i - current;
+          if      (diff === 0)  card.classList.add("center");
+          else if (diff === -1) card.classList.add("near-left");
+          else if (diff ===  1) card.classList.add("near-right");
+          else if (diff  <  -1) card.classList.add("far-left");
+          else                  card.classList.add("far-right");
+        });
+        showGemInfo(current);
       }
 
-      const heroSubtitle = document.getElementById("heroSubtitle");
-      if (heroSubtitle) heroSubtitle.textContent = translations.subtitle[lang];
+      function startAutoPlay() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(() => {
+          current = (current + 1) % total;
+          applyPositions();
+        }, 4000);
+        paused = false;
+      }
 
-      const emergencyBtn = document.getElementById("emergencyBtn");
-      if (emergencyBtn) emergencyBtn.textContent = translations.emergencyBtn[lang];
-    }
+      function stopAutoPlay() {
+        if (timer) { clearInterval(timer); timer = null; }
+        paused = true;
+      }
 
-    function highlightActiveLanguage(lang) {
-      document.querySelectorAll('.lang-switch button').forEach(btn => {
-        btn.classList.remove("active");
-        if (btn.dataset.lang === lang) btn.classList.add("active");
+      applyPositions();
+      startAutoPlay();
+
+      // Clicking the info panel stops the trailer
+      infoPanel.addEventListener("click", () => {
+        stopAutoPlay();
       });
-    }
 
-    // ---------------------------
-    // LANGUAGE SWITCH HANDLER
-    // ---------------------------
-
-    document.querySelectorAll('.lang-switch button').forEach(btn => {
-      btn.addEventListener('click', function () {
-        const selectedLang = this.dataset.lang;
-        localStorage.setItem("selectedLanguage", selectedLang);
-        updatePageContent(selectedLang);
-        highlightActiveLanguage(selectedLang);
+      // Clicking a card:
+      //  - always stops auto-advance
+      //  - side card: jump to it
+      //  - centre card: navigate or open unlock
+      cards.forEach((card, i) => {
+        card.addEventListener("click", (e) => {
+          e.stopPropagation();
+          stopAutoPlay();
+          if (card.classList.contains("center")) {
+            const gem = gems[i];
+            if (gem.free || localStorage.getItem("gemsUnlocked") === "true") {
+              window.location.href = gem.href[lang];
+            } else {
+              openUnlockModal();
+            }
+          } else {
+            current = i;
+            applyPositions();
+          }
+        });
       });
-    });
+    })();
 
-    // ---------------------------
-    // EMERGENCY BUTTON ACTION
-    // ---------------------------
+    // ============================================================
+    // UNLOCK MODAL
+    // ============================================================
+    function openUnlockModal()  { document.getElementById("unlockModal").classList.add("open"); }
+    function closeUnlockModal() { document.getElementById("unlockModal").classList.remove("open"); }
 
-    function goToUsefulNumbers() {
-      window.location.href = 'useful-numbers.html';
+    function startPayment() {
+      alert("Payment flow — integrate your payment provider here.");
     }
 
-    // ---------------------------
-    // INITIALIZE ON PAGE LOAD
-    // ---------------------------
+    function unlockWithCode() {
+      const code = document.getElementById("accessCode").value.trim();
+      if (code === "RHODES2025") {
+        localStorage.setItem("gemsUnlocked", "true");
+        closeUnlockModal();
+        // Refresh locked cards visually
+        document.querySelectorAll(".gems-big-card.locked").forEach(c => {
+          c.classList.remove("locked");
+          c.classList.add("free");
+          c.querySelector(".card-lock-overlay").textContent = "";
+          c.querySelector(".card-lock-overlay").style.opacity = "0";
+        });
+        showGemInfo(parseInt(document.querySelector(".gems-big-card.center").dataset.index));
+      } else {
+        alert("Invalid code. Please try again.");
+      }
+    }
 
-    window.addEventListener('load', function () {
-      initializePage();
-    });
+    // ============================================================
+    // INIT
+    // ============================================================
+    applyTranslations();
   </script>
 
 </body>
