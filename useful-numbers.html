@@ -1,234 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Useful Numbers | Rhodes Guide</title>
 
-<title>Useful Numbers</title>
+  <!-- Shared global fonts & base styles -->
+  <link rel="stylesheet" href="css/global.css" />
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       USEFUL NUMBERS PAGE — page-specific styles
+       ============================================================ */
 
-<style>
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.72)),
+        url("assets/hero-rhodes.jpg") center / cover no-repeat fixed;
+      padding: 0 0 3rem;
+    }
 
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#111;
-color:#fff;
-padding:20px;
-}
+    /* ---- Page header ---- */
+    .page-header {
+      text-align: center;
+      padding: 2.2rem 1.2rem 1.2rem;
+    }
 
-.page-title{
-font-family:'Playfair Display', serif;
-font-size:34px;
-text-align:center;
-margin-bottom:25px;
-text-shadow:0 2px 8px rgba(0,0,0,0.7);
-}
+    .page-header h1 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
 
-.section{
-margin-bottom:25px;
-}
+    .page-header h1 .header-icon {
+      font-size: 1.1em;
+    }
 
-.section h2{
-font-size:18px;
-margin-bottom:10px;
-color:#d4af37;
-}
+    /* ---- Back link ---- */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin: 1rem 0 0 1.2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #fff; }
 
-.card{
-background:#1c1c1c;
-border-radius:16px;
-padding:15px;
-margin-bottom:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.4);
-}
+    /* ---- Content wrapper ---- */
+    .content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
 
-.card h3{
-margin:0 0 5px 0;
-font-size:16px;
-}
+    /* ---- Section heading ---- */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: #f5d87a;
+      text-shadow: 0 0 10px rgba(245,180,30,0.5);
+      margin: 1.8rem 0 0.8rem;
+      letter-spacing: 0.5px;
+      padding-left: 0.2rem;
+      border-left: 4px solid rgba(245,216,122,0.6);
+      padding-left: 0.6rem;
+    }
 
-.actions{
-display:flex;
-gap:10px;
-margin-top:10px;
-}
+    /* ---- Number card ---- */
+    .number-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,215,120,0.25);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      box-shadow:
+        0 0 8px rgba(255,215,0,0.12),
+        0 6px 24px rgba(0,0,0,0.4);
+    }
 
-.btn{
-flex:1;
-padding:10px;
-border-radius:10px;
-text-align:center;
-text-decoration:none;
-font-size:14px;
-}
+    .number-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+    }
 
-.call{ background:#28a745; color:white; }
-.whatsapp{ background:#25D366; color:white; }
+    /* ---- Action buttons row ---- */
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-</style>
+    /* Base button — matches .emergencyBtn-btn pill style from landing.css */
+    .btn {
+      flex: 1;
+      min-width: 120px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Call button — cyan gradient matching emergencyBtn-btn */
+    .btn-call {
+      background: linear-gradient(135deg, #00bbf9, #00f5d4);
+      color: #000;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+
+    .btn-call:hover {
+      box-shadow: 0 8px 24px rgba(0,187,249,0.45);
+    }
+
+    /* WhatsApp button — WhatsApp green */
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+
+    .btn-whatsapp:hover {
+      box-shadow: 0 8px 24px rgba(37,211,102,0.45);
+    }
+
+    /* ---- Icon inside button ---- */
+    .btn-icon {
+      font-size: 1.05em;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* WhatsApp SVG icon */
+    .wa-icon {
+      width: 1.05em;
+      height: 1.05em;
+      flex-shrink: 0;
+      fill: #fff;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 480px) {
+      .actions { flex-direction: column; }
+      .btn { min-width: unset; width: 100%; }
+    }
+  </style>
 </head>
 
 <body>
 
-<h1 class="page-title" id="title"></h1>
+  <!-- Back to home -->
+  <a class="back-link" href="index.html">← Home</a>
 
-<div id="content"></div>
+  <!-- Page title -->
+  <div class="page-header">
+    <h1>
+      <span class="header-icon">📞</span>
+      <span id="page-title">Useful Numbers</span>
+    </h1>
+  </div>
 
-<script>
+  <!-- Dynamic content -->
+  <div class="content" id="content"></div>
 
-// ---------------- LANGUAGE ----------------
+  <script>
+    // ---- Language (from index.html selection) ----
+    const lang = localStorage.getItem("selectedLanguage") || "en";
 
-const lang = localStorage.getItem("selectedLanguage") || "en";
+    // ---- Translations ----
+    const t = {
+      en: {
+        title:          "Useful Numbers",
+        emergency:      "Emergency & Safety",
+        services:       "Services",
+        call:           "Call",
+        whatsapp:       "WhatsApp",
+        police:         "Police",
+        touristPolice:  "Tourist Police",
+        hospital:       "General Hospital of Rhodes",
+        port:           "Port Authority Rhodes",
+        airport:        "Rhodes Airport (Diagoras)",
+        fire:           "Fire Department",
+        ambulance:      "Ambulance",
+        securityOffice: "Security / Passport Office",
+        doctor:         "Emergency Doctor",
+        lawyer:         "Lawyer",
+        taxi:           "Radio Taxi Rhodes"
+      },
+      fr: {
+        title:          "Numéros Utiles",
+        emergency:      "Urgence & Sécurité",
+        services:       "Services",
+        call:           "Appeler",
+        whatsapp:       "WhatsApp",
+        police:         "Police",
+        touristPolice:  "Police Touristique",
+        hospital:       "Hôpital Général de Rhodes",
+        port:           "Autorité Portuaire Rhodes",
+        airport:        "Aéroport de Rhodes (Diagoras)",
+        fire:           "Pompiers",
+        ambulance:      "Ambulance",
+        securityOffice: "Service Sécurité / Passeports",
+        doctor:         "Médecin d'urgence",
+        lawyer:         "Avocat",
+        taxi:           "Radio Taxi Rhodes"
+      },
+      de: {
+        title:          "Wichtige Nummern",
+        emergency:      "Notfall & Sicherheit",
+        services:       "Dienstleistungen",
+        call:           "Anrufen",
+        whatsapp:       "WhatsApp",
+        police:         "Polizei",
+        touristPolice:  "Touristenpolizei",
+        hospital:       "Allgemeines Krankenhaus Rhodos",
+        port:           "Hafenbehörde Rhodos",
+        airport:        "Flughafen Rhodos (Diagoras)",
+        fire:           "Feuerwehr",
+        ambulance:      "Krankenwagen",
+        securityOffice: "Sicherheitsdienst / Reisepässe",
+        doctor:         "Notarzt",
+        lawyer:         "Anwalt",
+        taxi:           "Radio Taxi Rhodos"
+      }
+    };
 
-const t = {
+    // ---- Data ----
+    const emergency = [
+      { name: "police",        number: "100"             },
+      { name: "police",        number: "+302241023849"   },
+      { name: "touristPolice", number: "+302241027423"   },
+      { name: "hospital",      number: "+302241080000"   },
+      { name: "port",          number: "+302241022220"   },
+      { name: "airport",       number: "+302241088700"   },
+      { name: "fire",          number: "199"             },
+      { name: "ambulance",     number: "166"             }
+    ];
 
-en:{
-title:"📞 Useful Numbers",
-emergency:"Emergency & Safety",
-services:"Services",
-call:"Call",
-whatsapp:"WhatsApp",
+    const services = [
+      { name: "securityOffice", number: "+302241024138" },
+      { name: "doctor",         number: "+306934889551" },
+      { name: "lawyer",         number: "+306948404427" },
+      { name: "taxi",           number: "+302241069700" },
+      { name: "taxi",           number: "+302241069600" }
+    ];
 
-police:"Police",
-touristPolice:"Tourist Police",
-hospital:"General Hospital of Rhodes",
-port:"Port Authority Rhodes",
-airport:"Rhodes Airport (Diagoras)",
-fire:"Fire Department",
-ambulance:"Ambulance",
+    // ---- WhatsApp SVG icon ----
+    const waSVG = `<svg class="wa-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.5L4 29l7.75-1.813A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.94 9.94 0 0 1-5.188-1.453l-.363-.219-4.594 1.078 1.094-4.469-.234-.375A9.94 9.94 0 0 1 6 15c0-5.523 4.477-10 10-10zm-3.063 5.313c-.25 0-.656.094-.969.437-.312.344-1.187 1.157-1.187 2.813s1.218 3.265 1.375 3.5c.156.234 2.344 3.719 5.75 5.062 2.844 1.125 3.406.906 4.031.844.625-.063 2.031-.828 2.313-1.625.28-.797.28-1.484.187-1.625-.094-.14-.344-.218-.719-.406-.375-.188-2.219-1.094-2.563-1.22-.344-.124-.594-.187-.844.188-.25.375-.969 1.218-1.187 1.468-.219.25-.438.282-.813.094-.375-.188-1.578-.578-3-1.844-1.11-.984-1.86-2.203-2.078-2.578-.219-.375-.023-.578.164-.766.172-.172.375-.438.563-.656.188-.219.25-.375.375-.625.125-.25.063-.469-.031-.656-.094-.188-.844-2.063-1.156-2.813-.281-.672-.578-.672-.844-.672z"/>
+    </svg>`;
 
-securityOffice:"Security / Passport Office",
-doctor:"Emergency Doctor",
-lawyer:"Lawyer",
-taxi:"Radio Taxi Rhodes"
-},
+    // ---- Render ----
+    document.getElementById("page-title").textContent = t[lang].title;
+    document.title = t[lang].title + " | Rhodes Guide";
 
-fr:{
-title:"📞 Numéros Utiles",
-emergency:"Urgence & Sécurité",
-services:"Services",
-call:"Appeler",
-whatsapp:"WhatsApp",
+    const container = document.getElementById("content");
 
-police:"Police",
-touristPolice:"Police Touristique",
-hospital:"Hôpital Général de Rhodes",
-port:"Autorité Portuaire Rhodes",
-airport:"Aéroport de Rhodes (Diagoras)",
-fire:"Pompiers",
-ambulance:"Ambulance",
+    function isWhatsApp(number) {
+      return number.startsWith("+306");
+    }
 
-securityOffice:"Service Sécurité / Passeports",
-doctor:"Médecin d'urgence",
-lawyer:"Avocat",
-taxi:"Radio Taxi Rhodes"
-},
+    function createSection(titleKey, list) {
+      const section = document.createElement("div");
 
-de:{
-title:"📞 Wichtige Nummern",
-emergency:"Notfall & Sicherheit",
-services:"Dienstleistungen",
-call:"Anrufen",
-whatsapp:"WhatsApp",
+      const heading = document.createElement("div");
+      heading.className = "section-title";
+      heading.textContent = t[lang][titleKey];
+      section.appendChild(heading);
 
-police:"Polizei",
-touristPolice:"Touristenpolizei",
-hospital:"Allgemeines Krankenhaus Rhodos",
-port:"Hafenbehörde Rhodos",
-airport:"Flughafen Rhodos (Diagoras)",
-fire:"Feuerwehr",
-ambulance:"Krankenwagen",
+      list.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "number-card";
 
-securityOffice:"Sicherheitsdienst / Reisepässe",
-doctor:"Notarzt",
-lawyer:"Anwalt",
-taxi:"Radio Taxi Rhodos"
-}
+        const name = document.createElement("h3");
+        name.textContent = t[lang][item.name];
+        card.appendChild(name);
 
-};
+        const actions = document.createElement("div");
+        actions.className = "actions";
 
-// ---------------- DATA ----------------
+        // ---- Call button ----
+        const callBtn = document.createElement("a");
+        callBtn.href = `tel:${item.number}`;
+        callBtn.className = "btn btn-call";
+        callBtn.innerHTML = `<span class="btn-icon">📞</span>${t[lang].call}`;
+        actions.appendChild(callBtn);
 
-const emergency = [
-{ name:"police", number:"100" },
-{ name:"police", number:"+302241023849" },
-{ name:"touristPolice", number:"+302241027423" },
-{ name:"hospital", number:"+302241080000" },
-{ name:"port", number:"+302241022220" },
-{ name:"airport", number:"+302241088700" },
-{ name:"fire", number:"199" },
-{ name:"ambulance", number:"166" }
-];
+        // ---- WhatsApp button (mobile numbers only) ----
+        if (isWhatsApp(item.number)) {
+          const waBtn = document.createElement("a");
+          waBtn.href = `https://wa.me/${item.number.replace("+", "")}`;
+          waBtn.target = "_blank";
+          waBtn.rel = "noopener noreferrer";
+          waBtn.className = "btn btn-whatsapp";
+          waBtn.innerHTML = `${waSVG}${t[lang].whatsapp}`;
+          actions.appendChild(waBtn);
+        }
 
-const services = [
-{ name:"securityOffice", number:"+302241024138" },
-{ name:"doctor", number:"+306934889551" },
-{ name:"lawyer", number:"+306948404427" },
-{ name:"taxi", number:"+302241069700" },
-{ name:"taxi", number:"+302241069600" }
-];
+        card.appendChild(actions);
+        section.appendChild(card);
+      });
 
-// ---------------- RENDER ----------------
+      container.appendChild(section);
+    }
 
-document.getElementById("title").textContent = t[lang].title;
-
-const container = document.getElementById("content");
-
-// Section builder
-function createSection(title, list){
-
-const section = document.createElement("div");
-section.className="section";
-
-const h2 = document.createElement("h2");
-h2.textContent = title;
-section.appendChild(h2);
-
-list.forEach(item=>{
-
-const card = document.createElement("div");
-card.className="card";
-
-const name = document.createElement("h3");
-name.textContent = t[lang][item.name];
-card.appendChild(name);
-
-const actions = document.createElement("div");
-actions.className="actions";
-
-// CALL
-const call = document.createElement("a");
-call.href = `tel:${item.number}`;
-call.className="btn call";
-call.textContent = t[lang].call;
-actions.appendChild(call);
-
-// WHATSAPP (only for mobile numbers)
-if(item.number.startsWith("+306")){
-
-const wa = document.createElement("a");
-wa.href = `https://wa.me/${item.number.replace("+","")}`;
-wa.className="btn whatsapp";
-wa.textContent = t[lang].whatsapp;
-actions.appendChild(wa);
-
-}
-
-card.appendChild(actions);
-section.appendChild(card);
-
-});
-
-container.appendChild(section);
-}
-
-// Render both sections
-createSection(t[lang].emergency, emergency);
-createSection(t[lang].services, services);
-
-</script>
+    createSection("emergency", emergency);
+    createSection("services",  services);
+  </script>
 
 </body>
 </html>
