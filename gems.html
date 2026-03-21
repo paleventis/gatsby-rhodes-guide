@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hidden Gems | Rhodes Guide</title>
+
+  <!-- Shared styles (Go btn, Unlock btn, paywall modal, restaurant-card) -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Gems-specific styles (trailer, info panel) -->
+  <link rel="stylesheet" href="css/gems.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="gems-page">
+
+  <!-- ===== PAGE TITLE ===== -->
+  <div class="gems-page-title">
+    <img src="assets/gem.png" alt="gem" />
+    <h1 id="gems-page-title">Hidden Gems of Rhodes</h1>
+  </div>
+
+  <!-- ===== FILM-STRIP TRAILER ===== -->
+  <div class="gems-trailer-wrapper">
+    <div id="gems-track"></div>
+  </div>
+
+  <!-- ===== INFO PANEL ===== -->
+  <div id="gem-info-panel" class="restaurant-card">
+
+    <!-- Blurrable content (blurred when gem is locked) -->
+    <div id="gem-info-content">
+      <h2 id="gem-info-name"></h2>
+      <p  id="gem-info-description"></p>
+
+      <div class="gem-location-row">
+        <span class="address-icon">📍</span>
+        <span class="address-text"  id="gem-info-address"></span>
+        <span class="distance-text" id="gem-info-distance"></span>
+      </div>
+    </div>
+
+    <!-- Go button — outside blur, always sharp (free/unlocked gems) -->
+    <a id="gem-go-btn" href="#" target="_blank" rel="noopener">🧭 Go</a>
+
+    <!-- Unlock button — outside blur, always sharp (locked gems) -->
+    <button id="gem-unlock-btn" class="unlock-btn" onclick="openUnlockModal()">
+      🔓 Unlock
+    </button>
+
+  </div>
+
+  <!-- ===== PAYWALL MODAL (identical to restaurants.html) ===== -->
+  <div id="unlockModal" class="unlock-modal">
+    <div class="unlock-container">
+
+      <button class="unlock-close" onclick="closeUnlockModal()">✕</button>
+
+      <h2>Unlock the Best Rhodes Guide</h2>
+
+      <p class="unlock-subtitle">
+        Discover the best restaurants, cafes, clubs, activities, beaches and hidden gems near you.
+      </p>
+
+      <div class="unlock-benefits">
+        <div>📍 Navigation to all locations</div>
+        <div>⭐ Handpicked places</div>
+        <div>🌴 Exclusive villa recommendations</div>
+      </div>
+
+      <input id="userEmail" class="unlock-input" type="email" required placeholder="Enter your email" />
+
+      <button class="unlock-pay" onclick="startPayment()">
+        Unlock Full Guide – €2.99
+      </button>
+
+      <div class="unlock-divider">or</div>
+
+      <input id="accessCode" class="unlock-input" placeholder="Enter access code" />
+
+      <button class="unlock-code" onclick="unlockWithCode()">
+        Unlock with Code
+      </button>
+
+    </div>
+  </div>
+
+  <!-- paywall.js MUST load before gems.js (provides hasAccess, openUnlockModal, etc.) -->
+  <script src="js/paywall.js"></script>
+  <script src="js/gems.js"></script>
+
+</body>
+</html>
