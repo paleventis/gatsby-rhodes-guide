@@ -1,0 +1,596 @@
+/* ========================================
+   GEMS PAGE STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.gems-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.gems-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.gems-header .diamond-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
+
+.gems-container {
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* ========================================
+   CAROUSEL/TRAILER SECTION
+   ======================================== */
+
+.gems-carousel {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.gems-track {
+  display: flex;
+  gap: 15px;
+  height: 100%;
+  padding: 0 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-type: x mandatory;
+}
+
+.gems-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gems-track::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.gems-track::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  border-radius: 10px;
+}
+
+.gems-card {
+  flex: 0 0 200px;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 3px solid transparent;
+  scroll-snap-align: center;
+  opacity: 0.6;
+  transform: scale(0.9);
+}
+
+.gems-card.center {
+  flex: 0 0 280px;
+  opacity: 1;
+  transform: scale(1);
+  border: 3px solid #ffd700;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+}
+
+.gems-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gems-card:hover:not(.center) {
+  transform: scale(0.95);
+}
+
+.gems-card.center:hover img {
+  transform: scale(1.05);
+}
+
+.gems-card .title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.gems-card.locked {
+  opacity: 0.5;
+  filter: blur(2px);
+}
+
+.gems-card.locked .title {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+/* ========================================
+   INFORMATION TAB SECTION
+   ======================================== */
+
+.gems-info-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 240, 250, 0.9) 100%);
+  border-radius: 25px;
+  padding: 30px;
+  border: 2px solid #ffd700;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.gems-info-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+}
+
+.gems-info-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  transition: filter 0.3s ease;
+}
+
+.gems-info-image.locked {
+  filter: blur(10px);
+}
+
+.gems-info-container h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 700;
+  transition: filter 0.3s ease;
+}
+
+.gems-info-container h2.locked {
+  filter: blur(6px);
+  color: #999;
+}
+
+.gems-info-container p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  transition: filter 0.3s ease;
+}
+
+.gems-info-container p.locked {
+  filter: blur(6px);
+  color: #999;
+}
+
+/* ========================================
+   LOCATION & ADDRESS SECTION
+   ======================================== */
+
+.gems-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.gems-location::before {
+  content: '📍';
+  font-size: 18px;
+}
+
+.gems-location.locked {
+  filter: blur(6px);
+  color: #999;
+}
+
+.gems-distance {
+  margin-left: auto;
+  font-size: 14px;
+  color: #999;
+  font-weight: 600;
+}
+
+/* ========================================
+   BUTTON SECTION
+   ======================================== */
+
+.gems-button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gems-button-group button {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.go-btn {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.go-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+}
+
+.go-btn:active {
+  transform: translateY(0);
+}
+
+.unlock-btn {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+  position: relative;
+}
+
+.unlock-btn::before {
+  content: '🔒';
+  font-size: 18px;
+}
+
+.unlock-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+}
+
+.unlock-btn:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   LOCKED STATE OVERLAY
+   ======================================== */
+
+.gems-info-container.locked {
+  position: relative;
+}
+
+.gems-info-container.locked::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
+  border-radius: 25px;
+  pointer-events: none;
+}
+
+/* ========================================
+   UNLOCK MODAL
+   ======================================== */
+
+.unlock-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.unlock-modal.active {
+  display: flex;
+}
+
+.unlock-modal-content {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  position: relative;
+}
+
+.unlock-modal-content h3 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.unlock-modal-content p {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.unlock-modal-content input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.unlock-modal-content input:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+.unlock-modal-content button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.unlock-modal-content .pay-btn {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #333;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.unlock-modal-content .pay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+.unlock-modal-content .code-btn {
+  background: #f0f0f0;
+  color: #333;
+  border: 2px solid #ddd;
+}
+
+.unlock-modal-content .code-btn:hover {
+  background: #e8e8e8;
+  border-color: #999;
+}
+
+.unlock-modal-content .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unlock-modal-content .close-btn:hover {
+  color: #333;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .gems-container {
+    padding: 25px;
+  }
+
+  .gems-header h1 {
+    font-size: 36px;
+  }
+
+  .gems-carousel {
+    height: 250px;
+  }
+
+  .gems-card {
+    flex: 0 0 150px;
+  }
+
+  .gems-card.center {
+    flex: 0 0 220px;
+  }
+
+  .gems-info-container {
+    padding: 20px;
+  }
+
+  .gems-info-image {
+    height: 200px;
+  }
+
+  .gems-info-container h2 {
+    font-size: 24px;
+  }
+
+  .gems-button-group {
+    flex-direction: column;
+  }
+
+  .unlock-modal-content {
+    padding: 30px 20px;
+  }
+
+  .unlock-modal-content h3 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gems-header h1 {
+    font-size: 28px;
+    gap: 10px;
+  }
+
+  .gems-header .diamond-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .gems-container {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .gems-carousel {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .gems-card {
+    flex: 0 0 120px;
+  }
+
+  .gems-card.center {
+    flex: 0 0 180px;
+  }
+
+  .gems-info-image {
+    height: 150px;
+  }
+
+  .gems-info-container h2 {
+    font-size: 20px;
+  }
+
+  .gems-info-container p {
+    font-size: 14px;
+  }
+
+  .gems-location {
+    font-size: 14px;
+  }
+
+  .gems-button-group button {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+}
