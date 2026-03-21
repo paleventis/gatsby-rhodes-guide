@@ -2,9 +2,6 @@
 // Gems Page JS
 // ---------------------------
 
-// Fallback location (Gatsby Rhodes Villas)
-const villaLocation = { lat: 36.2553, lng: 28.1676 };
-
 // Language from localStorage (set by index.html)
 const lang = localStorage.getItem("selectedLanguage") || "en";
 
@@ -21,8 +18,9 @@ function getDistance(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
+// userLocation is null until GPS resolves
 let userLocation = null;
-let gemsData = [];
+let gemsData     = [];
 let currentIndex = 0;
 let trailerTimer = null;
 let trailerPaused = false;
@@ -32,41 +30,52 @@ let trailerPaused = false;
 // ---------------------------
 function showGemInfo(gem) {
   const unlocked = (typeof hasAccess === "function") ? hasAccess() : false;
-  const isFree = gem.free || unlocked;
+  const isFree   = gem.free || unlocked;
 
   const panel     = document.getElementById("gem-info-panel");
-  const content   = document.getElementById("gem-info-content");
   const goBtn     = document.getElementById("gem-go-btn");
   const unlockBtn = document.getElementById("gem-unlock-btn");
 
   if (isFree) {
     panel.classList.remove("locked-panel");
 
-    document.getElementById("gem-info-name").textContent        = gem.name[lang] || gem.name.en;
+    document.getElementById("gem-info-name").textContent        = gem.name[lang]        || gem.name.en;
     document.getElementById("gem-info-description").textContent = gem.description[lang] || gem.description.en;
 
     // Address always in English Latin characters
     document.getElementById("gem-info-address").textContent = gem.address.en;
 
-    // Distance
-    const ref = userLocation || villaLocation;
-    const d   = getDistance(ref.lat, ref.lng, gem.lat, gem.lng);
-    const src = userLocation ? "" : " from Gatsby Rhodes Villas";
-    document.getElementById("gem-info-distance").textContent = `📏 ${d.toFixed(1)} km${src}`;
+    // Distance — only shown when GPS is available
+    const distEl = document.getElementById("gem-info-distance");
+    if (userLocation) {
+      const d = getDistance(userLocation.lat, userLocation.lng, gem.lat, gem.lng);
+      distEl.textContent = `📏 ${d.toFixed(1)} km`;
+    } else {
+      distEl.textContent = "📏 …";
+    }
 
-    // Go button → Google Maps directions
-    const origin = `${ref.lat},${ref.lng}`;
-    const dest   = `${gem.lat},${gem.lng}`;
+    // Go button — origin from GPS if available, otherwise omit origin
+    // (Google Maps will ask the user for their location)
+    const dest     = `${gem.lat},${gem.lng}`;
     const destName = encodeURIComponent(gem.address.en);
-    goBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${dest}&destination_name=${destName}&travelmode=driving`;
-    goBtn.style.display    = "inline-block";
+    if (userLocation) {
+      goBtn.href = `https://www.google.com/maps/dir/?api=1&origin=${userLocation.lat},${userLocation.lng}&destination=${dest}&destination_name=${destName}&travelmode=driving`;
+    } else {
+      goBtn.href = `https://www.google.com/maps/dir/?api=1&destination=${dest}&destination_name=${destName}&travelmode=driving`;
+    }
+
+    goBtn.style.display     = "inline-block";
     unlockBtn.style.display = "none";
 
   } else {
     panel.classList.add("locked-panel");
 
-    const lockedNames = { en: "Hidden Gem", fr: "Joyau Caché", de: "Verborgenes Juwel" };
-    const lockedDesc  = {
+    const lockedNames = {
+      en: "Hidden Gem",
+      fr: "Joyau Caché",
+      de: "Verborgenes Juwel"
+    };
+    const lockedDesc = {
       en: "Unlock the full guide to discover this hidden gem and many more secret spots across Rhodes.",
       fr: "Déverrouillez le guide complet pour découvrir ce joyau caché et bien d'autres endroits secrets à Rhodes.",
       de: "Schalten Sie den vollständigen Reiseführer frei, um dieses verborgene Juwel zu entdecken."
@@ -77,7 +86,7 @@ function showGemInfo(gem) {
     document.getElementById("gem-info-address").textContent     = "";
     document.getElementById("gem-info-distance").textContent    = "";
 
-    goBtn.style.display    = "none";
+    goBtn.style.display     = "none";
     unlockBtn.style.display = "inline-block";
   }
 }
@@ -91,7 +100,7 @@ function buildTrailer(gems) {
 
   gems.forEach((gem, i) => {
     const card = document.createElement("div");
-    card.className = "gems-card";
+    card.className    = "gems-card";
     card.dataset.index = i;
 
     const img = document.createElement("img");
@@ -99,7 +108,7 @@ function buildTrailer(gems) {
     img.alt = gem.name.en;
 
     const label = document.createElement("span");
-    label.className = "gems-card-label";
+    label.className   = "gems-card-label";
     label.textContent = gem.name[lang] || gem.name.en;
 
     card.appendChild(img);
@@ -109,16 +118,15 @@ function buildTrailer(gems) {
     card.addEventListener("click", () => {
       stopTrailer();
       if (card.classList.contains("center")) {
-        // Centre card: if free → open maps; if locked → do nothing (Unlock btn handles it)
+        // Centre card: free → open Google Maps; locked → Unlock btn handles modal
         const unlocked = (typeof hasAccess === "function") ? hasAccess() : false;
         if (gem.free || unlocked) {
-          const ref  = userLocation || villaLocation;
-          const dest = `${gem.lat},${gem.lng}`;
+          const dest     = `${gem.lat},${gem.lng}`;
           const destName = encodeURIComponent(gem.address.en);
-          window.open(
-            `https://www.google.com/maps/dir/?api=1&origin=${ref.lat},${ref.lng}&destination=${dest}&destination_name=${destName}&travelmode=driving`,
-            "_blank"
-          );
+          const url = userLocation
+            ? `https://www.google.com/maps/dir/?api=1&origin=${userLocation.lat},${userLocation.lng}&destination=${dest}&destination_name=${destName}&travelmode=driving`
+            : `https://www.google.com/maps/dir/?api=1&destination=${dest}&destination_name=${destName}&travelmode=driving`;
+          window.open(url, "_blank");
         }
       } else {
         currentIndex = i;
@@ -134,7 +142,6 @@ function buildTrailer(gems) {
 
 function applyPositions() {
   const cards = document.querySelectorAll(".gems-card");
-  const total = cards.length;
 
   cards.forEach((card, i) => {
     card.classList.remove("center", "near-left", "near-right", "far-left", "far-right");
@@ -145,12 +152,12 @@ function applyPositions() {
     else if (diff  <  -1) card.classList.add("far-left");
     else                  card.classList.add("far-right");
 
-    // Apply locked blur to image and label
-    const gem = gemsData[i];
+    // Blur locked card images and labels
+    const gem      = gemsData[i];
     const unlocked = (typeof hasAccess === "function") ? hasAccess() : false;
-    const isFree = gem.free || unlocked;
-    const img   = card.querySelector("img");
-    const lbl   = card.querySelector(".gems-card-label");
+    const isFree   = gem.free || unlocked;
+    const img      = card.querySelector("img");
+    const lbl      = card.querySelector(".gems-card-label");
 
     if (!isFree) {
       img.style.filter  = "blur(7px) brightness(0.5)";
@@ -184,6 +191,63 @@ function stopTrailer() {
 document.getElementById("gem-info-panel").addEventListener("click", stopTrailer);
 
 // ---------------------------
+// Swipe support (touch + mouse drag)
+// ---------------------------
+(function attachSwipe() {
+  const wrapper = document.querySelector(".gems-trailer-wrapper");
+  if (!wrapper) return;
+
+  const SWIPE_THRESHOLD = 50; // px
+  let startX = null;
+  let isDragging = false;
+
+  function onSwipeEnd(deltaX) {
+    if (Math.abs(deltaX) < SWIPE_THRESHOLD) return;
+    stopTrailer();
+    if (deltaX < 0) {
+      // swipe left → advance forward
+      currentIndex = (currentIndex + 1) % gemsData.length;
+    } else {
+      // swipe right → go back
+      currentIndex = (currentIndex - 1 + gemsData.length) % gemsData.length;
+    }
+    applyPositions();
+  }
+
+  // ---- Touch events ----
+  wrapper.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  wrapper.addEventListener("touchend", e => {
+    if (startX === null) return;
+    const deltaX = e.changedTouches[0].clientX - startX;
+    onSwipeEnd(deltaX);
+    startX = null;
+  }, { passive: true });
+
+  // ---- Mouse drag events ----
+  wrapper.addEventListener("mousedown", e => {
+    startX = e.clientX;
+    isDragging = true;
+    e.preventDefault();
+  });
+
+  window.addEventListener("mouseup", e => {
+    if (!isDragging || startX === null) return;
+    const deltaX = e.clientX - startX;
+    onSwipeEnd(deltaX);
+    startX = null;
+    isDragging = false;
+  });
+
+  window.addEventListener("mousemove", e => {
+    if (!isDragging) return;
+    e.preventDefault();
+  });
+})();
+
+// ---------------------------
 // Page title translation
 // ---------------------------
 const pageTitles = {
@@ -211,19 +275,22 @@ function initGems() {
 }
 
 // ---------------------------
-// Geolocation
+// Geolocation — GPS only, no villa fallback
 // ---------------------------
-// Start immediately with villa fallback; update distance if GPS resolves
-userLocation = villaLocation;
-initGems();
-
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
     pos => {
       userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-      // Refresh distance display for current gem
+      // Refresh distance and Go button for the currently displayed gem
       if (gemsData.length > 0) showGemInfo(gemsData[currentIndex]);
     },
-    () => { /* keep villa fallback */ }
+    () => {
+      // GPS denied or unavailable — userLocation stays null
+      // Distance shows "…" and Go button omits origin (Google Maps asks user)
+      if (gemsData.length > 0) showGemInfo(gemsData[currentIndex]);
+    }
   );
 }
+
+// Start loading immediately — distance shows "…" until GPS resolves
+initGems();
