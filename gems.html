@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gems of Rhodes</title>
+
+<link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.page-title{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+margin:20px 0;
+}
+
+.gems-trailer{
+display:flex;
+justify-content:center;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.gems-track{
+display:flex;
+gap:20px;
+}
+
+.gems-card{
+width:220px;
+height:150px;
+border-radius:16px;
+overflow:hidden;
+position:relative;
+transition:0.4s;
+cursor:pointer;
+}
+
+.gems-card.center{
+transform:scale(1.1);
+box-shadow:0 0 25px rgba(255,215,0,0.4);
+}
+
+.gems-card:not(.center){
+transform:scale(0.85);
+opacity:0.5;
+}
+
+.gems-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.gems-card.locked img{
+filter:blur(10px) brightness(0.5);
+}
+
+.gems-card .title{
+position:absolute;
+bottom:5px;
+left:10px;
+color:white;
+font-size:0.8rem;
+}
+
+.gems-card.locked .title{
+filter:blur(6px);
+}
+
+.gems-info{
+margin:20px auto;
+max-width:650px;
+padding:20px;
+border-radius:20px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+color:white;
+}
+
+.gems-info-image{
+width:100%;
+height:140px;
+border-radius:14px;
+object-fit:cover;
+margin-bottom:12px;
+}
+
+.gems-location{
+margin-top:10px;
+padding:10px;
+border-radius:12px;
+background:rgba(255,255,255,0.1);
+display:flex;
+justify-content:space-between;
+}
+
+.map-btn,
+.unlock-btn{
+float:right;
+margin-top:15px;
+padding:10px 16px;
+border-radius:999px;
+border:none;
+cursor:pointer;
+}
+
+.map-btn{
+background:#007bff;
+color:white;
+}
+
+.unlock-btn{
+background:linear-gradient(135deg,#d4af37,#f5d87a);
+color:black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-title">
+  <img src="assets/gem/gem.png" class="gems-diamond">
+  <h1>Gems of Rhodes</h1>
+</div>
+
+<div class="gems-trailer">
+  <div class="gems-track" id="gemsTrack"></div>
+</div>
+
+<div class="gems-info" id="gemsInfo"></div>
+
+<!-- UNLOCK MODAL -->
+<div id="unlockModal" class="unlock-modal hidden">
+  <div class="unlock-box">
+    <h2>Unlock Premium Guide</h2>
+    <input id="userEmail" type="email" placeholder="Enter email">
+    <button class="unlock-pay" onclick="startPayment()">Unlock</button>
+    <button class="unlock-code" onclick="unlockWithCode()">Unlock with Code</button>
+  </div>
+</div>
+
+<script src="js/paywall.js"></script>
+<script src="js/gems.js"></script>
+
+</body>
+</html>
