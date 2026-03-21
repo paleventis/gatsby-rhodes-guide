@@ -1,58 +1,156 @@
 [
   {
-    "name": "Red Sand Beach",
+    "id": 1,
+    "name": {
+      "en": "Red Sand Beach",
+      "fr": "Plage de Sable Rouge",
+      "de": "Roter Sandstrand"
+    },
+    "description": {
+      "en": "A rare red-colored beach with stunning natural beauty and crystal-clear waters.",
+      "fr": "Une rare plage de sable rouge avec une beauté naturelle époustouflante et des eaux cristallines.",
+      "de": "Ein seltener roter Sandstrand mit atemberaubender Naturschönheit und kristallklarem Wasser."
+    },
     "photos": ["assets/gem/redsand1.jpg"],
-    "address": "Rhodes, Greece",
+    "address": {
+      "en": "Kokkimocholia, Rhodes, Greece",
+      "fr": "Kokkimocholia, Rhodes, Grèce",
+      "de": "Kokkimocholia, Rhodos, Griechenland"
+    },
     "lat": 36.0905,
     "lng": 28.0863,
-    "notes": "A rare red-colored beach with stunning natural beauty."
+    "free": true
   },
   {
-    "name": "Chalki Gateaway",
+    "id": 2,
+    "name": {
+      "en": "Chalki Gateway",
+      "fr": "Porte de Chalki",
+      "de": "Chalki Tor"
+    },
+    "description": {
+      "en": "A peaceful hidden cove away from the crowds with pristine waters and dramatic cliffs.",
+      "fr": "Une crique cachée paisible loin de la foule avec des eaux vierges et des falaises spectaculaires.",
+      "de": "Eine friedliche versteckte Bucht abseits der Menschenmassen mit unberührtem Wasser und dramatischen Klippen."
+    },
     "photos": ["assets/gem/chalki1.jpg"],
-    "address": "Hidden Rhodes",
-    "lat": 36.2000,
-    "lng": 28.1500,
-    "notes": "A peaceful hidden cove away from the crowds."
+    "address": {
+      "en": "Chalki Island, Rhodes, Greece",
+      "fr": "Île de Chalki, Rhodes, Grèce",
+      "de": "Insel Chalki, Rhodos, Griechenland"
+    },
+    "lat": 36.2667,
+    "lng": 27.8167,
+    "free": false
   },
   {
-    "name": "Butterly",
+    "id": 3,
+    "name": {
+      "en": "Valley of Butterflies",
+      "fr": "Vallée des Papillons",
+      "de": "Schmetterlingstal"
+    },
+    "description": {
+      "en": "A dramatic cliffside sanctuary where thousands of butterflies gather seasonally in a lush green valley.",
+      "fr": "Un sanctuaire spectaculaire en falaise où des milliers de papillons se rassemblent saisonnièrement dans une vallée verdoyante.",
+      "de": "Ein dramatisches Klippen-Heiligtum, in dem sich saisonal Tausende von Schmetterlingen in einem üppigen grünen Tal versammeln."
+    },
     "photos": ["assets/gem/butterly.jpg"],
-    "address": "South Rhodes",
-    "lat": 36.0500,
-    "lng": 28.0000,
-    "notes": "A dramatic cliffside view over the Aegean Sea."
+    "address": {
+      "en": "Petaloudes, Rhodes, Greece",
+      "fr": "Petaloudes, Rhodes, Grèce",
+      "de": "Petaloudes, Rhodos, Griechenland"
+    },
+    "lat": 36.1167,
+    "lng": 28.1667,
+    "free": false
   },
   {
-    "name": "Antony Quinn's Bay",
+    "id": 4,
+    "name": {
+      "en": "Anthony Quinn Bay",
+      "fr": "Baie d'Anthony Quinn",
+      "de": "Anthony Quinn Bucht"
+    },
+    "description": {
+      "en": "A stunning turquoise bay named after the famous actor, featuring dramatic rock formations and pristine waters.",
+      "fr": "Une baie turquoise époustouflante nommée d'après le célèbre acteur, avec des formations rocheuses spectaculaires et des eaux vierges.",
+      "de": "Eine atemberaubende türkisfarbene Bucht, benannt nach dem berühmten Schauspieler, mit dramatischen Felsformationen und unberührtem Wasser."
+    },
     "photos": ["assets/gem/antony1.jpg"],
-    "address": "South Rhodes",
-    "lat": 36.0500,
-    "lng": 28.0000,
-    "notes": "A dramatic cliffside view over the Aegean Sea."
+    "address": {
+      "en": "Faliraki, Rhodes, Greece",
+      "fr": "Faliraki, Rhodes, Grèce",
+      "de": "Faliraki, Rhodos, Griechenland"
+    },
+    "lat": 36.3167,
+    "lng": 28.2167,
+    "free": false
   },
   {
-    "name": Monolithos Castle",
+    "id": 5,
+    "name": {
+      "en": "Monolithos Castle",
+      "fr": "Château de Monolithos",
+      "de": "Burg Monolithos"
+    },
+    "description": {
+      "en": "An impressive medieval castle perched on a dramatic rocky outcrop with panoramic views of the Aegean Sea.",
+      "fr": "Un impressionnant château médiéval perché sur un éperon rocheux spectaculaire avec des vues panoramiques sur la mer Égée.",
+      "de": "Eine beeindruckende mittelalterliche Burg auf einem dramatischen Felsenvorsprung mit Panoramablick auf die Ägäis."
+    },
     "photos": ["assets/gem/monolithos1.jpg"],
-    "address": "South Rhodes",
-    "lat": 36.0500,
-    "lng": 28.0000,
-    "notes": "A dramatic cliffside view over the Aegean Sea."
+    "address": {
+      "en": "Monolithos, Rhodes, Greece",
+      "fr": "Monolithos, Rhodes, Grèce",
+      "de": "Monolithos, Rhodos, Griechenland"
+    },
+    "lat": 35.9667,
+    "lng": 27.8167,
+    "free": false
   },
   {
-    "name": "Prasonisi",
+    "id": 6,
+    "name": {
+      "en": "Prasonisi Cape",
+      "fr": "Cap Prasonisi",
+      "de": "Kap Prasonisi"
+    },
+    "description": {
+      "en": "A unique windsurf paradise where two seas meet, offering spectacular views and excellent water sports conditions.",
+      "fr": "Un paradis unique du windsurf où deux mers se rencontrent, offrant des vues spectaculaires et d'excellentes conditions de sports nautiques.",
+      "de": "Ein einzigartiges Windsurfparadies, wo zwei Meere aufeinandertreffen, mit spektakulären Ausblicken und hervorragenden Wassersportbedingungen."
+    },
     "photos": ["assets/gem/prasonisi1.jpg"],
-    "address": "South Rhodes",
-    "lat": 36.0500,
-    "lng": 28.0000,
-    "notes": "A dramatic cliffside view over the Aegean Sea."
+    "address": {
+      "en": "Prasonisi, Rhodes, Greece",
+      "fr": "Prasonisi, Rhodes, Grèce",
+      "de": "Prasonisi, Rhodos, Griechenland"
+    },
+    "lat": 35.8833,
+    "lng": 27.8333,
+    "free": false
   },
   {
-    "name": "Symi Gateaway",
+    "id": 7,
+    "name": {
+      "en": "Symi Gateway",
+      "fr": "Porte de Symi",
+      "de": "Symi Tor"
+    },
+    "description": {
+      "en": "A charming island escape with colorful harbor houses, fresh seafood, and a relaxed Mediterranean atmosphere.",
+      "fr": "Une charmante échappatoire insulaire avec des maisons portuaires colorées, des fruits de mer frais et une atmosphère méditerranéenne détendue.",
+      "de": "Ein charmanter Inselausflug mit farbenfrohen Hafenhäusern, frischen Meeresfrüchten und einer entspannten mediterranen Atmosphäre."
+    },
     "photos": ["assets/gem/symi1.jpg"],
-    "address": "South Rhodes",
-    "lat": 36.0500,
-    "lng": 28.0000,
-    "notes": "A dramatic cliffside view over the Aegean Sea."
+    "address": {
+      "en": "Symi Island, Rhodes, Greece",
+      "fr": "Île de Symi, Rhodes, Grèce",
+      "de": "Insel Symi, Rhodos, Griechenland"
+    },
+    "lat": 36.6667,
+    "lng": 27.8333,
+    "free": false
   }
 ]
