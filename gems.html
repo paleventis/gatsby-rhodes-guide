@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💎 Gems of Rhodes</title>
+  <link rel="stylesheet" href="gems.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="gems-header">
+    <h1>
+      <div class="diamond-icon"></div>
+      Gems of Rhodes
+    </h1>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <div class="gems-container">
+    
+    <!-- CAROUSEL/TRAILER SECTION -->
+    <div class="gems-carousel">
+      <div class="gems-track" id="gemsTrack">
+        <!-- Cards will be inserted here by gems.js -->
+      </div>
+    </div>
+
+    <!-- INFORMATION TAB SECTION -->
+    <div class="gems-info-container" id="gemsInfoContainer">
+      <div id="gemsInfo">
+        <!-- Information will be inserted here by gems.js -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- UNLOCK MODAL -->
+  <div class="unlock-modal" id="unlockModal">
+    <div class="unlock-modal-content">
+      <button class="close-btn" onclick="closeUnlockModal()">✕</button>
+      <h3>🔒 Unlock Hidden Gems</h3>
+      <p>Discover all the hidden gems of Rhodes and get directions to every location.</p>
+      
+      <input type="email" id="userEmail" placeholder="Enter your email" />
+      <button class="pay-btn" onclick="startPayment()">💳 Unlock with Payment</button>
+      
+      <div style="text-align: center; margin: 20px 0; color: #999;">— or —</div>
+      
+      <input type="text" id="accessCode" placeholder="Enter access code" />
+      <button class="code-btn" onclick="unlockWithCode()">✓ Unlock with Code</button>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="paywall.js"></script>
+  <script src="gems.js"></script>
+</body>
+</html>
