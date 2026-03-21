@@ -459,5 +459,5 @@ color:black;
 }
 
 .unlock-modal.hidden {
-  display: none;
+  display: none;!important;
 }
