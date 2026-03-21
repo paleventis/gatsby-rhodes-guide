@@ -54,6 +54,58 @@ body.gems-page {
 }
 
 /* ============================================================
+   GOLDEN GLOW ANIMATIONS
+   ============================================================ */
+
+@keyframes goldPulse {
+  0%   {
+    box-shadow:
+      0 0 10px rgba(255,215,0,0.4),
+      0 0 25px rgba(255,180,0,0.3),
+      0 10px 30px rgba(0,0,0,0.6),
+      inset 0 0 20px rgba(255,215,120,0.25);
+  }
+  50%  {
+    box-shadow:
+      0 0 25px rgba(255,215,0,0.85),
+      0 0 50px rgba(255,180,0,0.6),
+      0 10px 30px rgba(0,0,0,0.6),
+      inset 0 0 30px rgba(255,215,120,0.4);
+  }
+  100% {
+    box-shadow:
+      0 0 10px rgba(255,215,0,0.4),
+      0 0 25px rgba(255,180,0,0.3),
+      0 10px 30px rgba(0,0,0,0.6),
+      inset 0 0 20px rgba(255,215,120,0.25);
+  }
+}
+
+@keyframes infoPanelGlow {
+  0%   {
+    box-shadow:
+      0 0 8px rgba(255,215,0,0.3),
+      0 0 20px rgba(255,180,0,0.2),
+      inset 0 0 15px rgba(255,215,120,0.15),
+      0 8px 40px rgba(0,0,0,0.5);
+  }
+  50%  {
+    box-shadow:
+      0 0 18px rgba(255,215,0,0.55),
+      0 0 40px rgba(255,180,0,0.35),
+      inset 0 0 25px rgba(255,215,120,0.3),
+      0 8px 40px rgba(0,0,0,0.5);
+  }
+  100% {
+    box-shadow:
+      0 0 8px rgba(255,215,0,0.3),
+      0 0 20px rgba(255,180,0,0.2),
+      inset 0 0 15px rgba(255,215,120,0.15),
+      0 8px 40px rgba(0,0,0,0.5);
+  }
+}
+
+/* ============================================================
    FILM-STRIP TRAILER
    ============================================================ */
 
@@ -65,8 +117,12 @@ body.gems-page {
   height: 270px;
   overflow: hidden;
   border-radius: 18px;
+  /* fade edges */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%);
           mask-image: linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%);
+  /* touch-action allows swipe without interfering with page scroll */
+  touch-action: pan-y;
+  user-select: none;
 }
 
 #gems-track {
@@ -75,7 +131,7 @@ body.gems-page {
   height: 100%;
 }
 
-/* ---- Base card ---- */
+/* ---- Base card (non-active: dimmed and blurred) ---- */
 .gems-card {
   position: absolute;
   top: 50%;
@@ -85,14 +141,16 @@ body.gems-page {
   overflow: hidden;
   cursor: pointer;
   transition:
-    transform 0.55s cubic-bezier(0.4,0,0.2,1),
-    filter    0.55s ease,
-    opacity   0.55s ease,
-    left      0.55s cubic-bezier(0.4,0,0.2,1);
+    transform  0.55s cubic-bezier(0.4,0,0.2,1),
+    filter     0.55s ease,
+    opacity    0.55s ease,
+    left       0.55s cubic-bezier(0.4,0,0.2,1),
+    box-shadow 0.55s ease,
+    border     0.55s ease;
   transform: translateY(-50%) scale(0.78);
-  filter: blur(3px) brightness(0.5);
-  opacity: 0.6;
-  border: 2px solid rgba(255,255,255,0.1);
+  filter: blur(3px) brightness(0.45);
+  opacity: 0.5;
+  border: 1.5px solid rgba(255,255,255,0.08);
   box-shadow: 0 4px 20px rgba(0,0,0,0.45);
 }
 
@@ -118,63 +176,72 @@ body.gems-page {
   transition: filter 0.4s ease, opacity 0.4s ease;
 }
 
-/* ---- Centre card ---- */
+/* ---- Centre card — full golden glow + pulse ---- */
 .gems-card.center {
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1.1);
   filter: none;
   opacity: 1;
-  border-color: rgba(245,216,122,0.65);
-  box-shadow: 0 0 32px rgba(245,180,30,0.4), 0 8px 28px rgba(0,0,0,0.55);
+  border: 1.5px solid rgba(255, 215, 120, 0.6);
+  animation: goldPulse 2.5s ease-in-out infinite;
   z-index: 10;
 }
 
-/* ---- Adjacent cards ---- */
+/* ---- Adjacent cards — slightly visible, no glow ---- */
 .gems-card.near-left {
   left: calc(50% - 310px);
   transform: translateY(-50%) scale(0.86);
-  filter: blur(2px) brightness(0.6);
-  opacity: 0.78;
+  filter: blur(2px) brightness(0.55);
+  opacity: 0.5;
   z-index: 5;
 }
 .gems-card.near-right {
   left: calc(50% + 20px);
   transform: translateY(-50%) scale(0.86);
-  filter: blur(2px) brightness(0.6);
-  opacity: 0.78;
+  filter: blur(2px) brightness(0.55);
+  opacity: 0.5;
   z-index: 5;
 }
 
-/* ---- Far cards ---- */
+/* ---- Far cards — heavily dimmed ---- */
 .gems-card.far-left {
   left: calc(50% - 600px);
   transform: translateY(-50%) scale(0.7);
-  filter: blur(5px) brightness(0.35);
+  filter: blur(5px) brightness(0.3);
   opacity: 0.4;
   z-index: 1;
 }
 .gems-card.far-right {
   left: calc(50% + 310px);
   transform: translateY(-50%) scale(0.7);
-  filter: blur(5px) brightness(0.35);
+  filter: blur(5px) brightness(0.3);
   opacity: 0.4;
   z-index: 1;
 }
 
 /* ============================================================
-   INFO PANEL  (same look as .restaurant-card from styles.css)
+   INFO PANEL — golden glow glass card
    ============================================================ */
 
 #gem-info-panel {
   position: relative;
   max-width: 700px;
   margin: 1.4rem auto 2rem;
-  background: rgba(255,255,255,0.90);
-  backdrop-filter: blur(6px);
-  border-radius: 16px;
+
+  /* Glass background */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  /* Gold border */
+  border: 1px solid rgba(255, 215, 120, 0.5);
+  border-radius: 20px;
   padding: 16px 16px 60px;
-  color: #111;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+
+  /* Animated golden glow */
+  animation: infoPanelGlow 3s ease-in-out infinite;
+
+  color: #fff;
   min-height: 180px;
   cursor: default;
 }
@@ -194,13 +261,14 @@ body.gems-page {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.1rem, 2.8vw, 1.5rem);
   margin: 0 0 0.5rem;
-  color: #1a4a3a;
+  color: #ffe98a;
+  text-shadow: 0 2px 10px rgba(255, 215, 120, 0.4);
 }
 
 #gem-info-panel p {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #222;
+  color: rgba(255,255,255,0.9);
   margin: 0 0 0.6rem;
 }
 
@@ -212,11 +280,11 @@ body.gems-page {
   gap: 0.4rem;
   margin-top: 0.7rem;
   padding: 0.5rem 0.75rem;
-  background: rgba(0,100,70,0.07);
+  background: rgba(255,215,0,0.07);
   border-radius: 10px;
-  border: 1px solid rgba(0,100,70,0.15);
+  border: 1px solid rgba(255,215,0,0.18);
   font-size: 0.85rem;
-  color: #333;
+  color: rgba(255,255,255,0.85);
 }
 
 .gem-location-row .address-icon { flex-shrink: 0; }
@@ -225,19 +293,19 @@ body.gems-page {
   flex: 1;
   min-width: 0;
   font-size: 0.83rem;
-  color: #444;
+  color: rgba(255,255,255,0.8);
   line-height: 1.4;
 }
 
 .gem-location-row .distance-text {
   flex-shrink: 0;
   font-size: 0.82rem;
-  color: #005ec2;
+  color: #7dd3fc;
   font-weight: 600;
   white-space: nowrap;
 }
 
-/* ---- Go button — same style as map-btn in styles.css ---- */
+/* ---- Go button ---- */
 #gem-go-btn {
   position: absolute;
   bottom: 14px;
@@ -259,7 +327,7 @@ body.gems-page {
   box-shadow: 0 8px 20px rgba(0,122,255,0.55);
 }
 
-/* ---- Unlock button — exact copy of .unlock-btn from styles.css ---- */
+/* ---- Unlock button ---- */
 #gem-unlock-btn {
   position: absolute;
   bottom: 15px;
