@@ -1,39 +1,131 @@
+// ========================================
+// GEMS PAGE JAVASCRIPT
+// ========================================
+
 let currentIndex = 0;
 let gemsData = [];
+let userLocation = null;
 
-fetch('data/gems.json')
-.then(res => res.json())
-.then(data => {
-  gemsData = data;
-  renderGems();
-  updateInfo();
+// ========================================
+// INITIALIZATION
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get user's language from localStorage (set by index.html)
+  window.currentLang = localStorage.getItem('lang') || 'en';
+  
+  // Get user location and load gems
+  getUserLocation();
+  loadGemsData();
+  
+  // Check for QR unlock codes
+  checkQRUnlock();
 });
 
-function renderGems(){
+// ========================================
+// GET USER LOCATION
+// ========================================
 
-  const track = document.getElementById("gemsTrack");
-  track.innerHTML = "";
+function getUserLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        // Re-render after getting location to show distances
+        if (gemsData.length > 0) {
+          renderGems();
+          updateInfo();
+        }
+      },
+      function(error) {
+        console.log('Location access denied, using default location');
+        // Default to Rhodes center if location not available
+        userLocation = {
+          lat: 36.1333,
+          lng: 28.2167
+        };
+      }
+    );
+  }
+}
 
-  gemsData.forEach((g, i) => {
+// ========================================
+// CALCULATE DISTANCE (Haversine formula)
+// ========================================
 
-    const unlocked = localStorage.getItem("unlocked") === "true";
-    const free = g.name === "Red Sand Beach";
-    const locked = !unlocked && !free;
+function calculateDistance(lat1, lng1, lat2, lng2) {
+  const R = 6371; // Earth's radius in km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = 
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLng / 2) * Math.sin(dLng / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
 
-    const card = document.createElement("div");
-    card.className = "gems-card";
+// ========================================
+// LOAD GEMS DATA
+// ========================================
 
-    if (i === currentIndex) card.classList.add("center");
-    if (locked) card.classList.add("locked");
+function loadGemsData() {
+  fetch('data/gems.json')
+    .then(res => res.json())
+    .then(data => {
+      gemsData = data;
+      
+      // Sort by distance if user location is available
+      if (userLocation) {
+        gemsData.forEach(gem => {
+          gem.distance = calculateDistance(
+            userLocation.lat, 
+            userLocation.lng, 
+            gem.lat, 
+            gem.lng
+          );
+        });
+        gemsData.sort((a, b) => a.distance - b.distance);
+      }
+      
+      renderGems();
+      updateInfo();
+    })
+    .catch(error => console.error('Error loading gems:', error));
+}
 
-    const img = document.createElement("img");
-    img.src = g.photos[0];
+// ========================================
+// RENDER CAROUSEL CARDS
+// ========================================
 
-    const title = document.createElement("div");
-    title.className = "title";
-    title.textContent = locked ? "Hidden Gem" : g.name;
+function renderGems() {
+  const track = document.getElementById('gemsTrack');
+  track.innerHTML = '';
 
-    if (locked) title.style.filter = "blur(6px)";
+  gemsData.forEach((gem, i) => {
+    const hasAccess = hasUserAccess(gem);
+    const isLocked = !hasAccess;
+
+    const card = document.createElement('div');
+    card.className = 'gems-card';
+
+    if (i === currentIndex) {
+      card.classList.add('center');
+    }
+    if (isLocked) {
+      card.classList.add('locked');
+    }
+
+    const img = document.createElement('img');
+    img.src = gem.photos[0];
+    img.alt = gem.name[window.currentLang] || gem.name.en;
+
+    const title = document.createElement('div');
+    title.className = 'title';
+    title.textContent = isLocked ? getText('hiddenGem') : (gem.name[window.currentLang] || gem.name.en);
 
     card.appendChild(img);
     card.appendChild(title);
@@ -46,60 +138,220 @@ function renderGems(){
 
     track.appendChild(card);
   });
+
+  // Auto-scroll to center card
+  setTimeout(() => {
+    const centerCard = track.querySelector('.gems-card.center');
+    if (centerCard) {
+      centerCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, 100);
 }
 
-function getText(key, lang){
-  const t = {
-    en:{unlock:"Unlock",desc:"Unlock to discover this hidden gem"},
-    fr:{unlock:"Débloquer",desc:"Débloquez pour découvrir ce lieu"},
-    de:{unlock:"Freischalten",desc:"Freischalten, um diesen Ort zu entdecken"}
+// ========================================
+// CHECK USER ACCESS
+// ========================================
+
+function hasUserAccess(gem) {
+  // Free gems are always accessible
+  if (gem.free) return true;
+
+  // Check if user has unlocked the guide
+  const guideUnlocked = localStorage.getItem('guideUnlocked') === 'true';
+  const guideExpire = localStorage.getItem('guideExpire');
+  
+  if (guideUnlocked && guideExpire) {
+    return new Date(guideExpire) > new Date();
+  }
+
+  return false;
+}
+
+// ========================================
+// GET TRANSLATED TEXT
+// ========================================
+
+function getText(key) {
+  const lang = window.currentLang;
+  const translations = {
+    en: {
+      hiddenGem: 'Hidden Gem',
+      unlockDesc: 'Unlock to discover this hidden gem',
+      unlock: 'Unlock',
+      distance: 'km away'
+    },
+    fr: {
+      hiddenGem: 'Joyau Caché',
+      unlockDesc: 'Débloquez pour découvrir ce lieu',
+      unlock: 'Débloquer',
+      distance: 'km'
+    },
+    de: {
+      hiddenGem: 'Versteckter Schatz',
+      unlockDesc: 'Freischalten, um diesen Ort zu entdecken',
+      unlock: 'Freischalten',
+      distance: 'km entfernt'
+    }
   };
-  return t[lang][key];
+
+  return translations[lang]?.[key] || translations.en[key];
 }
 
-function updateInfo(){
+// ========================================
+// UPDATE INFORMATION TAB
+// ========================================
 
-  const g = gemsData[currentIndex];
+function updateInfo() {
+  const gem = gemsData[currentIndex];
+  const hasAccess = hasUserAccess(gem);
+  const isLocked = !hasAccess;
+  const lang = window.currentLang;
 
-  const unlocked = localStorage.getItem("unlocked") === "true";
-  const free = g.name === "Red Sand Beach";
-  const locked = !unlocked && !free;
+  const infoContainer = document.getElementById('gemsInfoContainer');
+  const info = document.getElementById('gemsInfo');
 
-  const lang = localStorage.getItem("lang") || "en";
+  // Update locked state on container
+  if (isLocked) {
+    infoContainer.classList.add('locked');
+  } else {
+    infoContainer.classList.remove('locked');
+  }
 
-  const info = document.getElementById("gemsInfo");
+  // Get translated content
+  const gemName = gem.name[lang] || gem.name.en;
+  const gemDesc = gem.description[lang] || gem.description.en;
+  const gemAddress = gem.address[lang] || gem.address.en;
+  const distance = gem.distance ? gem.distance.toFixed(1) : '?';
 
-  // ✅ NO openUnlock() here
-
-  info.innerHTML = `
-    <img src="${g.photos[0]}" class="gems-info-image"
-      style="${locked ? 'filter:blur(10px)' : ''}">
-
-    <h2 style="${locked ? 'filter:blur(6px)' : ''}">
-      ${locked ? "Hidden Gem" : g.name}
+  // Build info HTML
+  let infoHTML = `
+    <img src="${gem.photos[0]}" class="gems-info-image ${isLocked ? 'locked' : ''}" alt="${gemName}">
+    
+    <h2 class="${isLocked ? 'locked' : ''}">
+      ${isLocked ? getText('hiddenGem') : gemName}
     </h2>
 
-    <p style="${locked ? 'filter:blur(6px)' : ''}">
-      ${locked ? getText("desc",lang) : g.notes}
+    <p class="${isLocked ? 'locked' : ''}">
+      ${isLocked ? getText('unlockDesc') : gemDesc}
     </p>
 
-    <div class="gems-location">
-      ${locked ? "••••••••" : g.address}
-      <span>${locked ? "-- km" : ""}</span>
+    <div class="gems-location ${isLocked ? 'locked' : ''}">
+      ${isLocked ? '••••••••••••' : gemAddress}
+      <span class="gems-distance">${isLocked ? '-- km' : distance + ' ' + getText('distance')}</span>
     </div>
 
-    ${
-      locked
-        ? `<button class="unlock-btn" onclick="openUnlock()">🔒 ${getText("unlock",lang)}</button>`
-        : `<button class="map-btn" onclick="go(${g.lat}, ${g.lng})">🧭 Go</button>`
-    }
+    <div class="gems-button-group">
+      ${
+        isLocked
+          ? `<button class="unlock-btn" onclick="openUnlockModal()">${getText('unlock')}</button>`
+          : `<button class="go-btn" onclick="openGoogleMaps(${gem.lat}, ${gem.lng})">🧭 Go</button>`
+      }
+    </div>
   `;
+
+  info.innerHTML = infoHTML;
 }
 
-function openUnlock(){
-  document.getElementById("unlockModal").classList.remove("hidden");
+// ========================================
+// OPEN GOOGLE MAPS
+// ========================================
+
+function openGoogleMaps(lat, lng) {
+  if (userLocation) {
+    // Open directions from current location
+    window.open(`https://www.google.com/maps/dir/?api=1&origin=${userLocation.lat},${userLocation.lng}&destination=${lat},${lng}`);
+  } else {
+    // Just open the location
+    window.open(`https://www.google.com/maps/?q=${lat},${lng}`);
+  }
 }
 
-function go(lat, lng){
-  window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`);
+// ========================================
+// UNLOCK MODAL FUNCTIONS
+// ========================================
+
+function openUnlockModal() {
+  document.getElementById('unlockModal').classList.add('active');
+}
+
+function closeUnlockModal() {
+  document.getElementById('unlockModal').classList.remove('active');
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+  const modal = document.getElementById('unlockModal');
+  if (event.target === modal) {
+    closeUnlockModal();
+  }
+});
+
+// ========================================
+// PAYMENT FUNCTIONS (from paywall.js)
+// ========================================
+
+function startPayment() {
+  const email = document.getElementById('userEmail').value;
+
+  if (!email) {
+    alert('Please enter your email');
+    return;
+  }
+
+  localStorage.setItem('userEmail', email);
+  window.location.href = 'https://buy.stripe.com/dRm4gy7798Amb7p6gkeQM05';
+}
+
+function unlockWithCode() {
+  const code = document.getElementById('accessCode').value;
+
+  const validCodes = ['gatsby1', 'vip1'];
+
+  if (validCodes.includes(code)) {
+    unlockGuide(90);
+  } else {
+    alert('Invalid access code');
+  }
+}
+
+function unlockGuide(days = 90) {
+  const expire = new Date();
+  expire.setDate(expire.getDate() + days);
+
+  localStorage.setItem('guideUnlocked', 'true');
+  localStorage.setItem('guideExpire', expire.toISOString());
+  localStorage.setItem('guideCodeVersion', 'v1');
+
+  closeUnlockModal();
+  location.reload();
+}
+
+// ========================================
+// LANGUAGE CHANGE LISTENER
+// ========================================
+
+// Listen for language changes from index.html
+window.addEventListener('storage', function(e) {
+  if (e.key === 'lang') {
+    window.currentLang = e.newValue || 'en';
+    renderGems();
+    updateInfo();
+  }
+});
+
+// ========================================
+// CHECK QR CODE UNLOCK
+// ========================================
+
+function checkQRUnlock() {
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('access');
+
+  if (!code) return;
+
+  const validCodes = ['gatsby1', 'vip1'];
+
+  if (validCodes.includes(code)) {
+    unlockGuide(90);
+  }
 }
